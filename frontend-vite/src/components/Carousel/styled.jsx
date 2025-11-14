@@ -1,0 +1,207 @@
+import styled from "styled-components";
+import imgBg from "../../assets/imgs/sectorBG3.png";
+import * as colors from "../../config/colors";
+
+export const CarouselStyle = styled.section`
+  position: relative;
+  width: 100%;
+  max-height: 450px;
+  height: 300px;
+  overflow: hidden;
+
+  border-bottom: 1px ${colors.primaryBorder} solid;
+  border-top: 1px ${colors.primaryBorder} solid;
+
+  padding: 30px;
+
+  -webkit-mask: linear-gradient(
+    90deg,
+    transparent,
+    white 40%,
+    white 80%,
+    transparent
+  );
+  mask: linear-gradient(90deg, transparent, white 40%, white 80%, transparent);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url(${imgBg}) center/cover no-repeat;
+    opacity: 0.9;
+    filter: brightness(1px) blur(1px);
+    z-index: -1;
+    min-height: 1200px;
+    min-width: 60px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: radial-gradient(
+        ${colors.secundaryLightColor} 1px,
+        transparent 1px
+      ),
+      radial-gradient(${colors.primaryLightColor} 1px, transparent 1px),
+      linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+    background-size: 15px 15px, 70px 70px;
+    background-repeat: repeat, repeat;
+    background-position: 5px 5px, 0 0;
+    z-index: -1;
+  }
+
+  h1 {
+    text-shadow: 0 0 9px ${colors.primaryGlow};
+    color: #fff;
+    display: inline-block;
+    width: auto;
+    border-bottom: 1px solid ${colors.primaryBorder};
+    padding-bottom: 3px;
+    font-size: 30px;
+  }
+
+  p {
+    font-size: 20px;
+    color: #fff;
+  }
+
+  .inner_scroller {
+    padding-block: 1rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  color: #fff;
+
+  .react-icon,
+  .node-icon,
+  .express-icon,
+  .tailwind-icon,
+  .sequelize-icon,
+  .mysql-icon,
+  .bi-git,
+  .bi-bootstrap-fill,
+  .bi-javascript {
+    width: 78px;
+    height: 78px;
+    border-bottom: 1px solid ${colors.primaryBorder};
+  }
+
+  svg {
+    width: 80px;
+    height: 80px;
+    border-bottom: 1px solid ${colors.primaryBorder};
+  }
+
+  .scroller {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+
+  .icon-item {
+    display: flex;
+    background: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid ${colors.primaryBorder};
+    border-radius: 20px;
+    background: ${colors.primaryColor};
+    width: 115px;
+    height: 120px;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .scroller[animated="true"] {
+    overflow: hidden;
+
+    -webkit-mask: linear-gradient(
+      90deg,
+      transparent,
+      transparent,
+      white 4%,
+      white 60%,
+      transparent,
+      transparent
+    );
+    mask: linear-gradient(
+      90deg,
+      transparent,
+      transparent,
+      white 40%,
+      white 60%,
+      transparent,
+      transparent
+    );
+  }
+
+  .scroller[animated="true"] .inner_scroller {
+    width: max-content;
+    flex-wrap: nowrap;
+    animation: scroll var(--_animation-duration, 30s)
+      var(--_animation-direction, forwards) infinite linear;
+  }
+
+  .scroller[data-direction="right"] {
+    --_animation-direction: reverse;
+  }
+
+  .scroller[data-direction="left"] {
+    --_animation-direction: forwards;
+  }
+
+  .scroller[data-speed="fast"] {
+    --_animation-duration: 20s;
+  }
+
+  .scroller[data-speed="slow"] {
+    --_animation-duration: 20s;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-25%);
+    }
+  }
+
+  .scroller[animated="true"]:hover .inner_scroller {
+    animation-play-state: paused;
+  }
+
+  .strokes {
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    stroke: white;
+    fill: none;
+    stroke-dasharray: 800;
+    stroke-dashoffset: 800;
+    animation: drawLine 9s linear infinite;
+  }
+
+  @keyframes drawLine {
+    0% {
+      stroke-dashoffset: 800;
+    }
+    50% {
+      stroke-dashoffset: 0;
+    }
+    100% {
+      stroke-dashoffset: -800;
+    }
+  }
+`;
