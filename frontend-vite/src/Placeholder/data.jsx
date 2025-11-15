@@ -7,7 +7,7 @@ export const Posts = [
     title: "Cadastro de alunos",
     img: apiVideo,
     textPreview:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit.Quaerat aliquam expedita quod, cumque unde totam aspernatur, culpa molestiae velit eveniet provident, cum sunt nobis assumenda optio rem at ex. Quasi. ",
+      "Feito em React com Redux, Axios e Iodash no Frontend, consumindo uma apiREST no backend feita com Express.js, Multer, Sucrase e Sequelize. ",
     text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.Quaerat aliquam expedita quod, cumque unde totam aspernatur, culpa molestiae velit eveniet provident, cum sunt nobis assumenda optio rem at ex. Quasi. ",
   },
   {
@@ -15,7 +15,7 @@ export const Posts = [
     title: "Agenda",
     img: agendaVideo,
     textPreview:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit.Quaerat aliquam expedita quod, cumque unde totam aspernatur, culpa molestiae velit eveniet provident, cum sunt nobis assumenda optio rem at ex. Quasi. ",
+      "Projeto simples utilizando React, Javascript com Express e MongoDB.",
 
     text: "Reiciendis earum exercitationem, dolore maiores...",
   },
@@ -24,7 +24,7 @@ export const Posts = [
     title: "Confidence",
     img: ImgTeste,
     textPreview:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit.Quaerat aliquam expedita quod, cumque unde totam aspernatur, culpa molestiae velit eveniet provident, cum sunt nobis assumenda optio rem at ex. Quasi. ",
+      "Lorem, ipsum dolor sit amet consectetur adipisicingorem, ipsum dolor sit amet consectetur adipisicing el elit.Quaerat aliquam expedita quod, cumque unde totam aspernatur, culpa molestiae velit eveniet provident, cum sunt nobis assumenda optio rem at ex. Quasi. ",
 
     text: "Atque nihil Lorem ipsum dolor sit amet...",
   },

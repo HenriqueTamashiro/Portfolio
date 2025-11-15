@@ -35,11 +35,13 @@ export const Content = styled.div`
   color: #fff;
 
   p {
-    padding: 30px;
     font-size: 20px;
   }
 
   h1 {
+    height: 60px;
+    min-height: 20px;
+    max-height: 50px;
     font-size: clamp(45px, 20px, 60px);
   }
 
@@ -55,16 +57,20 @@ export const Content = styled.div`
 export const Articles = styled.section`
   position: relative;
   min-width: 400px;
-  max-width: 540px;
-  border-radius: 20px;
+  max-width: 640px;
+  max-height: auto;
+  border-radius: 8px;
   background: ${colors.secundaryLightColor};
 
+  button {
+    margin-top: 40px;
+  }
+
   h1 {
-    min-height: 20px;
-    max-height: 50px;
-    flex-wrap: nowrap;
-    text-align: center;
-    font-size: clamp(20px, 2vw, 28px);
+    font-size: clamp(28px, 3vw, 35px);
+    line-height: 1.1;
+    font-weight: bold;
+    margin: 0;
   }
 
   .media-container video,
@@ -72,7 +78,7 @@ export const Articles = styled.section`
     pointer-events: auto;
     object-fit: cover;
     min-width: 400px;
-    width: auto;
+    width: 100%;
     height: 350px;
     overflow: hidden;
     border-bottom: 1px solid ${colors.primaryBorder};
@@ -80,7 +86,21 @@ export const Articles = styled.section`
   }
 
   .article-tittle {
-    padding: 10px;
+    height: 80px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .article-content {
+    padding: 30px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 150px;
   }
 
   .svgCorner {
@@ -94,6 +114,50 @@ export const Articles = styled.section`
     background-size: contain;
     pointer-events: none;
     z-index: -1;
+  }
+
+  .cards {
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+  }
+
+  .buttonContainer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+    justify-self: end;
+    width: 300px;
+    height: auto;
+  }
+
+  .buttonContainer::before {
+    content: "";
+    position: relative;
+    width: 15px;
+    height: 42px;
+    background: #ffffff;
+  }
+
+  .bottom.outline {
+    text-decoration: none;
+    padding: 0.8em 1.6em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: clamp(0.8rem, 1.2vw, 1rem);
+    width: 200px;
+    border-bottom-right-radius: 8px;
+    transition: clip-path 0.4s ease;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    border: 1px solid ${colors.primaryBorder};
+    background: ${colors.menuLightColor};
+    color: #fff;
+  }
+
+  .bottom.outline:hover {
+    background: ${colors.secundaryLightColor};
+    color: #fff;
+    border: 1px solid ${colors.primaryBorder};
   }
 
   img,

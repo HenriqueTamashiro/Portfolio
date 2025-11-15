@@ -103,7 +103,15 @@ export default function Home() {
               </div>
 
               <div className="article-content">
-                <p>{post.text}</p>
+                <p>{post.textPreview}</p>
+              </div>
+              <div className="buttonContainer">
+                <button
+                  onClick={() => handleClick(post.id)}
+                  className="bottom outline"
+                >
+                  Veja mais
+                </button>
               </div>
             </div>
           </Articles>
