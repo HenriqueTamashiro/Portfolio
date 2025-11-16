@@ -181,27 +181,4 @@ export const CarouselStyle = styled.section`
   .scroller[animated="true"]:hover .inner_scroller {
     animation-play-state: paused;
   }
-
-  .strokes {
-    position: absolute;
-    inset: 0;
-    z-index: -3;
-    stroke: white;
-    fill: none;
-    stroke-dasharray: 800;
-    stroke-dashoffset: 800;
-    animation: drawLine 9s linear infinite;
-  }
-
-  @keyframes drawLine {
-    0% {
-      stroke-dashoffset: 800;
-    }
-    50% {
-      stroke-dashoffset: 0;
-    }
-    100% {
-      stroke-dashoffset: -800;
-    }
-  }
 `;

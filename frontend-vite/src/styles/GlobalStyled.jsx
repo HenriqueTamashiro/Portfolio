@@ -7,6 +7,7 @@ export default createGlobalStyle`
   outline: none;
   margin: 0;
   box-sizing:  border-box;
+
   }
 
   body {
@@ -15,12 +16,16 @@ export default createGlobalStyle`
     min-height: 100vh; 
     background: radial-gradient(
     ${colors.primaryColor} 10%,                        
-    ${colors.primaryDarkColor}                         
+    ${colors.primaryDarkColor}   
   );
+    overflow-x: hidden;
   }
+
 
   html, body, #root {
     height: 100%;
+    scrollbar-color: ${colors.primaryGlow} transparent;
+    scrollbar-width: thin;
   }
 
 .page{
@@ -38,17 +43,17 @@ export default createGlobalStyle`
 `;
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
   width: 100%;
 
   .contentTittle {
     display: flex;
+    flex-direction: column;
     position: relative;
     margin-top: 50px;
     text-align: center;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 
     width: 100%;
     height: 120px;
@@ -80,6 +85,15 @@ export const Container = styled.div`
       z-index: -1;
 
       mask: linear-gradient(90deg, transparent, white 50%, transparent);
+    }
+
+    .line {
+      width: 50px;
+      height: 3px;
+      margin-right: 20px;
+      stroke-dasharray: 800;
+      stroke-dashoffset: 800;
+      animation: drawLine 8s linear infinite;
     }
   }
 `;

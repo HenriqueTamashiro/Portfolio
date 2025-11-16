@@ -16,7 +16,7 @@ export const Focus = styled.div`
   .overlay {
     position: absolute;
     inset: 0;
-    background: ${colors.primaryColoOpt};
+    background: ${colors.primaryColorOpt};
   }
 
   .content {

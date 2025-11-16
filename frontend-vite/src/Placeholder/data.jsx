@@ -1,5 +1,11 @@
 import ImgTeste from "../assets/imgs/image.png";
-import { agendaVideo, apiVideo } from "../assets/Media/Videos/index";
+import {
+  agendaVideo,
+  apiVideo,
+  expressIcon,
+  sequelizeIcon,
+  mysqlIcon,
+} from "../assets/Media/Videos/index";
 
 export const Posts = [
   {
@@ -9,6 +15,7 @@ export const Posts = [
     textPreview:
       "Feito em React com Redux, Axios e Iodash no Frontend, consumindo uma apiREST no backend feita com Express.js, Multer, Sucrase e Sequelize. ",
     text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.Quaerat aliquam expedita quod, cumque unde totam aspernatur, culpa molestiae velit eveniet provident, cum sunt nobis assumenda optio rem at ex. Quasi. ",
+    tags: [expressIcon, sequelizeIcon, mysqlIcon],
   },
   {
     id: 2,
@@ -18,6 +25,7 @@ export const Posts = [
       "Projeto simples utilizando React, Javascript com Express e MongoDB.",
 
     text: "Reiciendis earum exercitationem, dolore maiores...",
+    tags: [expressIcon, sequelizeIcon, mysqlIcon],
   },
   {
     id: 3,
@@ -27,6 +35,7 @@ export const Posts = [
       "Lorem, ipsum dolor sit amet consectetur adipisicingorem, ipsum dolor sit amet consectetur adipisicing el elit.Quaerat aliquam expedita quod, cumque unde totam aspernatur, culpa molestiae velit eveniet provident, cum sunt nobis assumenda optio rem at ex. Quasi. ",
 
     text: "Atque nihil Lorem ipsum dolor sit amet...",
+    tags: [expressIcon, sequelizeIcon, mysqlIcon],
   },
   {
     id: 4,
@@ -36,6 +45,7 @@ export const Posts = [
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit.Quaerat aliquam expedita quod, cumque unde totam aspernatur, culpa molestiae velit eveniet provident, cum sunt nobis assumenda optio rem at ex. Quasi. ",
 
     text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.QuaeratAtque nihil Lorem ipsum dolor sit amet...",
+    tags: [expressIcon, sequelizeIcon, mysqlIcon],
   },
   {
     id: 5,
@@ -45,6 +55,7 @@ export const Posts = [
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit.Quaerat aliquam expedita quod, cumque unde totam aspernatur, culpa molestiae velit eveniet provident, cum sunt nobis assumenda optio rem at ex. Quasi. ",
 
     text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.QuaeratLorem, ipsum dolor sit amet consectetur adipisicing elit.QuaeratAtque nihil Lorem ipsum dolor sit amet...",
+    tags: [expressIcon, sequelizeIcon, mysqlIcon],
   },
   {
     id: 6,
@@ -54,5 +65,6 @@ export const Posts = [
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit.Quaerat aliquam expedita quod, cumque unde totam aspernatur, culpa molestiae velit eveniet provident, cum sunt nobis assumenda optio rem at ex. Quasi. ",
 
     text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.QuaeratLorem, ipsum dolor sit amet consectetur adipisicing elit.QuaeratAtque nihil Lorem ipsum dolor sit amet...",
+    tags: [expressIcon, sequelizeIcon, mysqlIcon],
   },
 ];

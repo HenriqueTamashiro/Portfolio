@@ -1,8 +1,9 @@
 export const primaryColor = "#000a23";
 export const primaryDarkColor = "#00050e";
 
-export const primaryColoOpt = "#000a23fd";
-export const primaryDarkColoOpt = "#00050ec7";
+export const primaryColorOpt = "#000a23fd";
+export const primaryDarkColorOpt = "#00050ec7";
+export const tagsDarkColor = "#101c3b";
 
 export const primaryLightColor = "#2b3450";
 export const secundaryLightColor = "#76a1ff22";
