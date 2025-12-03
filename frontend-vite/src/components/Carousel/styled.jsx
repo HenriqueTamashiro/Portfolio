@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import imgBg from "../../assets/imgs/sectorBG3.png";
+import imgBg from "../../assets/imgs/bgCarousel2.png";
 import * as colors from "../../config/colors";
 
 export const CarouselStyle = styled.section`

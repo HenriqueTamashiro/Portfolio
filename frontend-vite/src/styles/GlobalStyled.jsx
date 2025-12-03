@@ -14,11 +14,12 @@ export default createGlobalStyle`
     color: #fff;
     font-family: "Poppins", sans-serif ;
     min-height: 100vh; 
+    overflow-x: hidden;
     background: radial-gradient(
-    ${colors.primaryColor} 10%,                        
+    ${colors.primaryColor} 20%,                        
     ${colors.primaryDarkColor}   
   );
-    overflow-x: hidden;
+
   }
 
 
@@ -39,17 +40,42 @@ export default createGlobalStyle`
   transition: opacity 0.8s ease, transform 0.6s ease;
 }
 
+ /* base para sections reveláveis */
+  .baseSection {
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+    will-change: opacity, transform;
+  }
+
+
+  /* estado escondido */
+  .hiddenSection {
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+       visibility: hidden;
+  }
+
+
+
+  /* estado visível */
+  .showSection {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    z-index: 0;
+  }
 
 `;
 
 export const Container = styled.div`
   width: 100%;
+  padding-top: 60px;
 
   .contentTittle {
     display: flex;
     flex-direction: column;
     position: relative;
-    margin-top: 50px;
+    margin-top: 20px;
     text-align: center;
     align-items: center;
     justify-content: center;

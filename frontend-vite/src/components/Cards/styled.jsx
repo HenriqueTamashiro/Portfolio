@@ -5,14 +5,14 @@ export const StyledCards = styled.div`
   /*Organizadores */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: auto;
 
   /*Dimensionadores */
   width: auto;
   height: auto;
   flex-wrap: wrap;
   gap: 2rem;
-  padding: 50px;
+  padding: 0 25px 25px 25px;
   margin-bottom: 20px;
   margin-top: 20px;
 
@@ -29,6 +29,7 @@ export const StyledCards = styled.div`
       grid-template-rows: 1fr;
     }
   }
+
   .svgCorner {
     content: "";
     position: absolute;
@@ -45,7 +46,11 @@ export const StyledCards = styled.div`
   .cards {
     height: 100%;
     display: grid;
-    grid-template-rows: auto auto 1fr auto;
+    grid-template-rows: auto auto auto auto 1fr;
+    z-index: 1;
+    border-top: 1px solid ${colors.primaryBorder};
+    border-bottom: 1px solid ${colors.primaryBorder};
+    border-radius: 8px;
   }
 
   .buttonContainer {
@@ -55,11 +60,7 @@ export const StyledCards = styled.div`
     justify-self: end;
     width: auto;
     height: 100%;
-  }
-
-  .tags i {
-    display: block;
-    font-size: 10px;
+    z-index: 1;
   }
 
   .tab {
@@ -112,7 +113,7 @@ export const StyledCards = styled.div`
     align-items: center;
     justify-content: center;
     width: 150px;
-    height: 70px;
+    height: 75px;
     border-bottom-right-radius: 8px;
     border-top-left-radius: 8px;
     background: ${colors.menuLightColor};
@@ -120,6 +121,7 @@ export const StyledCards = styled.div`
     cursor: pointer;
     z-index: 2;
     position: relative;
+    transition: 400ms;
   }
 
   .buttn:hover {
@@ -147,12 +149,12 @@ export const Articles = styled.section`
     margin: 0;
   }
 
-  .media-container {
+  .mediaContainer {
     position: relative;
   }
 
-  .media-container video,
-  img {
+  .mediaContainer .videoContainer,
+  .mediaContainer .imageContainer {
     pointer-events: auto;
     object-fit: cover;
     min-width: 400px;
@@ -164,52 +166,43 @@ export const Articles = styled.section`
     z-index: 1;
   }
 
-  .tag {
-    border-bottom: 1px solid ${colors.primaryBorder};
-    border-top: 1px solid ${colors.primaryBorder};
-    position: absolute;
-    background: ${colors.tagsDarkColor};
-    width: 30%;
-    height: 4%;
-    z-index: 2;
-    bottom: 43%;
-    right: 0;
-    clip-path: polygon(20% 0%, 100% 0, 100% 100%, 15% 100%);
-    display: block;
-  }
-
-  .tags {
+  .postedContainer {
     display: flex;
     align-items: center;
-    justify-content: start;
-    text-align: center;
-    margin-left: 28px;
+    justify-content: center;
+    background: ${colors.primaryColor};
     width: 100%;
-    height: 100%;
-    gap: 3px;
-    font-size: 23px;
-  }
-
-  .postedContainer {
-    border-bottom: 1px solid ${colors.primaryBorder};
-    position: absolute;
-    background: ${colors.tagsDarkColor};
-    width: 30%;
-    height: 4%;
+    height: auto;
+    gap: 10px;
     z-index: 2;
-    bottom: 39%;
-    right: 0;
-    clip-path: polygon(15% 0%, 100% 0, 100% 100%, 20% 100%);
+    clip-path: polygon(0% 0%, 100% 0, 95% 100%, 0% 100%);
   }
 
   .posted {
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: start;
     text-align: center;
-    margin-left: 35%;
+    width: 35px;
+    height: 35px;
+  }
+
+  .tagContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: ${colors.primaryColor};
+
+    clip-path: polygon(5% 0%, 100% 0, 100% 100%, 0% 100%);
     width: 100%;
     height: 100%;
+    z-index: 1;
+    gap: 10px;
+  }
+  .tagIcon {
+    width: 35px;
+    height: 35px;
   }
 
   .article-tittle {
@@ -222,6 +215,7 @@ export const Articles = styled.section`
   }
 
   .article-content {
+    text-align: start;
     padding: 30px;
     display: -webkit-box;
     -webkit-line-clamp: 4;

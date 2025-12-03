@@ -17,15 +17,20 @@ export default function Cards({ setContent, setFocus, setCardid, cardRef }) {
           key={post.id}
           ref={(domElement) => (cardRef.current[post.id] = domElement)}
         >
-          <SvgArticle className="svgCorner" />
           <div className="cards">
             <div className="article-tittle">
               <h1>{post.title}</h1>
             </div>
 
-            <div className="media-container">
+            <div className="tagContainer">
+              {post.tags.map((tag, i) => (
+                <img key={i} src={tag} alt="icon" className="tagIcon" />
+              ))}
+            </div>
+            <div className="mediaContainer">
               {/\.(mp4|webm|ogg)$/i.test(post.img) ? (
                 <video
+                  className="videoContainer"
                   src={post.img}
                   autoPlay
                   loop
@@ -36,22 +41,19 @@ export default function Cards({ setContent, setFocus, setCardid, cardRef }) {
                 ></video>
               ) : (
                 <img
+                  className="imageContainer"
                   src={post.img}
                   alt={post.title}
                   onClick={() => handleClick(post.id)}
                 />
               )}
             </div>
-            <div className="tag container">
-              <div className="tags">
-                {post.tags.map((tag, i) => (
-                  <i key={i} src={tag} alt="icon" />
-                ))}
+            <div className="postedContainer">
+              <div className="posted" alt="Data">
+                {post.created_at?.toLocaleDateString()}
               </div>
             </div>
-            <div className="postedContainer">
-              <div className="posted">10/05/2025</div>
-            </div>
+
             <div className="article-content">
               <p>{post.textPreview}</p>
             </div>

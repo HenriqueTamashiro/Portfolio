@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import bgImg from "../assets/imgs/imageBackground2.png";
 
 import * as colors from "../config/colors";
 
@@ -20,8 +21,32 @@ export const Holder = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin: 0;
+
   width: 100%;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: url(${bgImg}) no-repeat center/cover;
+    pointer-events: none;
+
+    mask: linear-gradient(
+      90deg,
+      transparent,
+      white 20%,
+      white 85%,
+      transparent
+    );
+    -webkit-mask: linear-gradient(
+      90deg,
+      transparent,
+      white 20%,
+      white 85%,
+      transparent
+    );
+  }
 `;
 
 export const HolderContent = styled.div`

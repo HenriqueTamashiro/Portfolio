@@ -4,22 +4,31 @@ import * as colors from "../../config/colors";
 export const Focus = styled.div`
   position: fixed;
   inset: 0;
-  z-index: 99;
-
+  z-index: 999;
+  min-width: 100%;
+  width: 100%;
   display: flex;
+
   align-items: flex-start;
   justify-content: center;
 
-  flex-wrap: wrap;
-  gap: 2rem;
-
   .overlay {
+    width: 100%;
     position: absolute;
     inset: 0;
     background: ${colors.primaryColorOpt};
   }
 
   .content {
+    object-fit: cover;
+    width: 100%;
+    min-width: 350px;
+    height: 500px;
+    max-height: 80vh;
+    overflow-y: hidden;
+
+    border-bottom: 1px solid ${colors.primaryBorder};
+    border-top: 1px solid ${colors.primaryBorder};
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -28,10 +37,7 @@ export const Focus = styled.div`
     z-index: 2;
   }
 
-  .content img {
-    max-height: auto;
-  }
-
+  /* Efeito de transição */
   .article {
     opacity: 0;
     transform: translateY(60px);
@@ -40,67 +46,112 @@ export const Focus = styled.div`
   .article-active {
     display: flex;
     margin-top: 5rem;
-    width: 50%;
+    justify-content: center;
+    align-items: center;
+    max-width: 65%;
+
     transition: opacity 0.8s ease, transform 0.6s ease;
     opacity: 1;
-    transform: translateY(0);
   }
 `;
 
 export const FocusArticle = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+  display: grid;
+  justify-self: center;
 
-  border-radius: 20px;
+  border-radius: 8px;
   background: ${colors.secundaryLightColor};
   z-index: 1;
-
-  border-radius: 20px;
-  border: 1px solid ${colors.primaryBorder};
+  border-top: 1px solid ${colors.primaryBorder};
+  border-bottom: 1px solid ${colors.primaryBorder};
 
   h1 {
     text-align: center;
     font-size: clamp(15px, 5vw, 35px);
   }
-  img {
-    margin-top: 30px;
-    border-bottom: 1px solid ${colors.primaryBorder};
-    border-top: 1px solid ${colors.primaryBorder};
-  }
 
   p {
-    padding: 15px;
+    font-size: 20px;
+    text-align: start;
+    padding: 35px;
+    white-space: pre-line;
   }
 
   button {
+    width: 60px;
+
+    height: 40px;
+    display: flex;
     position: relative;
-    color: ${colors.primaryGlow};
-    align-self: flex-end;
-    font-size: 30px;
-    padding: 5px 10px 0 0;
+    justify-self: end;
+    align-items: center;
+    justify-content: center;
+    border-bottom-left-radius: 8px;
+    border-top-right-radius: 8px;
+    color: ${colors.primaryColor};
+    background: ${colors.menuLightColor};
+    cursor: pointer;
+    z-index: 2;
+    font-size: 40px;
+    transition: 600ms;
   }
 
   button:hover {
-    color: ${colors.menuLightColor};
+    color: #fff;
+    background: ${colors.secundaryLightColor};
   }
 
-  .article-tittle {
-    border-bottom: 1px solid ${colors.primaryBorder};
+  button > i {
+    font-size: 25px;
   }
 
-  .svgCorner {
-    content: "";
-    position: absolute;
-    color: ${colors.secundaryLightColor};
-    font-size: 90px;
-    top: 50px;
-    right: 0;
-    width: 80px;
-    height: 120px;
-    background-size: contain;
-    pointer-events: none;
-    z-index: -1;
+  .article-tittle h1 {
+    font-size: 40px;
+    height: 90px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .postedContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: ${colors.primaryColor};
+    width: 100%;
+    height: auto;
+    gap: 10px;
+    z-index: 2;
+    clip-path: polygon(0% 0%, 100% 0, 95% 100%, 0% 100%);
+  }
+
+  .posted {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 35px;
+    height: 35px;
+  }
+
+  .tagContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: ${colors.primaryColor};
+
+    clip-path: polygon(5% 0%, 100% 0, 100% 100%, 0% 100%);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    gap: 10px;
+  }
+
+  .tagIcon {
+    width: 35px;
+    height: 35px;
   }
 `;

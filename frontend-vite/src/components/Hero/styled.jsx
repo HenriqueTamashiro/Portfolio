@@ -75,21 +75,30 @@ export const HeroStyle = styled.section`
   }
 
   .btn.primary {
-    background: ${colors.primaryGlow};
+    background: ${colors.menuLightColor};
+    box-shadow: ${colors.menuLightColor} 0 0 3px 1px;
     color: #fff;
+    transition: 600ms;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
   }
 
   .btn.primary:hover {
-    background: ${colors.primaryLightColor};
+    background: ${colors.secundaryLightColor};
+    box-shadow: ${colors.secundaryLightColor} 0 0 3px 1px;
   }
 
   .btn.outline {
-    border: 2px solid ${colors.primaryBorder};
+    box-shadow: ${colors.menuLightColor} 0 0 3px 1px;
     color: ${colors.primaryGlow};
+    background: ${colors.primaryColor};
+    transition: 600ms;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
   }
 
   .btn.outline:hover {
-    background: ${colors.primaryGlow};
+    background: ${colors.menuLightColor};
     color: #fff;
   }
 `;

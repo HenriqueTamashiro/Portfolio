@@ -2,19 +2,19 @@ import styled from "styled-components";
 import * as colors from "../../config/colors";
 
 export const Nav = styled.nav`
+  position: fixed;
+  top: 0;
+  left: 0;
   padding-right: clamp(30px, 60vw, 30px);
-  height: clamp(60px, 90vw, 60px);
+  height: 60px;
   width: 100%;
   display: flex;
   align-items: end;
   justify-content: end;
   gap: 1px;
-
-  background: linear-gradient(
-    to right,
-    ${colors.primaryDarkColor},
-    ${colors.menuLightColor}
-  );
+  z-index: 99;
+  backdrop-filter: blur(20px);
+  ${colors.primaryLinear}
 
   a {
     color: #fff;
@@ -32,7 +32,8 @@ export const Nav = styled.nav`
 
   a:hover {
     /* text-shadow: 0 0 15px ${colors.primaryGlow}, 0 0 15px ${colors.primaryGlow}; */
-    box-shadow: inset 0 -5px 0 0 ${colors.primaryColor};
+    transition: 800ms;
+    box-shadow: inset 0 -4px 0 0 ${colors.menuLightColor};
     background: ${colors.secundaryLightColor};
 
     color: #fff;
