@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import bgImg from "../assets/imgs/imageBackground2.png";
+import bgImg from "../assets/imgs/imageBackground23.png";
 
 import * as colors from "../config/colors";
 

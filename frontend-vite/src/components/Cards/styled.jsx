@@ -16,6 +16,14 @@ export const StyledCards = styled.div`
   margin-bottom: 20px;
   margin-top: 20px;
 
+  @media (max-width: 150vw) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  @media (max-width: 100vw) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
   @media (max-width: 95em) {
     & {
       grid-template-columns: 1fr 1fr;

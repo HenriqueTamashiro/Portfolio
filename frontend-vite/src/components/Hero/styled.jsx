@@ -20,8 +20,43 @@ export const HeroStyle = styled.section`
     font-size: clamp(1.8rem, 5vw, 45px);
     font-weight: 700;
     margin: 1rem 0;
-    color: #ffffff;
     white-space: nowrap;
+
+    /* gradiente */
+    background: linear-gradient(
+      50deg,
+      ${colors.menuLightColor},
+      ${colors.primaryGlow} 40%,
+      ${colors.primaryBorder} 70%,
+      ${colors.secundaryLightColor}
+    );
+
+    /* important: define tamanho do background maior que o elemento para poder animar */
+    background-size: 300% 300%;
+    background-repeat: no-repeat;
+    background-position: 0% 50%;
+
+    /* clipping para texto (browser prefixed for compatibility) */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent; /* Blink/WebKit */
+    color: transparent; /* fallback */
+
+    /* animação */
+    animation: spin 8s ease-in-out infinite;
+  }
+
+  /* animação simples de movimento do gradiente */
+  @keyframes spin {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 
   /* Títulos */
