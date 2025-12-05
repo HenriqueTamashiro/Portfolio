@@ -1,13 +1,14 @@
 import styled from "styled-components";
 import * as colors from "../../config/colors";
-import bgImg from "../../assets/imgs/bgCarousel2.png";
+import bgImg from "../../assets/imgs/bgFooter.png";
 
 export const StyledFooter = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 100%;
   height: 300px;
-  text-align: center;
 
   mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
   -webkit-mask: linear-gradient(
@@ -25,5 +26,28 @@ export const StyledFooter = styled.div`
     inset: 0;
     position: absolute;
     background: url(${bgImg}) no-repeat center/cover;
+  }
+
+  .footerContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .text-container {
+    font-size: 20px;
+    z-index: 20;
+  }
+
+  .icon-container {
+    display: flex;
+    justify-content: center;
+    font-size: 35px;
+    gap: 15px;
+    z-index: 20;
+  }
+
+  .icon-contaienr i {
+    cursor: pointer;
   }
 `;

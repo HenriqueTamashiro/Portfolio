@@ -29,7 +29,6 @@ export const CarouselStyle = styled.section`
     inset: 0;
     background: url(${imgBg}) center/cover no-repeat;
     opacity: 0.9;
-    filter: brightness(1px) blur(1px);
     z-index: -1;
     min-height: 1200px;
     min-width: 60px;

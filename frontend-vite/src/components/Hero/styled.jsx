@@ -28,25 +28,19 @@ export const HeroStyle = styled.section`
       ${colors.menuLightColor},
       ${colors.primaryGlow} 40%,
       ${colors.primaryBorder} 70%,
-      ${colors.secundaryLightColor}
+      ${colors.primaryLightColor}
     );
 
-    /* important: define tamanho do background maior que o elemento para poder animar */
     background-size: 300% 300%;
-    background-repeat: no-repeat;
-    background-position: 0% 50%;
 
-    /* clipping para texto (browser prefixed for compatibility) */
     -webkit-background-clip: text;
     background-clip: text;
-    -webkit-text-fill-color: transparent; /* Blink/WebKit */
-    color: transparent; /* fallback */
+    -webkit-text-fill-color: transparent;
 
     /* animação */
-    animation: spin 8s ease-in-out infinite;
+    animation: spin 12s ease-in-out infinite;
   }
 
-  /* animação simples de movimento do gradiente */
   @keyframes spin {
     0% {
       background-position: 0% 50%;
