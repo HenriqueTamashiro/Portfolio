@@ -29,16 +29,16 @@ export default createGlobalStyle`
     scrollbar-width: thin;
   }
 
-.page{
-  opacity: 0;
-  transform: translateY(60px);
-}
+  .page{
+    opacity: 0;
+    transform: translateY(60px);
+  }
 
-.page-active {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.8s ease, transform 0.6s ease;
-}
+  .page-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease, transform 0.6s ease;
+  }
 
  /* base para sections reveláveis */
   .baseSection {

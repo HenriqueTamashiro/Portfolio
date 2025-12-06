@@ -3,19 +3,8 @@ import styled from "styled-components";
 export const Content = styled.div`
   /*Organizadores */
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 50px;
-  margin-bottom: 20px;
-  margin-top: 20px;
-
-  /*Dimensionadores */
-  width: auto;
-  max-width: 1100px;
-  height: auto;
-  margin: 30px auto;
+  display: grid;
+  justify-content: center;
 
   /*Estilos */
   color: #fff;
@@ -37,5 +26,3 @@ export const Content = styled.div`
     font-size: 20px;
   }
 `;
-
-export const Articles = styled.section``;

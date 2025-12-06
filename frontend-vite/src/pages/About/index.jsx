@@ -1,46 +1,15 @@
-import { Container } from "../../styles/GlobalStyled";
 import { Content } from "./styled";
-import TechCarousel from "../../components/Carousel/index";
-import Hero from "../../components/Hero/index";
-
-import {
-  SubSector,
-  SectorStyled,
-  HolderContent,
-  Holder,
-} from "../../styles/SectorStyled";
+import LoaderWrapper from "../../components/LoaderWrapper";
+import Window from "../../components/Window/index";
 
 import profilePict from "../../assets/imgs/profilePict.png";
 
-export default function Home() {
+export default function About() {
   return (
-    <Container>
-      {/* Hero */}
-      <Holder>
-        <HolderContent>
-          <Hero />
-        </HolderContent>
-        <HolderContent>
-          <div className="divPicture">
-            <span className="lessBgPict" />
-            <img src={profilePict} className="w-80 h-80px profilePicture" />
-            <span className="greaterBgPict" />
-          </div>
-        </HolderContent>
-      </Holder>
-
-      {/* Separador */}
-      <SectorStyled>
-        <SubSector>
-          <TechCarousel />
-        </SubSector>
-      </SectorStyled>
-
-      {/* Conteúdo */}
-      <Content></Content>
-
-      {/* Footer */}
-      <footer></footer>
-    </Container>
+    <LoaderWrapper>
+      <Content>
+        <Window img={profilePict} />
+      </Content>
+    </LoaderWrapper>
   );
 }
