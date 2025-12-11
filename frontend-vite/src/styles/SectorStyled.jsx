@@ -31,6 +31,7 @@ export const Holder = styled.div`
     z-index: -1;
     background: url(${bgImg}) no-repeat center/cover;
     pointer-events: none;
+    opacity: 0.7;
 
     mask: linear-gradient(
       90deg,

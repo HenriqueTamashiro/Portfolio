@@ -17,9 +17,26 @@ export default createGlobalStyle`
     overflow-x: hidden;
     background: radial-gradient(
     ${colors.primaryColor} 20%,                        
-    ${colors.primaryDarkColor}   
+    ${colors.primaryDarkColor} 50%,
+    ${colors.primaryLightColorOpt} 90% 
   );
 
+  background-size: 400% 400%;
+    animation: gradientMove  15s ease infinite;
+  }
+
+  @keyframes gradientMove {
+    0% {
+      background-position: 0% 10%;
+    }
+
+    50% {
+      background-position: 80% 10%;
+    }
+
+    100% {
+      background-position: 0% 10%;
+    }
   }
 
 

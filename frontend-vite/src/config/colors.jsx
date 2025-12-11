@@ -3,8 +3,9 @@ import { css } from "styled-components";
 export const primaryColor = "#000a23";
 export const primaryDarkColor = "#00050e";
 
-export const primaryColorOpt = "#000a23fd";
+export const primaryColorOpt = "#001038fc";
 export const primaryDarkColorOpt = "#00050ec7";
+export const primaryLightColorOpt = "#000933f6";
 export const tagsDarkColor = "#101c3b";
 
 export const primaryLightColor = "#2b3450";
