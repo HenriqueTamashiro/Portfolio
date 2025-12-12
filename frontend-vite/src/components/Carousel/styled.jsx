@@ -54,11 +54,32 @@ export const CarouselStyle = styled.section`
   h1 {
     text-shadow: 0 0 9px ${colors.primaryGlow};
     color: #fff;
-    display: inline-block;
-    width: auto;
-    border-bottom: 1px solid ${colors.primaryBorder};
-    padding-bottom: 3px;
     font-size: 30px;
+    position: relative;
+    display: inline-block;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  h1::before {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 5px;
+    right: 0;
+    top: 0;
+    background: ${colors.primaryBorder};
+    clip-path: polygon(0% 0%, 100% 10%, 100% 90%, 0% 100%);
+  }
+  h1::after {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 5px;
+    left: 0;
+    top: 0;
+    background: ${colors.primaryBorder};
+    clip-path: polygon(0% 10%, 100% 0%, 100% 100%, 0% 90%);
   }
 
   p {
@@ -120,6 +141,37 @@ export const CarouselStyle = styled.section`
     p {
       margin: 0;
     }
+  }
+
+  .title-row {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .divider {
+    position: relative;
+    height: 1px;
+    width: min(200px);
+
+    background-color: ${colors.primaryBorder};
+  }
+
+  .divider::before,
+  .divider::after {
+    position: absolute;
+    content: "";
+    height: 5px;
+    width: 5px;
+    top: -2px;
+    background: ${colors.primaryGlow};
+  }
+
+  .divider::after {
+    right: 0;
+  }
+
+  .divider::before {
+    left: 0;
   }
 
   .scroller[animated="true"] {

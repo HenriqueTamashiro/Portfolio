@@ -1,4 +1,5 @@
 import { WindowLayout } from "./styled";
+import { Posts } from "../../Placeholder/data2.jsx";
 
 export default function Window({ img }) {
   return (
@@ -9,32 +10,21 @@ export default function Window({ img }) {
             <h1>Sobre</h1>
           </div>
 
-          <div className="content">
-            <p></p>
+          <div className="posts-wrapper">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-              consequatur nemo quos officia amet ullam ex vitae quo consectetur
-              beatae alias vel, pariatur magni deleniti fugiat eveniet dolorum,
-              voluptatum similique?
+              Meu nome é Henrique Tamashiro, sou desenvolvedor Full Stack com
+              experiência em frontend e backend, trabalhando principalmente com
+              JavaScript e TypeScript.
             </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-              consequatur nemo quos officia amet ullam ex vitae quo consectetur
-              beatae alias vel, pariatur magni deleniti fugiat eveniet dolorum,
-              voluptatum similique?
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-              consequatur nemo quos officia amet ullam ex vitae quo consectetur
-              beatae alias vel, pariatur magni deleniti fugiat eveniet dolorum,
-              voluptatum similique?
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-              consequatur nemo quos officia amet ullam ex vitae quo consectetur
-              beatae alias vel, pariatur magni deleniti fugiat eveniet dolorum,
-              voluptatum similique?
-            </p>
+            {Posts.map((post) => (
+              <div className="content" draggable={"true"}>
+                <div className="title-row">
+                  <h2>{post.tittle}</h2>
+                  <div className="divider" />
+                </div>
+                <p>{post.text}</p>
+              </div>
+            ))}
           </div>
         </div>
         <div className="img-holder">

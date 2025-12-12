@@ -130,13 +130,28 @@ export const Container = styled.div`
       mask: linear-gradient(90deg, transparent, white 50%, transparent);
     }
 
-    .line {
-      width: 50px;
-      height: 3px;
-      margin-right: 20px;
-      stroke-dasharray: 800;
-      stroke-dashoffset: 800;
-      animation: drawLine 8s linear infinite;
+    .divider {
+      position: relative;
+      height: 1px;
+      width: 10%;
+      margin: 1px 0 5px;
+      background-color: ${colors.primaryBorder};
+    }
+
+    .divider::before,
+    .divider::after {
+      position: absolute;
+      content: "";
+      height: 5px;
+      width: 5px;
+      top: -2px;
+      background: ${colors.primaryGlow};
+    }
+    .divider::after {
+      right: 0;
+    }
+    .divider::before {
+      left: 0;
     }
   }
 `;

@@ -11,7 +11,6 @@ export const WindowLayout = styled.div`
 
   .about-container {
     position: relative;
-    max-height: 1300px;
   }
 
   .tittle-content > * {
@@ -43,8 +42,14 @@ export const WindowLayout = styled.div`
     background-size: 15px 15px;
 
     background-position: 5px 5px;
+    mask: linear-gradient(90deg, transparent, white 50%, transparent);
     -webkit-mask: linear-gradient(90deg, transparent, white 50%, transparent);
     z-index: 0;
+  }
+
+  .content {
+    background: transparent;
+    padding: 10px 15px;
   }
 
   .content > * {
@@ -52,15 +57,46 @@ export const WindowLayout = styled.div`
     z-index: 1;
   }
 
-  .content {
-    border-bottom-left-radius: 8px;
-    width: 100%;
-    height: 100%;
-    background: #062752;
-    max-height: 700px;
-    overflow-y: scroll;
+  .content p {
+    margin: -15px 0;
+  }
+
+  .content h2 {
+    text-align: center;
+  }
+
+  .title-row {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .divider {
     position: relative;
-    z-index: 0;
+    height: 1px;
+    width: 50%;
+    margin: 1px 0 5px;
+    background-color: ${colors.primaryBorder};
+  }
+
+  .divider::before,
+  .divider::after {
+    position: absolute;
+    content: "";
+    height: 5px;
+    width: 5px;
+    top: -2px;
+    background: ${colors.primaryGlow};
+  }
+  .divider::after {
+    right: 0;
+  }
+
+  .posts-wrapper {
+    max-height: 700px;
+    overflow-y: auto;
+    padding: 10px;
+    background: #062752;
   }
 
   .post-about {
@@ -73,7 +109,7 @@ export const WindowLayout = styled.div`
 
     border-bottom: 1px solid ${colors.primaryBorder};
     border-top: 1px solid ${colors.primaryBorder};
-    background: ${colors.secundaryLightColor};
+    background: #062752;
   }
 
   .img-holder {
@@ -107,7 +143,7 @@ export const WindowLayout = styled.div`
     box-shadow: inset 0 0 80px 30px #000000dd;
   }
 
-  @media (width > 875px) {
+  @media (width > 1115px) {
     .post-about {
       grid-template-columns: 1fr 500px;
     }

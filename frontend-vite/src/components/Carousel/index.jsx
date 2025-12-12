@@ -14,7 +14,9 @@ export default function TechCarousel() {
   }, []);
   return (
     <CarouselStyle>
-      <h1 className="">Tecnologias</h1>
+      <div className="title-row ">
+        <h1>Tecnologias</h1>
+      </div>
       <div className="scroller" data-direction="right" data-speed="slow">
         <div className="inner_scroller ">
           <div className="icon-item">

@@ -98,11 +98,7 @@ export default function Home() {
       <section className="hiddenSection">
         <div className="contentTittle">
           <h1>Projetos</h1>
-          <div className="line">
-            <svg width="100" height="100">
-              <path d="M0 0 L70 1" stroke="#76a1ff" strokeWidth="3" />
-            </svg>
-          </div>
+          <div className="divider" />
         </div>
         <Content>
           <Cards
