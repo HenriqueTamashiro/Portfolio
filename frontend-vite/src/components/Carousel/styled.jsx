@@ -23,6 +23,47 @@ export const CarouselStyle = styled.section`
   );
   mask: linear-gradient(90deg, transparent, white 40%, white 80%, transparent);
 
+  .tittle-carousel {
+    position: relative;
+    padding: 5px 7px;
+
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 25px;
+
+    letter-spacing: -1px;
+    clip-path: polygon(5% 0%, 100% 0%, 100% 85%, 95% 100%, 0% 100%, 0% 6px);
+
+    z-index: 1;
+  }
+
+  .tittle-carousel::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: transparent;
+    border: 1px solid ${colors.primaryGlow};
+    border-radius: 8px;
+    z-index: -1;
+    animation: infinite ease-in-out 15s borderCycling;
+  }
+
+  @keyframes borderCycling {
+    0% {
+      clip-path: polygon(5% 0%, 100% 0%, 100% 0%, 95% 100%, 0% 100%, 0% 90%);
+    }
+    50% {
+      clip-path: polygon(95% 0%, 100% 0%, 100% 85%, 5% 100%, 0% 100%, 0% 20%);
+    }
+    100% {
+      clip-path: polygon(5% 0%, 100% 0%, 100% 0%, 95% 100%, 0% 100%, 0% 90%);
+    }
+  }
+
   &::before {
     content: "";
     position: absolute;
@@ -49,37 +90,6 @@ export const CarouselStyle = styled.section`
     background-repeat: repeat, repeat;
     background-position: 5px 5px, 0 0;
     z-index: -1;
-  }
-
-  h1 {
-    text-shadow: 0 0 9px ${colors.primaryGlow};
-    color: #fff;
-    font-size: 30px;
-    position: relative;
-    display: inline-block;
-    padding-right: 10px;
-    padding-left: 10px;
-  }
-
-  h1::before {
-    position: absolute;
-    content: "";
-    height: 100%;
-    width: 5px;
-    right: 0;
-    top: 0;
-    background: ${colors.primaryBorder};
-    clip-path: polygon(0% 0%, 100% 10%, 100% 90%, 0% 100%);
-  }
-  h1::after {
-    position: absolute;
-    content: "";
-    height: 100%;
-    width: 5px;
-    left: 0;
-    top: 0;
-    background: ${colors.primaryBorder};
-    clip-path: polygon(0% 10%, 100% 0%, 100% 100%, 0% 90%);
   }
 
   p {
@@ -154,24 +164,6 @@ export const CarouselStyle = styled.section`
     width: min(200px);
 
     background-color: ${colors.primaryBorder};
-  }
-
-  .divider::before,
-  .divider::after {
-    position: absolute;
-    content: "";
-    height: 5px;
-    width: 5px;
-    top: -2px;
-    background: ${colors.primaryGlow};
-  }
-
-  .divider::after {
-    right: 0;
-  }
-
-  .divider::before {
-    left: 0;
   }
 
   .scroller[animated="true"] {
