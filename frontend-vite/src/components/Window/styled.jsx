@@ -164,10 +164,34 @@ export const WindowLayout = styled.div`
     right: 0;
   }
 
+  .circle {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    background: transparent;
+    border-radius: 100%;
+    border: 1px solid ${colors.primaryBorder};
+    z-index: -1;
+    clip-path: polygon(50% 50%, 100% 0%, 100% 100%);
+    animation: infinite ease-in-out 15s borderCycling2;
+  }
+
+  @keyframes borderCycling2 {
+    0% {
+      clip-path: polygon(50% 50%, 50% 0%, 100% 0%);
+    }
+    50% {
+      clip-path: polygon(50% 50%, 100% 0%, 100% 100%);
+    }
+    100% {
+      clip-path: polygon(50% 50%, 100% 0%, 100% 0%);
+    }
+  }
+
   .posts-wrapper {
-    display: grid;
     gap: 15px;
-    grid-template-columns: 1fr 1fr;
     max-height: 700px;
     overflow-y: auto;
     padding: 10px;
@@ -208,11 +232,6 @@ export const WindowLayout = styled.div`
   @media (width > 1115px) {
     .post-about {
       grid-template-columns: 1fr 500px;
-    }
-  }
-  @media (width <1100px) {
-    .posts-wrapper {
-      grid-template-columns: 1fr;
     }
   }
 `;

@@ -6,28 +6,29 @@ export default function Window({ img }) {
     <WindowLayout>
       <article className="post-about">
         <div className="about-container">
-          <div className="tittle-content">
-            <h1>Sobre</h1>
-          </div>
-          <p>
-            Meu nome é Henrique Tamashiro, sou desenvolvedor FullStack com
-            experiência em frontend e backend, trabalhando principalmente com
-            JavaScript e TypeScript.
-          </p>
-          <div className="posts-wrapper">
-            {Posts.map((post) => (
-              <div className="content" draggable={"true"}>
-                <div className="corner corner-top-left"></div>
-                <div className="corner corner-top-right"></div>
-                <div className="corner corner-bottom-left"></div>
-                <div className="corner corner-bottom-right"></div>
-                <div className="title-row">
-                  <h2>{post.tittle}</h2>
-                  <div className="divider" />
+          <div className="content">
+            <div className="corner corner-top-left"></div>
+            <div className="corner corner-top-right"></div>
+            <div className="corner corner-bottom-left"></div>
+            <div className="corner corner-bottom-right"></div>
+
+            <div className="posts-wrapper">
+              <div className="circle" />
+              <p>
+                Meu nome é Henrique Tamashiro, sou desenvolvedor FullStack com
+                experiência em frontend e backend, trabalhando principalmente
+                com JavaScript e TypeScript.
+              </p>
+              {Posts.map((post) => (
+                <div className="content" draggable={"true"}>
+                  <div className="title-row">
+                    <h2>{post.tittle}</h2>
+                    <div className="divider" />
+                  </div>
+                  <p>{post.text}</p>
                 </div>
-                <p>{post.text}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
         <div className="img-holder">
