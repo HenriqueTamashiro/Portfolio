@@ -105,11 +105,11 @@ export const Container = styled.div`
       inset: 0;
 
       background: radial-gradient(
-          ${({ theme }) => theme.colors.secundaryLight} 1px,
+          ${({ theme }) => theme.colors.secundaryLightColor} 1px,
           transparent 1px
         ),
         radial-gradient(
-          ${({ theme }) => theme.colors.primaryLight} 1px,
+          ${({ theme }) => theme.colors.primaryLightColor} 1px,
           transparent 1px
         ),
         linear-gradient(rgba(0, 0, 0, 0.014), rgba(0, 0, 0, 0.014));

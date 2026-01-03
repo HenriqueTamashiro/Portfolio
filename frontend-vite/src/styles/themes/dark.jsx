@@ -14,8 +14,8 @@ export const darkTheme = {
 
     primaryLightColor: "#2b3450",
     secundaryLightColor: "#76a1ff27",
-    boxShadowLightColor: "box-shadow: #76a1ff27  0 0 3px 1px;",
-    boxShadowMenuLightColor: "box-shadow: #76a1ff5c 0 0 3px 1px;",
+    boxShadowLightColor: "#76a1ff27  0 0 3px 1px;",
+    boxShadowMenuLightColor: "#76a1ff5c 0 0 3px 1px;",
 
     secundaryDarkColor: "#041330",
 
