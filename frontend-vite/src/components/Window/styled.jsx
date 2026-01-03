@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import * as colors from "../../config/defaultColors";
 import holderImg from "../../assets/imgs/bgPicture.png";
 import cornerPNG from "../../assets/imgs/cornerPNG.png";
 
@@ -13,7 +12,7 @@ export const WindowLayout = styled.div`
 
   .post-about {
     display: grid;
-    background: ${colors.windowBackground};
+    background: ${({ theme }) => theme.colors.windowBackground};
 
     .corner {
       position: absolute;
@@ -48,7 +47,7 @@ export const WindowLayout = styled.div`
 
   .about-container {
     position: relative;
-    border: 1px solid ${colors.primaryBorder};
+    border: 1px solid ${({ theme }) => theme.colors.primaryBorder};
   }
 
   .title-row {

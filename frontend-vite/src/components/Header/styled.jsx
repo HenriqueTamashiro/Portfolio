@@ -13,7 +13,7 @@ export const Nav = styled.nav`
   gap: 1px;
   z-index: 99;
   backdrop-filter: blur(20px);
-  ${({ theme }) => theme.colors.primaryLinear}
+  ${({ theme }) => theme.colors.gradients.primary}
 
   a {
     color: ${({ theme }) => theme.colors.textColor};
@@ -36,7 +36,7 @@ export const Nav = styled.nav`
       theme.colors.primaryGlow}; */
     transition: 800ms;
     box-shadow: inset 0 -4px 0 0 ${({ theme }) => theme.colors.menuLightColor};
-    background: ${({ theme }) => theme.colors.secondaryLightColor};
+    background: ${({ theme }) => theme.colors.secundaryLightColor};
 
     color: ${({ theme }) => theme.colors.textColor};
   }

@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import bgImg from "../assets/imgs/imageBackground23.png";
 
-import * as colors from "../config/defaultColors";
-
 export const SectorStyled = styled.div`
   width: 100%;
 `;
@@ -75,9 +73,9 @@ export const HolderContent = styled.div`
 
       background: linear-gradient(
         to bottom,
-        ${colors.primaryLightColor} 10%,
-        ${colors.primaryGlow} 50%,
-        ${colors.primaryLightColor} 100%
+        ${({ theme }) => theme.colors.primaryLightColor} 10%,
+        ${({ theme }) => theme.colors.primaryGlow} 50%,
+        ${({ theme }) => theme.colors.primaryLightColor} 100%
       );
       -webkit-mask: url("src/assets/imgs/lessKey.svg") no-repeat center /
         contain;
@@ -94,9 +92,9 @@ export const HolderContent = styled.div`
     height: 250px;
     background: linear-gradient(
       to bottom,
-      ${colors.primaryLightColor} 10%,
-      ${colors.primaryGlow} 50%,
-      ${colors.primaryLightColor} 100%
+      ${({ theme }) => theme.colors.primaryLightColor} 10%,
+      ${({ theme }) => theme.colors.primaryGlow} 50%,
+      ${({ theme }) => theme.colors.primaryLightColor} 100%
     );
     -webkit-mask: url("src/assets/imgs/greaterKey.svg") no-repeat center /
       contain;

@@ -1,11 +1,10 @@
 import styled from "styled-components";
-import * as colors from "../../config/defaultColors";
 
 export const HeroStyle = styled.section`
   .hero {
     display: flex;
     align-items: center;
-    color:${({ theme }) => theme.colors.textColor};
+    color: ${({ theme }) => theme.colors.textColor};
     padding-left: 2%;
     font-family: "Poppins", sans-serif;
   }
@@ -118,16 +117,16 @@ export const HeroStyle = styled.section`
   }
 
   .btn.outline {
-    box-shadow: ${({theme}) => theme.colors.boxShadowMenuLightColor};
-    color: ${colors.primaryGlow};
-    background: ${colors.primaryColor};
+    box-shadow: ${({ theme }) => theme.colors.boxShadowMenuLightColor};
+    color: ${({ theme }) => theme.colors.primaryGlow};
+    background: ${({ theme }) => theme.colors.primaryColor};
     transition: 600ms;
     border-top-left-radius: 20px;
     border-bottom-right-radius: 20px;
   }
 
   .btn.outline:hover {
-    background: ${colors.menuLightColor};
+    background: ${({ theme }) => theme.colors.menuLightColor};
     color: #fff;
   }
 `;

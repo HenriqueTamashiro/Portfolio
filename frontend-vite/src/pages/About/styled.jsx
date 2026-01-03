@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Content = styled.div`
   position: relative;
+  margin: 25px 0 95px 0;
 
   display: grid;
   justify-content: center;

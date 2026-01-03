@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import * as colors from "../../config/defaultColors";
 
 export const Content = styled.div`
   margin-top: 100px;
@@ -61,13 +60,13 @@ export const Holder = styled.div`
 
     width: 40vw;
     height: 100%;
-    background: ${colors.secundaryLightColor};
+    background: ${({ theme }) => theme.colors.secundaryLightColor};
 
     .mediaContainer {
       width: auto;
       height: auto;
-      border-top: 1px solid ${colors.primaryBorder};
-      border-bottom: 1px solid ${colors.primaryBorder};
+      border-top: 1px solid ${({ theme }) => theme.colors.primaryBorder};
+      border-bottom: 1px solid ${({ theme }) => theme.colors.primaryBorder};
     }
 
     .text-container {

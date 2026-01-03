@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import * as colors from "../../../config/defaultColors";
 
 export const StyledBar = styled.div`
   width: 100%;
@@ -14,7 +13,7 @@ export const StyledBar = styled.div`
   justify-content: center;
 
   .bar {
-    stroke: ${colors.primaryBorder};
+    stroke: ${({ theme }) => theme.colors.primaryBorder};
     stroke-width: 2;
     fill: none;
     stroke-linecap: round;

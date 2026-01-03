@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import * as colors from "../../config/defaultColors";
 
 export const Focus = styled.div`
   position: fixed;
@@ -97,7 +96,7 @@ export const FocusArticle = styled.div`
   }
 
   button:hover {
-    color:${({ theme }) => theme.colors.textColor};
+    color: ${({ theme }) => theme.colors.textColor};
     background: ${({ theme }) => theme.colors.secundaryLightColor};
   }
 

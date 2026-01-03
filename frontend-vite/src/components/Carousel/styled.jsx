@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import imgBg from "../../assets/imgs/bgCarousel2.png";
-import * as colors from "../../config/defaultColors";
 
 export const CarouselStyle = styled.section`
   position: relative;
@@ -84,7 +83,10 @@ export const CarouselStyle = styled.section`
         ${({ theme }) => theme.colors.secondaryLightColor} 1px,
         transparent 1px
       ),
-      radial-gradient(${({ theme }) => theme.colors.primaryLightColor} 1px, transparent 1px),
+      radial-gradient(
+        ${({ theme }) => theme.colors.primaryLightColor} 1px,
+        transparent 1px
+      ),
       linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
     background-size: 15px 15px, 70px 70px;
     background-repeat: repeat, repeat;

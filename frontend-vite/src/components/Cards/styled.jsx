@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import * as colors from "../../config/defaultColors";
 
 export const StyledCards = styled.div`
   /*Organizadores */
@@ -41,7 +40,7 @@ export const StyledCards = styled.div`
   .svgCorner {
     content: "";
     position: absolute;
-    color:  ${({ theme }) => theme.colors.secundaryLightColor};
+    color: ${({ theme }) => theme.colors.secundaryLightColor};
     top: 10px;
     right: 1px;
     width: 80px;
@@ -56,8 +55,8 @@ export const StyledCards = styled.div`
     display: grid;
     grid-template-rows: auto auto auto auto 1fr;
     z-index: 1;
-    border-top: 1px solid  ${({ theme }) => theme.colors.primaryBorder};
-    border-bottom: 1px solid  ${({ theme }) => theme.colors.primaryBorder};
+    border-top: 1px solid ${({ theme }) => theme.colors.primaryBorder};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.primaryBorder};
     border-radius: 8px;
   }
 
@@ -77,7 +76,7 @@ export const StyledCards = styled.div`
     top: 0;
     width: 25px;
     height: 100%;
-    background:  ${({ theme }) => theme.colors.menuLightColor};
+    background: ${({ theme }) => theme.colors.menuLightColor};
     border-top-right-radius: 8px;
     border-bottom-left-radius: 8px;
 

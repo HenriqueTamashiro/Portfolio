@@ -30,7 +30,11 @@ export const darkTheme = {
 
     gradients: {
       primary: css`
-        background: linear-gradient(to right, #020617, #1e293b);
+        background: linear-gradient(
+          to right,
+          ${({ theme }) => theme.colors.primaryColor},
+          ${({ theme }) => theme.colors.secundaryLightColor}
+        );
       `,
     },
   },
