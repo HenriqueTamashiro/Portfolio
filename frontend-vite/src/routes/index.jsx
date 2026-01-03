@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import About from "../pages/About";
+import Projects from "../pages/Projects";
 import PageWrapper from "../components/LoaderWrapper";
 
 export default function AppRoutes() {
@@ -16,6 +17,8 @@ export default function AppRoutes() {
         }
       />
       <Route path="/about" element={<About />} />
+      <Route path="/projects" element={<Projects />} />
+      <Route path="/teste" element={<Projects />} />
     </Routes>
   );
 }

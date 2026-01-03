@@ -8,14 +8,6 @@ export const Content = styled.div`
     font-size: 20px;
   }
 
-  h1 {
-    height: 60px;
-    min-height: 20px;
-    max-height: 50px;
-    font-size: clamp(45px, 20px, 60px);
-    z-index: 1;
-  }
-
   h2 {
     font-size: 40px;
   }

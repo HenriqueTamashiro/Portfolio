@@ -10,7 +10,7 @@ export default function Header() {
       <NavLink to={"/about"} end>
         Sobre
       </NavLink>
-      <NavLink to="#projetos" end>
+      <NavLink to={"/projects"} end>
         Projetos
       </NavLink>
       <NavLink to={"/"} end>

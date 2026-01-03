@@ -3,9 +3,12 @@ import * as colors from "../../config/colors";
 import bgImg from "../../assets/imgs/bgFooter.png";
 
 export const StyledFooter = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-top: 1px ${colors.primaryBorder} solid;
+  margin-top: 20px;
 
   width: 100%;
   height: 300px;
@@ -20,7 +23,6 @@ export const StyledFooter = styled.div`
   );
 
   &::before {
-    border-top: 1px ${colors.primaryBorder} solid;
     content: "";
     z-index: -1;
     inset: 0;

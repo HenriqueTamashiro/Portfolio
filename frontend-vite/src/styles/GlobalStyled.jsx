@@ -18,12 +18,28 @@ export default createGlobalStyle`
     background: radial-gradient(
     ${colors.primaryColor} 20%,                        
     ${colors.primaryDarkColor} 50%,
-    ${colors.primaryLightColorOpt} 90% 
+    ${colors.primaryLightColorOpt} 100% 
   );
 
-  background-size: 400% 400%;
-    animation: gradientMove  15s ease infinite;
+  background-size: 800% 800%;
+    animation: gradientMove  10s ease infinite;
   }
+
+
+
+
+    /* .percentScroll {
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    z-index: 99999;
+    pointer-events: none;
+
+    font-size: 4rem;
+    font-weight: bold;
+    color: ${colors.primaryGlow};
+  } */
 
   @keyframes gradientMove {
     0% {
@@ -93,10 +109,14 @@ export const Container = styled.div`
     flex-direction: column;
     position: relative;
     margin-top: 20px;
-    text-align: center;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
+    text-align: center;
+    font-size: 35px;
+    font-weight: 600;
+    text-transform: uppercase;
 
     width: 100%;
     height: 120px;

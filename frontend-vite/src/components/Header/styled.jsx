@@ -21,6 +21,7 @@ export const Nav = styled.nav`
     border-radius: 4px;
     text-decoration: none;
     font-weight: bold;
+    font-size: 17px;
     display: flex;
     align-items: center;
     justify-content: center;

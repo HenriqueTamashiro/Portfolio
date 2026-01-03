@@ -1,7 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import ReactPlayer from "react-player";
 import { Focus, FocusArticle } from "./styled";
-import SvgArticle from "../../assets/imgs/corner.svg?react";
 
 export default function FocusWindow({ onOff, post, onClose }) {
   const [load, setLoad] = useState(false);

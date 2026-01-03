@@ -13,12 +13,12 @@ export const secundaryLightColor = "#76a1ff27";
 
 export const secundaryDarkColor = "#041330";
 
-export const secundaryGlow = "#4a83ff";
+export const secundaryGlow = "#6b9aff";
 export const primaryGlow = "#76a1ff";
 export const primaryBorder = "#486299";
 
 export const menuLightColor = "#76a1ff5c";
-export const windowBackground = "#062752";
+export const windowBackground = "#0627525c";
 
 export const sucessColor = "#01589fff";
 export const infocolor = "#01589fff";

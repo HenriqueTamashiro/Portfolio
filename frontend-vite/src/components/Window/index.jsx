@@ -5,25 +5,24 @@ export default function Window({ img }) {
   return (
     <WindowLayout>
       <article className="post-about">
+        <div className="corner corner-top-left"></div>
+        <div className="corner corner-top-right"></div>
+        <div className="corner corner-bottom-left"></div>
+        <div className="corner corner-bottom-right"></div>
         <div className="about-container">
           <div className="content">
-            <div className="corner corner-top-left"></div>
-            <div className="corner corner-top-right"></div>
-            <div className="corner corner-bottom-left"></div>
-            <div className="corner corner-bottom-right"></div>
-
             <div className="posts-wrapper">
-              <div className="circle" />
-              <p>
+              <p className="presentation">
                 Meu nome é Henrique Tamashiro, sou desenvolvedor FullStack com
                 experiência em frontend e backend, trabalhando principalmente
                 com JavaScript e TypeScript.
               </p>
               {Posts.map((post) => (
-                <div className="content" draggable={"true"}>
+                <div className="content">
                   <div className="title-row">
-                    <h2>{post.tittle}</h2>
-                    <div className="divider" />
+                    <div className="corner corner-top-left" />
+                    {post.tittle}
+                    <div className="corner corner-bottom-right" />
                   </div>
                   <p>{post.text}</p>
                 </div>

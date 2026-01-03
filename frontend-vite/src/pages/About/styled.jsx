@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Content = styled.div`
-  /*Organizadores */
+  position: relative;
 
   display: grid;
   justify-content: center;

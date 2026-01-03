@@ -97,7 +97,7 @@ export default function Home() {
       {/* Conteúdo */}
       <section className="hiddenSection">
         <div className="contentTittle">
-          <h1>Projetos</h1>
+          Projetos
           <div className="divider" />
         </div>
         <Content>
