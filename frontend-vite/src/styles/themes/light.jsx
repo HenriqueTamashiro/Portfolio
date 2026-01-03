@@ -1,0 +1,35 @@
+import { css } from "styled-components";
+
+export const lightTheme = {
+  name: "light",
+
+  colors: {
+    primaryColor: "#000a23",
+    primaryDarkColor: "#00050e",
+
+    primaryColorOpt: "#001038fc",
+    primaryDarkColorOpt: "#00050ec7",
+    primaryLightColorOpt: "#000933f6",
+    tagsDarkColor: "#101c3b",
+
+    primaryLightColor: "#2b3450",
+    secundaryLightColor: "#76a1ff27",
+
+    secundaryDarkColor: "#041330",
+
+    secundaryGlow: "#6b9aff",
+    primaryGlow: "#76a1ff",
+    primaryBorder: "#486299",
+
+    menuLightColor: "#76a1ff5c",
+    windowBackground: "#0627525c",
+
+    textColor: "#fff",
+
+    gradients: {
+      primary: css`
+        background: linear-gradient(to right, #020617, #1e293b);
+      `,
+    },
+  },
+};

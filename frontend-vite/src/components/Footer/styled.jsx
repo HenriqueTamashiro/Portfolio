@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import * as colors from "../../config/colors";
 import bgImg from "../../assets/imgs/bgFooter.png";
 
 export const StyledFooter = styled.div`
@@ -7,7 +6,7 @@ export const StyledFooter = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border-top: 1px ${colors.primaryBorder} solid;
+  border-top: 1px ${({ theme }) => theme.colors.primaryBorder} solid;
   margin-top: 20px;
 
   width: 100%;

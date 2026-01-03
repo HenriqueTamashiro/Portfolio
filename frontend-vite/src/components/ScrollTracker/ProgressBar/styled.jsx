@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import * as colors from "../../../config/colors";
+import * as colors from "../../../config/defaultColors";
 
 export const StyledBar = styled.div`
   width: 100%;

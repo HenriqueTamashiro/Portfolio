@@ -1,68 +1,44 @@
 import { styled, createGlobalStyle } from "styled-components";
-import * as colors from "../config/colors";
 
 export default createGlobalStyle`
-* {
-  padding: 0;
-  outline: none;
-  margin: 0;
-  box-sizing:  border-box;
-
+  * {
+    padding: 0;
+    outline: none;
+    margin: 0;
+    box-sizing: border-box;
   }
 
   body {
-    color: #fff;
-    font-family: "Poppins", sans-serif ;
-    min-height: 100vh; 
+    font-family: "Poppins", sans-serif;
+    min-height: 100vh;
     overflow-x: hidden;
-    background: radial-gradient(
-    ${colors.primaryColor} 20%,                        
-    ${colors.primaryDarkColor} 50%,
-    ${colors.primaryLightColorOpt} 100% 
-  );
+    color: ${({ theme }) => theme.colors.textColor};
 
-  background-size: 800% 800%;
-    animation: gradientMove  10s ease infinite;
+background: radial-gradient(
+  ${({ theme }) => theme.colors.primaryColor} 20%,
+  ${({ theme }) => theme.colors.primaryDarkColor} 50%,
+  ${({ theme }) => theme.colors.primaryLightColorOpt} 100%
+);
+
+
+    background-size: 800% 800%;
+    animation: gradientMove 10s ease infinite;
   }
-
-
-
-
-    /* .percentScroll {
-    position: fixed;
-    top: 50vh;
-    left: 50vw;
-    transform: translate(-50%, -50%);
-    z-index: 99999;
-    pointer-events: none;
-
-    font-size: 4rem;
-    font-weight: bold;
-    color: ${colors.primaryGlow};
-  } */
 
   @keyframes gradientMove {
-    0% {
-      background-position: 0% 10%;
-    }
-
-    50% {
-      background-position: 80% 10%;
-    }
-
-    100% {
-      background-position: 0% 10%;
-    }
+    0% { background-position: 0% 10%; }
+    50% { background-position: 80% 10%; }
+    100% { background-position: 0% 10%; }
   }
-
 
   html, body, #root {
     height: 100%;
-    scrollbar-color: ${colors.primaryGlow} transparent;
+    scrollbar-color:
+      ${({ theme }) => theme.colors.primaryGlow} transparent;
     scrollbar-width: thin;
   }
 
-  .page{
+  .page {
     opacity: 0;
     transform: translateY(60px);
   }
@@ -73,31 +49,24 @@ export default createGlobalStyle`
     transition: opacity 0.8s ease, transform 0.6s ease;
   }
 
- /* base para sections reveláveis */
   .baseSection {
     transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
     will-change: opacity, transform;
   }
 
-
-  /* estado escondido */
   .hiddenSection {
     opacity: 0;
     transform: translateY(10px);
     pointer-events: none;
-       visibility: hidden;
+    visibility: hidden;
   }
 
-
-
-  /* estado visível */
   .showSection {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
     z-index: 0;
   }
-
 `;
 
 export const Container = styled.div`
@@ -111,7 +80,7 @@ export const Container = styled.div`
     margin-top: 20px;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    color: ${({ theme }) => theme.colors.textColor};
 
     text-align: center;
     font-size: 35px;
@@ -121,6 +90,7 @@ export const Container = styled.div`
     width: 100%;
     height: 120px;
     max-height: 150px;
+
     mask: linear-gradient(
       90deg,
       transparent,
@@ -131,17 +101,19 @@ export const Container = styled.div`
 
     &::before {
       content: "";
-      width: 100%;
-      height: auto;
       position: absolute;
       inset: 0;
 
       background: radial-gradient(
-          ${colors.secundaryLightColor} 1px,
+          ${({ theme }) => theme.colors.secundaryLight} 1px,
           transparent 1px
         ),
-        radial-gradient(${colors.primaryLightColor} 1px, transparent 1px),
+        radial-gradient(
+          ${({ theme }) => theme.colors.primaryLight} 1px,
+          transparent 1px
+        ),
         linear-gradient(rgba(0, 0, 0, 0.014), rgba(0, 0, 0, 0.014));
+
       background-size: 15px 15px;
       background-repeat: repeat;
       background-position: 5px 5px;
@@ -155,7 +127,8 @@ export const Container = styled.div`
       height: 1px;
       width: 10%;
       margin: 1px 0 5px;
-      background-color: ${colors.primaryBorder};
+
+      background-color: ${({ theme }) => theme.colors.primaryBorder};
     }
 
     .divider::before,
@@ -165,11 +138,14 @@ export const Container = styled.div`
       height: 5px;
       width: 5px;
       top: -2px;
-      background: ${colors.primaryGlow};
+
+      background: ${({ theme }) => theme.colors.primaryGlow};
     }
+
     .divider::after {
       right: 0;
     }
+
     .divider::before {
       left: 0;
     }

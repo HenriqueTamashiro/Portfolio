@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import * as colors from "../../config/colors";
+import * as colors from "../../config/defaultColors";
 import holderImg from "../../assets/imgs/bgPicture.png";
 import cornerPNG from "../../assets/imgs/cornerPNG.png";
 

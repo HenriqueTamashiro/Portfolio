@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import imgBg from "../../assets/imgs/bgCarousel2.png";
-import * as colors from "../../config/colors";
+import * as colors from "../../config/defaultColors";
 
 export const CarouselStyle = styled.section`
   position: relative;
