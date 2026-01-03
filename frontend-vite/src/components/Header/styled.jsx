@@ -13,7 +13,7 @@ export const Nav = styled.nav`
   gap: 1px;
   z-index: 99;
   backdrop-filter: blur(20px);
-  ${({ theme }) => theme.colors.menuLightColor};
+  ${({ theme }) => theme.colors.primaryLinear}
 
   a {
     color: ${({ theme }) => theme.colors.textColor};
