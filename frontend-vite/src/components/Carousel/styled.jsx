@@ -9,8 +9,8 @@ export const CarouselStyle = styled.section`
   height: 300px;
   overflow: hidden;
 
-  border-bottom: 1px ${colors.primaryBorder} solid;
-  border-top: 1px ${colors.primaryBorder} solid;
+  border-bottom: 1px ${({ theme }) => theme.colors.primaryBorder} solid;
+  border-top: 1px ${({ theme }) => theme.colors.primaryBorder} solid;
 
   padding: 30px;
 
@@ -27,7 +27,7 @@ export const CarouselStyle = styled.section`
     position: relative;
     padding: 5px 7px;
 
-    color: #fff;
+    color: ${({ theme }) => theme.colors.textColor};
     text-transform: uppercase;
     font-weight: 600;
     font-size: 25px;
@@ -46,7 +46,7 @@ export const CarouselStyle = styled.section`
     left: 0;
     height: 100%;
     background: transparent;
-    border: 1px solid ${colors.primaryGlow};
+    border: 1px solid ${({ theme }) => theme.colors.primaryGlow};
     border-radius: 8px;
     z-index: -1;
     animation: infinite ease-in-out 15s borderCycling;
@@ -81,10 +81,10 @@ export const CarouselStyle = styled.section`
     inset: 0;
 
     background: radial-gradient(
-        ${colors.secundaryLightColor} 1px,
+        ${({ theme }) => theme.colors.secondaryLightColor} 1px,
         transparent 1px
       ),
-      radial-gradient(${colors.primaryLightColor} 1px, transparent 1px),
+      radial-gradient(${({ theme }) => theme.colors.primaryLightColor} 1px, transparent 1px),
       linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
     background-size: 15px 15px, 70px 70px;
     background-repeat: repeat, repeat;
@@ -94,7 +94,7 @@ export const CarouselStyle = styled.section`
 
   p {
     font-size: 20px;
-    color: #fff;
+    color: ${({ theme }) => theme.colors.textColor};
   }
 
   .inner_scroller {
@@ -107,7 +107,7 @@ export const CarouselStyle = styled.section`
     gap: 6px;
   }
 
-  color: #fff;
+  color: ${({ theme }) => theme.colors.textColor};
 
   .react-icon,
   .node-icon,
@@ -120,13 +120,13 @@ export const CarouselStyle = styled.section`
   .bi-javascript {
     width: 78px;
     height: 78px;
-    border-bottom: 1px solid ${colors.primaryBorder};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.primaryBorder};
   }
 
   svg {
     width: 80px;
     height: 80px;
-    border-bottom: 1px solid ${colors.primaryBorder};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.primaryBorder};
   }
 
   .scroller {
@@ -142,9 +142,9 @@ export const CarouselStyle = styled.section`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid ${colors.primaryBorder};
+    border: 1px solid ${({ theme }) => theme.colors.primaryBorder};
     border-radius: 20px;
-    background: ${colors.primaryColor};
+    background: ${({ theme }) => theme.colors.primaryColor};
     width: 115px;
     height: 120px;
 
@@ -163,7 +163,7 @@ export const CarouselStyle = styled.section`
     height: 1px;
     width: min(200px);
 
-    background-color: ${colors.primaryBorder};
+    background-color: ${({ theme }) => theme.colors.primaryBorder};
   }
 
   .scroller[animated="true"] {

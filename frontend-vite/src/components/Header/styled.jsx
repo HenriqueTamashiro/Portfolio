@@ -14,10 +14,10 @@ export const Nav = styled.nav`
   gap: 1px;
   z-index: 99;
   backdrop-filter: blur(20px);
-  ${colors.primaryLinear}
+  ${({ theme }) => theme.colors.primaryLinear}
 
   a {
-    color: #fff;
+    color:${({ theme }) => theme.colors.textColor};
     border-radius: 4px;
     text-decoration: none;
     font-weight: bold;
@@ -32,11 +32,11 @@ export const Nav = styled.nav`
   }
 
   a:hover {
-    /* text-shadow: 0 0 15px ${colors.primaryGlow}, 0 0 15px ${colors.primaryGlow}; */
+    /* text-shadow: 0 0 15px ${({ theme }) => theme.colors.primaryGlow}, 0 0 15px ${({ theme }) => theme.colors.primaryGlow}; */
     transition: 800ms;
-    box-shadow: inset 0 -4px 0 0 ${colors.menuLightColor};
-    background: ${colors.secundaryLightColor};
+    box-shadow: inset 0 -4px 0 0 ${({ theme }) => theme.colors.menuLightColor};
+    background: ${({ theme }) => theme.colors.secondaryLightColor};
 
-    color: #fff;
+    color:${({ theme }) => theme.colors.textColor};
   }
 `;

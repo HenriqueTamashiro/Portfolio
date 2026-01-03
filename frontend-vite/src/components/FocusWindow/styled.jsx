@@ -16,7 +16,7 @@ export const Focus = styled.div`
     width: 100%;
     position: absolute;
     inset: 0;
-    background: ${colors.primaryColorOpt};
+    background: ${({ theme }) => theme.colors.primaryColorOpt};
   }
 
   .content {
@@ -27,8 +27,8 @@ export const Focus = styled.div`
     max-height: 80vh;
     overflow-y: hidden;
 
-    border-bottom: 1px solid ${colors.primaryBorder};
-    border-top: 1px solid ${colors.primaryBorder};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.primaryBorder};
+    border-top: 1px solid ${({ theme }) => theme.colors.primaryBorder};
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -60,10 +60,10 @@ export const FocusArticle = styled.div`
   justify-self: center;
 
   border-radius: 8px;
-  background: ${colors.secundaryLightColor};
+  background: ${({ theme }) => theme.colors.secundaryLightColor};
   z-index: 1;
-  border-top: 1px solid ${colors.primaryBorder};
-  border-bottom: 1px solid ${colors.primaryBorder};
+  border-top: 1px solid ${({ theme }) => theme.colors.primaryBorder};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.primaryBorder};
 
   h1 {
     text-align: center;
@@ -88,8 +88,8 @@ export const FocusArticle = styled.div`
     justify-content: center;
     border-bottom-left-radius: 8px;
     border-top-right-radius: 8px;
-    color: ${colors.primaryColor};
-    background: ${colors.menuLightColor};
+    color: ${({ theme }) => theme.colors.primaryColor};
+    background: ${({ theme }) => theme.colors.menuLightColor};
     cursor: pointer;
     z-index: 2;
     font-size: 40px;
@@ -97,8 +97,8 @@ export const FocusArticle = styled.div`
   }
 
   button:hover {
-    color: #fff;
-    background: ${colors.secundaryLightColor};
+    color:${({ theme }) => theme.colors.textColor};
+    background: ${({ theme }) => theme.colors.secundaryLightColor};
   }
 
   button > i {
@@ -119,7 +119,7 @@ export const FocusArticle = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background: ${colors.primaryColor};
+    background: ${({ theme }) => theme.colors.primaryColor};
     width: 100%;
     height: auto;
     gap: 10px;
@@ -141,7 +141,7 @@ export const FocusArticle = styled.div`
     align-items: center;
     justify-content: center;
 
-    background: ${colors.primaryColor};
+    background: ${({ theme }) => theme.colors.primaryColor};
 
     clip-path: polygon(5% 0%, 100% 0, 100% 100%, 0% 100%);
     width: 100%;

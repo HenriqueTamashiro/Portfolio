@@ -41,7 +41,7 @@ export const StyledCards = styled.div`
   .svgCorner {
     content: "";
     position: absolute;
-    color: ${colors.secundaryLightColor};
+    color:  ${({ theme }) => theme.colors.secundaryLightColor};
     top: 10px;
     right: 1px;
     width: 80px;
@@ -56,8 +56,8 @@ export const StyledCards = styled.div`
     display: grid;
     grid-template-rows: auto auto auto auto 1fr;
     z-index: 1;
-    border-top: 1px solid ${colors.primaryBorder};
-    border-bottom: 1px solid ${colors.primaryBorder};
+    border-top: 1px solid  ${({ theme }) => theme.colors.primaryBorder};
+    border-bottom: 1px solid  ${({ theme }) => theme.colors.primaryBorder};
     border-radius: 8px;
   }
 
@@ -77,7 +77,7 @@ export const StyledCards = styled.div`
     top: 0;
     width: 25px;
     height: 100%;
-    background: ${colors.menuLightColor};
+    background:  ${({ theme }) => theme.colors.menuLightColor};
     border-top-right-radius: 8px;
     border-bottom-left-radius: 8px;
 
@@ -112,7 +112,7 @@ export const StyledCards = styled.div`
   }
 
   .tab:hover {
-    background: ${colors.secundaryLightColor};
+    background: ${({ theme }) => theme.colors.menuLightColor};
   }
 
   .buttn {
@@ -124,8 +124,8 @@ export const StyledCards = styled.div`
     height: 75px;
     border-bottom-right-radius: 8px;
     border-top-left-radius: 8px;
-    background: ${colors.menuLightColor};
-    color: #fff;
+    background: ${({ theme }) => theme.colors.menuLightColor};
+    color: ${({ theme }) => theme.colors.textColor};
     cursor: pointer;
     z-index: 2;
     position: relative;
@@ -133,7 +133,7 @@ export const StyledCards = styled.div`
   }
 
   .buttn:hover {
-    background: ${colors.secundaryLightColor};
+    background: ${({ theme }) => theme.colors.secundaryLightColor};
   }
 
   img,
@@ -148,7 +148,7 @@ export const Articles = styled.section`
   max-width: 640px;
   max-height: auto;
   border-radius: 8px;
-  background: ${colors.secundaryLightColor};
+  background: ${({ theme }) => theme.colors.secundaryLightColor};
 
   h1 {
     font-size: clamp(28px, 3vw, 35px);
@@ -169,8 +169,8 @@ export const Articles = styled.section`
     width: 100%;
     height: 350px;
     overflow: hidden;
-    border-bottom: 1px solid ${colors.primaryBorder};
-    border-top: 1px solid ${colors.primaryBorder};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.primaryBorder};
+    border-top: 1px solid ${({ theme }) => theme.colors.primaryBorder};
     z-index: 1;
   }
 
@@ -178,7 +178,7 @@ export const Articles = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
-    background: ${colors.primaryColor};
+    background: ${({ theme }) => theme.colors.primaryColor};
     width: 100%;
     height: auto;
     gap: 10px;
@@ -200,7 +200,7 @@ export const Articles = styled.section`
     align-items: center;
     justify-content: center;
 
-    background: ${colors.primaryColor};
+    background: ${({ theme }) => theme.colors.primaryColor};
 
     clip-path: polygon(5% 0%, 100% 0, 100% 100%, 0% 100%);
     width: 100%;

@@ -5,7 +5,7 @@ export const HeroStyle = styled.section`
   .hero {
     display: flex;
     align-items: center;
-    color: #fff;
+    color:${({ theme }) => theme.colors.textColor};
     padding-left: 2%;
     font-family: "Poppins", sans-serif;
   }
@@ -25,10 +25,10 @@ export const HeroStyle = styled.section`
     /* gradiente */
     background: linear-gradient(
       50deg,
-      ${colors.menuLightColor},
-      ${colors.primaryGlow} 40%,
-      ${colors.primaryBorder} 70%,
-      ${colors.primaryLightColor}
+      ${({ theme }) => theme.colors.menuLightColor},
+      ${({ theme }) => theme.colors.primaryGlow} 40%,
+      ${({ theme }) => theme.colors.primaryBorder} 70%,
+      ${({ theme }) => theme.colors.primaryLightColor}
     );
 
     background-size: 300% 300%;
@@ -69,7 +69,7 @@ export const HeroStyle = styled.section`
   }
 
   .dot {
-    color: ${colors.primaryGlow};
+    color: ${({ theme }) => theme.colors.primaryGlow};
     margin-left: 4px;
   }
 
@@ -104,8 +104,8 @@ export const HeroStyle = styled.section`
   }
 
   .btn.primary {
-    background: ${colors.menuLightColor};
-    box-shadow: ${colors.menuLightColor} 0 0 3px 1px;
+    background: ${({ theme }) => theme.colors.menuLightColor};
+    box-shadow: ${({ theme }) => theme.colors.boxShadowLightColor};
     color: #fff;
     transition: 600ms;
     border-top-right-radius: 20px;
@@ -113,12 +113,12 @@ export const HeroStyle = styled.section`
   }
 
   .btn.primary:hover {
-    background: ${colors.secundaryLightColor};
-    box-shadow: ${colors.secundaryLightColor} 0 0 3px 1px;
+    background: ${({ theme }) => theme.colors.secundaryLightColor};
+    box-shadow: ${({ theme }) => theme.colors.boxShadowLightColor};
   }
 
   .btn.outline {
-    box-shadow: ${colors.menuLightColor} 0 0 3px 1px;
+    box-shadow: ${({theme}) => theme.colors.boxShadowMenuLightColor};
     color: ${colors.primaryGlow};
     background: ${colors.primaryColor};
     transition: 600ms;
