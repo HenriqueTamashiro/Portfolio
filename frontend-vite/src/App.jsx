@@ -1,6 +1,6 @@
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import { darkTheme, lightTheme } from "./styles/themes";
+import { darkTheme, lightTheme, themeTeste } from "./styles/themes";
 import "./styles/Tailwind/tailwind.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
@@ -14,7 +14,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+      <ThemeProvider theme={isDark ? themeTeste : lightTheme}>
         <Header />
         <ProgressBar />
         <AppRoutes />
