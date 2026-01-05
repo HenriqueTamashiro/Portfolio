@@ -47,27 +47,33 @@ export const Holder = styled.div`
 
   .middle-content {
     position: absolute;
+    display: flex;
     top: 0;
-    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+    justify-content: center;
     pointer-events: none;
+    z-index: -10;
   }
 
   .middle-svg {
+    width: 200px; /* ou o que fizer sentido */
     height: 100%;
   }
 
   .line {
     stroke: white;
     stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
   }
 
   .section-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-
     align-items: start;
+    position: relative; /* IMPORTANTE */
   }
 
   .Articles {
