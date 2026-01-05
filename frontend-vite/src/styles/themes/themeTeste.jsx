@@ -1,6 +1,6 @@
 import { css } from "styled-components";
 
-export const darkTheme = {
+export const themeTeste = {
   name: "dark",
 
   colors: {
