@@ -36,7 +36,7 @@ export const Posts = [
     textPreview:
       "Lorem, ipsum dolor sit amet consectetur adipisicingorem, ipsum dolor sit amet consectetur adipisicing el elit.Quaerat aliquam expedita quod, cumque unde totam aspernatur, culpa molestiae velit eveniet provident, cum sunt nobis assumenda optio rem at ex. Quasi. ",
     text: "Lorem, ipsum dolor sit amet consectetur adipisicingorem, ipsum dolor sit amet consectetur adipisicing el elit.Quaerat aliquam expedita quod, \n cumque unde totam aspernatur, culpa molestiae velit eveniet provident, cum sunt nobis assumenda optio rem at ex. Quasi.Lorem, ipsum dolor sit amet consectetur adipisicingorem, ipsum dolor sit amet consectetur adipisicing el elit.Quaerat aliquam expedita quod, \n cumque unde totam aspernatur, culpa molestiae velit eveniet provident, cum sunt nobis assumenda optio rem at ex. Quasi.Lorem, ipsum dolor sit amet consectetur adipisicingorem, ipsum dolor sit amet consectetur adipisicing el elit.Quaerat aliquam expedita quod, \n cumque unde totam aspernatur, culpa molestiae velit eveniet provident, cum sunt nobis assumenda optio rem at ex. Quasi. ",
-    tags: [expressIcon, nodeIcon, mysqlIcon],
+    tags: [expressIcon, nodeIcon],
     created_at: new Date(),
   },
   {
@@ -47,7 +47,7 @@ export const Posts = [
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit.Quaerat aliquam expedita quod, cumque unde totam aspernatur, culpa molestiae velit eveniet provident, cum sunt nobis assumenda optio rem at ex. Quasi. ",
 
     text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.QuaeratAtque nihil Lorem ipsum dolor sit amet...",
-    tags: [expressIcon, nodeIcon, mysqlIcon],
+    tags: [expressIcon],
     created_at: new Date(),
   },
   {

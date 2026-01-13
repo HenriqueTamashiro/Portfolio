@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from "react";
 
-import { Container } from "../../styles/GlobalStyled";
 import { Content } from "./styled";
 
 import TechCarousel from "../../components/Carousel/index";
@@ -10,11 +9,12 @@ import Cards from "../../components/Cards";
 import Footer from "../../components/Footer";
 
 import {
+  Container,
   SubSector,
   SectorStyled,
   HolderContent,
   Holder,
-} from "../../styles/SectorStyled";
+} from "./styled";
 
 import profilePict from "../../assets/imgs/profilePict.png";
 

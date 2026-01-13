@@ -111,7 +111,7 @@ export const StyledCards = styled.div`
   }
 
   .tab:hover {
-    background: ${({ theme }) => theme.colors.menuLightColor};
+    background: ${({ theme }) => theme.colors.secundaryLightColor};
   }
 
   .buttn {
@@ -207,6 +207,7 @@ export const Articles = styled.section`
     z-index: 1;
     gap: 10px;
   }
+
   .tagIcon {
     width: 35px;
     height: 35px;

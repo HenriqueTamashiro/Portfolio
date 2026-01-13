@@ -1,6 +1,9 @@
-import { Content, Holder } from "./styled";
+import { Content, Holder, MiddleContent, CircuitWrapper } from "./styled";
 import Footer from "../../components/Footer";
 import LoaderWrapper from "../../components/LoaderWrapper";
+import CircuitSVG from "../../components/subcomponents/CircuitSVG/CircuitV2.jsx";
+import * as Pattern from "../../components/subcomponents/CircuitSVG/Patterns/index.jsx";
+
 import { Posts } from "../../Placeholder/data.jsx";
 
 export default function Projects() {
@@ -10,42 +13,32 @@ export default function Projects() {
         <Holder>
           <div className="post-wrapper">
             <div className="section-wrapper">
-              <div className="middle-content">
-                <svg viewBox="0 0 200 2000" className="middle-svg">
-                  /* Esquerda */
-                  <path
-                    className="line"
-                    d="M 80 0 L 80 70 L 60 100 L 60 150 L 40 180 L 40 2000"
-                  />
-                  <path
-                    className="line"
-                    d="M 90 0 L 90 75 L 70 105 L 70 155 L 50 185 L 50 2000"
-                  />
-                  <path
-                    className="line"
-                    d="M 100 0 L 100 80 L 80 110 L 80 160 L 60 190 L 60 2000"
-                  />
-                  /* Direita */
-                  <path
-                    className="line"
-                    d="M 120 0 L 120 80 L 140 110 L 140 160 L 160 190 L 160 2000"
-                  />
-                  <path
-                    className="line"
-                    d="M 130 0 L 130 75 L 150 105 L 150 155 L 170 185 L 170 2000"
-                  />
-                  <path
-                    className="line"
-                    d="M 140 0 L 140 70 L 160 100 L 160 150 L 180 180 L 180 2000"
-                  />
-                </svg>
-              </div>
+              <MiddleContent>
+                <CircuitWrapper>
+                  <span className="tittle-circuit">
+                    <h1>Projetos</h1>
+                  </span>
+                  <div className="tech-wrapper">
+                    <div className="tech tech-corner-top-right"></div>
+                    <div className="tech tech-corner-bottom-right"></div>
+                    <div className="tech2 tech2-corner-bottom-left"></div>
+                    <div className="tech2 tech2-corner-top-left"></div>
+                  </div>
+                  <CircuitSVG pattern={Pattern.Circuit1} />
+                </CircuitWrapper>
+              </MiddleContent>
+
               {Posts.map((post, index) => {
                 const side = index % 2 === 0 ? "left" : "right";
 
                 return (
                   <div key={post.id ?? index} className={`Articles ${side}`}>
                     <h1>{post.title}</h1>
+                    <div className="tagContainer">
+                      {post.tags.map((tag, i) => (
+                        <img key={i} src={tag} alt="icon" className="tagIcon" />
+                      ))}
+                    </div>
                     <div className="mediaContainer">
                       {/\.(mp4|webm|ogg)$/i.test(post.img) ? (
                         <video
@@ -64,6 +57,12 @@ export default function Projects() {
                           alt={post.title}
                         />
                       )}
+                    </div>
+
+                    <div className="postedContainer">
+                      <div className="posted" alt="Data">
+                        {post.created_at?.toLocaleDateString()}
+                      </div>
                     </div>
                     <div className="text-container">
                       <p>{post.text}</p>

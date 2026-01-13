@@ -1,4 +1,4 @@
-import { styled, createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
   * {
@@ -66,88 +66,5 @@ background: radial-gradient(
     transform: translateY(0);
     pointer-events: auto;
     z-index: 0;
-  }
-`;
-
-export const Container = styled.div`
-  width: 100%;
-  padding-top: 60px;
-
-  .contentTittle {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    margin-top: 20px;
-    align-items: center;
-    justify-content: center;
-    color: ${({ theme }) => theme.colors.textColor};
-
-    text-align: center;
-    font-size: 35px;
-    font-weight: 600;
-    text-transform: uppercase;
-
-    width: 100%;
-    height: 120px;
-    max-height: 150px;
-
-    mask: linear-gradient(
-      90deg,
-      transparent,
-      white 40%,
-      white 80%,
-      transparent
-    );
-
-    &::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-
-      background: radial-gradient(
-          ${({ theme }) => theme.colors.secundaryLightColor} 1px,
-          transparent 1px
-        ),
-        radial-gradient(
-          ${({ theme }) => theme.colors.primaryLightColor} 1px,
-          transparent 1px
-        ),
-        linear-gradient(rgba(0, 0, 0, 0.014), rgba(0, 0, 0, 0.014));
-
-      background-size: 15px 15px;
-      background-repeat: repeat;
-      background-position: 5px 5px;
-      z-index: -1;
-
-      mask: linear-gradient(90deg, transparent, white 50%, transparent);
-    }
-
-    .divider {
-      position: relative;
-      height: 1px;
-      width: 10%;
-      margin: 1px 0 5px;
-
-      background-color: ${({ theme }) => theme.colors.primaryBorder};
-    }
-
-    .divider::before,
-    .divider::after {
-      position: absolute;
-      content: "";
-      height: 5px;
-      width: 5px;
-      top: -2px;
-
-      background: ${({ theme }) => theme.colors.primaryGlow};
-    }
-
-    .divider::after {
-      right: 0;
-    }
-
-    .divider::before {
-      left: 0;
-    }
   }
 `;

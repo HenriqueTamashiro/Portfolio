@@ -13,7 +13,7 @@ export default function Header() {
       <NavLink to={"/projects"} end>
         Projetos
       </NavLink>
-      <NavLink to={"/"} end>
+      <NavLink to={"/contact"} end>
         Contato
       </NavLink>
     </Nav>
