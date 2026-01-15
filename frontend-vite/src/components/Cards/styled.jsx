@@ -132,7 +132,7 @@ export const StyledCards = styled.div`
   }
 
   .buttn:hover {
-    background: ${({ theme }) => theme.colors.secundaryLightColor};
+    background: ${({ theme }) => theme.colors.menuLightColorOpt};
   }
 
   img,
