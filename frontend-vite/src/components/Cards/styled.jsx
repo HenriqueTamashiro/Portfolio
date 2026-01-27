@@ -5,6 +5,7 @@ export const StyledCards = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
+  position: relative;
 
   /*Dimensionadores */
   width: auto;
@@ -34,6 +35,7 @@ export const StyledCards = styled.div`
     & {
       grid-template-columns: 1fr;
       grid-template-rows: 1fr;
+      grid-auto-rows: auto;
     }
   }
 

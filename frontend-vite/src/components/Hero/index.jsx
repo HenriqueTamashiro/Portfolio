@@ -1,7 +1,11 @@
 import { NavLink } from "react-router-dom";
 import { HeroStyle } from "./styled";
+import { useEffect } from "react";
 
-export default function Hero() {
+export default function Hero({ onReady }) {
+  useEffect(() => {
+    onReady?.();
+  }, []);
   return (
     <HeroStyle>
       <section className="hero">
@@ -22,7 +26,7 @@ export default function Hero() {
           </div>
 
           <div className="buttons">
-            <NavLink to={"/about"} className="btn primary">
+            <NavLink to={"/contact"} className="btn primary">
               Precisa de um projeto?
             </NavLink>
 

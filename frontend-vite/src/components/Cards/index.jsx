@@ -1,18 +1,29 @@
 import { StyledCards, Articles } from "./styled";
 import { Posts } from "../../Placeholder/data.jsx";
 
-import SvgArticle from "../../assets/imgs/corner.svg?react";
+export default function Cards({
+  setContent,
+  setFocus,
+  setCardid,
+  cardRef,
+  onLoad,
+}) {
+  const sortedPosts = [...Posts].sort((a, b) => {
+    return new Date(b.created_at) - new Date(a.created_at);
+  });
 
-export default function Cards({ setContent, setFocus, setCardid, cardRef }) {
+  const slicedPosts = sortedPosts.slice(0, 3);
+
   function handleClick(id) {
     const posts = Posts.find((post) => post.id === id);
     setContent(posts);
     setFocus(true);
     setCardid(id);
   }
+
   return (
     <StyledCards>
-      {Posts.map((post) => (
+      {slicedPosts.map((post) => (
         <Articles
           key={post.id}
           ref={(domElement) => (cardRef.current[post.id] = domElement)}
@@ -38,6 +49,7 @@ export default function Cards({ setContent, setFocus, setCardid, cardRef }) {
                   playsInline
                   disablePictureInPicture
                   onClick={() => handleClick(post.id)}
+                  onLoadedData={onLoad}
                 ></video>
               ) : (
                 <img
@@ -45,6 +57,7 @@ export default function Cards({ setContent, setFocus, setCardid, cardRef }) {
                   src={post.img}
                   alt={post.title}
                   onClick={() => handleClick(post.id)}
+                  onLoad={onLoad}
                 />
               )}
             </div>

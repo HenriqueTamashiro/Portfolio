@@ -5,6 +5,8 @@ import Projects from "../pages/Projects";
 import Contact from "../pages/Contact";
 import PageWrapper from "../components/LoaderWrapper";
 
+import AppLayout from "../Layout/Loading/index";
+
 export default function AppRoutes() {
   return (
     <Routes>
@@ -12,14 +14,29 @@ export default function AppRoutes() {
       <Route
         path="/"
         element={
-          <PageWrapper>
-            <Home />
-          </PageWrapper>
+          <AppLayout>{(progress) => <Home progress={progress} />}</AppLayout>
         }
       />
-      <Route path="/about" element={<About />} />
-      <Route path="/projects" element={<Projects />} />
-      <Route path="/contact" element={<Contact />} />
+      <Route
+        path="/about"
+        element={
+          <AppLayout>{(progress) => <About progress={progress} />}</AppLayout>
+        }
+      />
+      <Route
+        path="/projects"
+        element={
+          <AppLayout>
+            {(progress) => <Projects progress={progress} />}
+          </AppLayout>
+        }
+      />
+      <Route
+        path="/contact"
+        element={
+          <AppLayout>{(progress) => <Contact progress={progress} />}</AppLayout>
+        }
+      />
     </Routes>
   );
 }

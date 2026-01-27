@@ -1,7 +1,7 @@
 import { WindowLayout } from "./styled";
 import { Posts } from "../../Placeholder/data2.jsx";
 
-export default function Window({ img }) {
+export default function Window({ img, progress }) {
   return (
     <WindowLayout>
       <article className="post-about">
@@ -32,7 +32,12 @@ export default function Window({ img }) {
         </div>
         <div className="img-holder">
           <span className="bgPicture">
-            <img src={img} alt="IMAGEM" />
+            <img
+              src={img}
+              alt="IMAGEM"
+              onLoad={progress.finish}
+              onError={progress.finish}
+            />
           </span>
         </div>
       </article>

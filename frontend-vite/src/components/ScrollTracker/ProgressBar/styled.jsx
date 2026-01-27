@@ -27,6 +27,6 @@ export const StyledBar = styled.div`
 
   .progress-svg {
     width: 100%;
-    height: 25px;
+    height: 26px;
   }
 `;

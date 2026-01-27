@@ -16,7 +16,7 @@ export const Posts = [
       "Feito em React com Redux, Axios e Iodash no Frontend, consumindo uma apiREST no backend feita com Express.js, Multer, Sucrase e Sequelize. ",
     text: "Lorem, ipsum dolor sit amet consectetur adipisicingorem, ipsum dolor sit amet consectetur adipisicing el elit.Quaerat aliquam expedita quod, \n cumque unde totam aspernatur, culpa molestiae velit eveniet provident, cum sunt nobis assumenda optio rem at ex. Quasi.Lorem, ipsum dolor sit amet consectetur adipisicingorem, ipsum dolor sit amet consectetur adipisicing el elit.Quaerat aliquam expedita quod, \n cumque unde totam aspernatur, culpa molestiae velit eveniet provident, cum sunt nobis assumenda optio rem at ex. Quasi.Lorem, ipsum dolor sit amet consectetur adipisicingorem, ipsum dolor sit amet consectetur adipisicing el elit.Quaerat aliquam expedita quod, \n cumque unde totam aspernatur, culpa molestiae velit eveniet provident, cum sunt nobis assumenda optio rem at ex. Quasi.Lorem, ipsum dolor sit amet consectetur adipisicingorem, ipsum dolor sit amet consectetur adipisicing el elit.Quaerat aliquam expedita quod, \n cumque unde totam aspernatur, culpa molestiae velit eveniet provident, cum sunt nobis assumenda optio rem at ex. Quasi.Lorem, ipsum dolor sit amet consectetur adipisicingorem, ipsum dolor sit amet consectetur adipisicing el elit.Quaerat aliquam expedita quod, \n cumque unde totam aspernatur, culpa molestiae velit eveniet provident, cum sunt nobis assumenda optio rem at ex. Quasi.Lorem, ipsum dolor sit amet consectetur adipisicingorem, ipsum dolor sit amet consectetur adipisicing el elit.Quaerat aliquam expedita quod, \n cumque unde totam aspernatur, culpa molestiae velit eveniet provident, cum sunt nobis assumenda optio rem at ex. Quasi.Lorem, ipsum dolor sit amet consectetur adipisicing elit.Quaerat aliquam expedita quod, cumque unde totam aspernatur, culpa molestiae velit eveniet provident, cum sunt nobis assumenda optio rem at ex. Quasi. ",
     tags: [expressIcon, nodeIcon, mysqlIcon],
-    created_at: new Date(),
+    created_at: new Date("11/11/2025"),
   },
   {
     id: 2,
@@ -48,7 +48,7 @@ export const Posts = [
 
     text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.QuaeratAtque nihil Lorem ipsum dolor sit amet...",
     tags: [expressIcon],
-    created_at: new Date(),
+    created_at: new Date("11/11/2025"),
   },
   {
     id: 5,
@@ -59,7 +59,7 @@ export const Posts = [
 
     text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.QuaeratLorem, ipsum dolor sit amet consectetur adipisicing elit.QuaeratAtque nihil Lorem ipsum dolor sit amet...",
     tags: [expressIcon, nodeIcon, mysqlIcon],
-    created_at: new Date(),
+    created_at: new Date("11/11/2025"),
   },
   {
     id: 6,
@@ -70,6 +70,6 @@ export const Posts = [
 
     text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.QuaeratLorem, ipsum dolor sit amet consectetur adipisicing elit.QuaeratAtque nihil Lorem ipsum dolor sit amet...",
     tags: [expressIcon, nodeIcon, mysqlIcon],
-    created_at: new Date(),
+    created_at: new Date("11/11/2025"),
   },
 ];

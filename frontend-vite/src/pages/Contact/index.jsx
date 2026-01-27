@@ -3,22 +3,22 @@ import LoaderWrapper from "../../components/LoaderWrapper/";
 import ContactForm from "../../components/Forms/Contact/index.jsx";
 import Footer from "../../components/Footer/index";
 
-export default function Contact() {
+export default function Contact({ progress }) {
   return (
     <LoaderWrapper>
       <Container>
         <div className="icons-contact ">
           <div className="icon">
-            <i class="bi bi-telephone-fill"></i>
+            <i className="bi bi-telephone-fill"></i>
           </div>
 
           <div className="text-box">
             <h1>Telefone</h1>
-            <p>(11)98485-4733</p>
+            <p>(11) 98485-4733</p>
           </div>
 
           <div className="icon">
-            <i class="bi bi-envelope-at-fill"></i>
+            <i className="bi bi-envelope-at-fill"></i>
           </div>
 
           <div className="text-box">
@@ -28,7 +28,7 @@ export default function Contact() {
         </div>
         <div className="gap-contact"></div>
         <div className="form-contact">
-          <ContactForm />
+          <ContactForm progress={progress} />
         </div>
       </Container>
       <Footer />

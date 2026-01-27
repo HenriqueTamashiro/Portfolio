@@ -29,6 +29,15 @@ export const StyledFooter = styled.div`
     background: url(${bgImg}) no-repeat center/cover;
   }
 
+  a {
+    color: white;
+    transition: 400ms;
+  }
+  a:hover {
+    color: #ffffffa9;
+    transition: 400ms;
+  }
+
   .footerContainer {
     display: grid;
     grid-template-columns: 1fr;

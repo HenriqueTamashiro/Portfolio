@@ -29,6 +29,8 @@ export const themeTeste = {
     inputBackground: "#071635",
 
     textColor: "#fff",
+    testColor: "#a200ff",
+    // #00c77b, #a200ff, #00beb5
 
     gradients: {
       primary: css`

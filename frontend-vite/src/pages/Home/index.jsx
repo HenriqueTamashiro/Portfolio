@@ -2,11 +2,12 @@ import { useState, useRef, useEffect } from "react";
 
 import { Content } from "./styled";
 
-import TechCarousel from "../../components/Carousel/index";
-import Hero from "../../components/Hero/index";
-import FocusWindow from "../../components/FocusWindow/index";
+import TechCarousel from "../../components/Carousel";
+import Hero from "../../components/Hero";
+import FocusWindow from "../../components/FocusWindow";
 import Cards from "../../components/Cards";
 import Footer from "../../components/Footer";
+import LoaderWrapper from "../../components/LoaderWrapper/";
 
 import {
   Container,
@@ -18,102 +19,123 @@ import {
 
 import profilePict from "../../assets/imgs/profilePict.png";
 
-export default function Home() {
+export default function Home({ progress }) {
   const [focus, setFocus] = useState(false);
   const [content, setContent] = useState(null);
   const [cardId, setCardid] = useState(null);
   const cardRef = useRef({});
 
+  const loadedCount = useRef(0);
+  const TOTAL_ASSETS = 5;
+
+  const handleAssetLoad = () => {
+    loadedCount.current += 1;
+
+    if (loadedCount.current === TOTAL_ASSETS) {
+      progress.done();
+    }
+  };
+
+  useEffect(() => {
+    loadedCount.current = 0;
+
+    progress.start();
+    progress.register();
+  }, [progress]);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (eventScroll) => {
-        eventScroll.forEach((scrolled) => {
-          if (scrolled.isIntersecting) {
-            scrolled.target.classList.add("showSection");
-            scrolled.target.classList.remove("hiddenSection");
-
-            observer.unobserve(scrolled.target);
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("showSection");
+            entry.target.classList.remove("hiddenSection");
+            observer.unobserve(entry.target);
           }
         });
       },
-
       {
-        threshold: 0.15, // 15% visível => ativa
+        threshold: 0.15,
         rootMargin: "0px 0px -10% 0px",
-      }
+      },
     );
 
     const sections = document.querySelectorAll("section");
     sections.forEach((sec, index) => {
       sec.classList.add("baseSection");
-
-      if (index !== 0) {
-        sec.classList.add("hiddenSection");
-      }
-
+      if (index !== 0) sec.classList.add("hiddenSection");
       observer.observe(sec);
     });
+
     return () => observer.disconnect();
   }, []);
 
   return (
-    <Container>
-      <FocusWindow
-        onOff={focus}
-        post={content}
-        onClose={() => {
-          setFocus(false);
-          const element = cardRef.current[cardId];
-          element.scrollIntoView({
-            behavior: "smooth",
-            block: "center",
-          });
-        }}
-      />
-      <section className="baseSection">
-        {/* Hero */}
+    <LoaderWrapper>
+      <Container className={progress.status === "Success" ? "show" : "hide"}>
+        <FocusWindow
+          onOff={focus}
+          post={content}
+          onClose={() => {
+            setFocus(false);
+            cardRef.current[cardId]?.scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+            });
+          }}
+        />
 
-        <Holder>
-          <HolderContent>
-            <Hero />
-          </HolderContent>
-          <HolderContent>
-            <div className="divPicture">
-              <span className="lessBgPict" />
-              <img src={profilePict} className="w-80 h-80px profilePicture" />
-              <span className="greaterBgPict" />
-            </div>
-          </HolderContent>
+        {/* HERO */}
+        <section className="hiddenSection" onReady={handleAssetLoad}>
+          <Holder>
+            <HolderContent>
+              <Hero />
+            </HolderContent>
 
-          {/* Carousel */}
-          <SectorStyled>
-            <SubSector>
-              <TechCarousel />
-            </SubSector>
-          </SectorStyled>
-        </Holder>
-      </section>
+            <HolderContent onReady={handleAssetLoad}>
+              <div className="divPicture">
+                <span className="lessBgPict" />
+                <img
+                  src={profilePict}
+                  className="w-80 h-80px profilePicture"
+                  onLoad={handleAssetLoad}
+                />
+                <span className="greaterBgPict" />
+              </div>
+            </HolderContent>
 
-      {/* Conteúdo */}
-      <section className="hiddenSection">
-        <div className="contentTittle">
-          Projetos
-          <div className="divider" />
-        </div>
-        <Content>
-          <Cards
-            setContent={setContent}
-            setFocus={setFocus}
-            setCardid={setCardid}
-            cardRef={cardRef}
-          />
-        </Content>
-      </section>
+            <SectorStyled>
+              <SubSector>
+                <TechCarousel />
+              </SubSector>
+            </SectorStyled>
+          </Holder>
+        </section>
 
-      {/* Footer */}
-      <section className="hiddenSection">
-        <Footer />
-      </section>
-    </Container>
+        {/* PROJETOS */}
+        <section className="hiddenSection">
+          <div className="contentTittle">
+            Projetos
+            <div className="divider" />
+            <h5>Recentes</h5>
+          </div>
+
+          <Content>
+            <Cards
+              setContent={setContent}
+              setFocus={setFocus}
+              setCardid={setCardid}
+              cardRef={cardRef}
+              onLoad={progress.done}
+            />
+          </Content>
+        </section>
+
+        {/* FOOTER */}
+        <section className="hiddenSection">
+          <Footer onReady={handleAssetLoad} />
+        </section>
+      </Container>
+    </LoaderWrapper>
   );
 }

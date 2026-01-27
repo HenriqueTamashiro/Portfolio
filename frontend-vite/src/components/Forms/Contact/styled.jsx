@@ -15,7 +15,12 @@ export const WindowLayout = styled.div`
     border-radius: 6px;
     width: 100%;
     height: 100%;
-    padding: 5px;
+    padding: 8px;
+    padding-left: 1.2rem;
+  }
+
+  input:focus {
+    border: 1px solid ${({ theme }) => theme.colors.primaryGlow};
   }
 
   form {
@@ -41,7 +46,9 @@ export const WindowLayout = styled.div`
     border-top-left-radius: 6px;
     border-bottom-right-radius: 6px;
     font-weight: 550;
+    font-size: 18px;
     background: ${({ theme }) => theme.colors.menuLightColor};
+    transition: 400ms;
   }
 
   button:hover {
@@ -67,6 +74,11 @@ export const WindowLayout = styled.div`
     padding: 5px;
     resize: none;
     overflow-y: scroll;
+    padding-left: 1.2rem;
+  }
+
+  .input-message:focus {
+    border: 1px solid ${({ theme }) => theme.colors.primaryGlow};
   }
 
   .form-wrapper {
