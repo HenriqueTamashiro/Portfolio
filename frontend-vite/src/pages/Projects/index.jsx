@@ -5,13 +5,18 @@ import CircuitSVG from "../../components/subcomponents/CircuitSVG/CircuitV2.jsx"
 import * as Pattern from "../../components/subcomponents/CircuitSVG/Patterns/index.jsx";
 
 import { Posts } from "../../Placeholder/data.jsx";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import useLoader from "../../layout/loading/LoadingContext.jsx";
 
-export default function Projects({ progress }) {
+export default function Projects() {
+  const registeredRef = useRef(false);
+  const progress = useLoader();
+
   useEffect(() => {
-    progress.setProgress(0);
-    progress.start();
-    progress.register();
+    if (registeredRef.current) return;
+    registeredRef.current = true;
+
+    progress.register(Posts.length, "Projects.media");
   }, []);
 
   return (
@@ -25,7 +30,7 @@ export default function Projects({ progress }) {
                   <span className="tittle-circuit">
                     <h1>Projetos</h1>
                   </span>
-                  <div className="tech-wrapper" onReady={progress.done}>
+                  <div className="tech-wrapper">
                     <div className="tech tech-corner-top-right"></div>
                     <div className="tech tech-corner-bottom-right"></div>
                     <div className="tech2 tech2-corner-bottom-left"></div>
@@ -56,14 +61,16 @@ export default function Projects({ progress }) {
                           muted
                           playsInline
                           disablePictureInPicture
-                          onLoadedData={progress.done}
+                          onCanPlayThrough={progress.done}
+                          onError={progress.done}
                         />
                       ) : (
                         <img
                           className="imageContainer"
                           src={post.img}
                           alt={post.title}
-                          onLoadedData={progress.done}
+                          onLoad={() => progress.done(`img:${post.id}`)}
+                          onError={() => progress.done(`img-error:${post.id}`)}
                         />
                       )}
                     </div>

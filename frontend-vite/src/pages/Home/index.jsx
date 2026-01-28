@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 
 import { Content } from "./styled";
 
@@ -7,7 +7,7 @@ import Hero from "../../components/Hero";
 import FocusWindow from "../../components/FocusWindow";
 import Cards from "../../components/Cards";
 import Footer from "../../components/Footer";
-import LoaderWrapper from "../../components/LoaderWrapper/";
+import LoaderWrapper from "../../components/LoaderWrapper";
 
 import {
   Container,
@@ -18,29 +18,18 @@ import {
 } from "./styled";
 
 import profilePict from "../../assets/imgs/profilePict.png";
+import LoadingContext from "../../layout/Loading/LoadingContext";
 
-export default function Home({ progress }) {
+export default function Home() {
   const [focus, setFocus] = useState(false);
   const [content, setContent] = useState(null);
   const [cardId, setCardid] = useState(null);
   const cardRef = useRef({});
 
-  const loadedCount = useRef(0);
-  const TOTAL_ASSETS = 5;
-
-  const handleAssetLoad = () => {
-    loadedCount.current += 1;
-
-    if (loadedCount.current === TOTAL_ASSETS) {
-      progress.done();
-    }
-  };
+  const progress = useContext(LoadingContext);
 
   useEffect(() => {
-    loadedCount.current = 0;
-
-    progress.start();
-    progress.register();
+    progress.register(3);
   }, [progress]);
 
   useEffect(() => {
@@ -72,7 +61,7 @@ export default function Home({ progress }) {
 
   return (
     <LoaderWrapper>
-      <Container className={progress.status === "Success" ? "show" : "hide"}>
+      <Container className="show">
         <FocusWindow
           onOff={focus}
           post={content}
@@ -86,20 +75,16 @@ export default function Home({ progress }) {
         />
 
         {/* HERO */}
-        <section className="hiddenSection" onReady={handleAssetLoad}>
+        <section className="hiddenSection">
           <Holder>
             <HolderContent>
               <Hero />
             </HolderContent>
 
-            <HolderContent onReady={handleAssetLoad}>
+            <HolderContent>
               <div className="divPicture">
                 <span className="lessBgPict" />
-                <img
-                  src={profilePict}
-                  className="w-80 h-80px profilePicture"
-                  onLoad={handleAssetLoad}
-                />
+                <img src={profilePict} className="w-80 h-80px profilePicture" />
                 <span className="greaterBgPict" />
               </div>
             </HolderContent>
@@ -133,7 +118,7 @@ export default function Home({ progress }) {
 
         {/* FOOTER */}
         <section className="hiddenSection">
-          <Footer onReady={handleAssetLoad} />
+          <Footer />
         </section>
       </Container>
     </LoaderWrapper>

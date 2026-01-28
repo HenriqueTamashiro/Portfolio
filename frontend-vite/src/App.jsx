@@ -9,17 +9,23 @@ import AppRoutes from "./routes";
 import ProgressBar from "./components/ScrollTracker/ProgressBar";
 import GlobalStyled from "./styles/GlobalStyled";
 import Header from "./components/Header";
-import useLoading from "./Hooks/useLoading";
+import { ProgressProvider } from "./layout/Loading/ProgressContext";
 
 function App() {
   const isDark = true;
-  const loading = useLoading();
+
   return (
     <BrowserRouter>
       <ThemeProvider theme={isDark ? themeTeste : lightTheme}>
+        {/* Scroll progress — independente */}
         <ProgressBar />
-        <Header progress={loading} />
-        <AppRoutes />
+
+        {/* Loading de navegação */}
+        <ProgressProvider>
+          <Header />
+          <AppRoutes />
+        </ProgressProvider>
+
         <GlobalStyled />
       </ThemeProvider>
     </BrowserRouter>

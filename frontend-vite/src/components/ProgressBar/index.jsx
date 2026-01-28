@@ -2,31 +2,25 @@ import { useEffect, useState } from "react";
 import { WindowLayout } from "./styled";
 
 export default function ProgressBar({ progress, status }) {
-  const [active, setActive] = useState(null);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     if (status === "Success") {
-      const timeout = setTimeout(() => setActive(false), 400);
+      const timeout = setTimeout(() => setVisible(false), 400);
       return () => clearTimeout(timeout);
     } else {
-      setActive(true);
+      setVisible(true);
     }
   }, [status]);
 
-  if (!active) return null;
+  if (!visible) return null;
+
   return (
-    <WindowLayout className={status === "Success" ? "hide" : "show"}>
-      {status === "error" && <p>Erro ao carregar</p>}
-
-      <div className="progress-bckgr">
-        <div
-          className="progress-bar"
-          style={{
-            width: `${progress}%`,
-
-            transition: "width 0.4s linear",
-          }}
-        />
+    <WindowLayout>
+      <div className={`bar-wrapper ${status === "Success" ? "hide" : "show"}`}>
+        <div className="progress-bckgr">
+          <div className="progress-bar" style={{ width: `${progress}%` }} />
+        </div>
       </div>
     </WindowLayout>
   );

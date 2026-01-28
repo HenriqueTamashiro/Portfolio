@@ -1,21 +1,21 @@
 import { useEffect } from "react";
+import { useLocation, Outlet } from "react-router-dom";
 import ProgressBar from "../../components/ProgressBar";
 import useLoading from "../../hooks/useLoading";
+import LoadingContext from "./LoadingContext";
 
-export default function Loading({ children }) {
-  //children é uma func passada como parâmetro
-  // e dentro dela juntamente do componente com outro parâmetro nele.
-  const loading = useLoading();
+export default function AppLayout() {
+  const loading = useLoading({ debug: true });
+  const location = useLocation();
 
   useEffect(() => {
     loading.start();
-  }, []);
+  }, [location.pathname]);
 
   return (
-    <>
+    <LoadingContext.Provider value={loading}>
       <ProgressBar progress={loading.progress} status={loading.status} />
-
-      {children(loading)}
-    </>
+      <Outlet />
+    </LoadingContext.Provider>
   );
 }

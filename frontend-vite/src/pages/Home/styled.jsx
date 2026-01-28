@@ -228,15 +228,5 @@ export const Container = styled.div`
     .divider::before {
       left: 0;
     }
-
-    .hide {
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .show {
-      opacity: 1;
-      transition: opacity 0.4s ease;
-    }
   }
 `;
