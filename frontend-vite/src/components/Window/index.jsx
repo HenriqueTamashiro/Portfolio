@@ -4,8 +4,7 @@ import { useEffect } from "react";
 
 export default function Window({ img, progress }) {
   useEffect(() => {
-    progress.register("post-about-render");
-    progress.register("post-about-image");
+    progress.register("post-about-render", "post-about-image");
 
     requestAnimationFrame(() => {
       progress.done("post-about-render");

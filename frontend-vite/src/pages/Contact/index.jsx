@@ -1,20 +1,23 @@
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import LoadingContext from "../../layout/Loading/LoadingContext";
 import LoaderWrapper from "../../components/LoaderWrapper";
 import ContactForm from "../../components/Forms/Contact";
 import Footer from "../../components/Footer";
 import { Container } from "./styled";
 
-export default function Contact() {
-  const loading = useContext(LoadingContext);
+export default function Contact({ progress }) {
   useEffect(() => {
-    loading.register(2, "Contact sections");
-    loading.done();
-  }, [loading]);
+    progress.start();
+    return () => progress.reset();
+  }, []);
+
+  useEffect(() => {
+    progress.register("", "");
+  }, []);
 
   return (
     <LoaderWrapper>
-      <div className={loading.status === "Success" ? "show" : "hide"}>
+      <div className={progress.status === "Success" ? "show" : "hide"}>
         <Container>
           <div className="icons-contact ">
             <div className="icon">
@@ -34,7 +37,11 @@ export default function Contact() {
           </div>
           <div className="gap-contact"></div>
           <div className="form-contact">
-            <ContactForm progress={loading} />
+            <ContactForm
+              progress={() => {
+                progress.done("");
+              }}
+            />
           </div>
         </Container>
       </div>
