@@ -1,12 +1,13 @@
 import { StyledCards, Articles } from "./styled";
 import { Posts } from "../../Placeholder/data.jsx";
+import { useEffect } from "react";
 
 export default function Cards({
   setContent,
   setFocus,
   setCardid,
   cardRef,
-  onLoad,
+  progress,
 }) {
   const sortedPosts = [...Posts].sort((a, b) => {
     return new Date(b.created_at) - new Date(a.created_at);
@@ -20,6 +21,19 @@ export default function Cards({
     setFocus(true);
     setCardid(id);
   }
+
+  useEffect(() => {
+    progress.start();
+    return () => {
+      progress.reset();
+    };
+  }, []);
+
+  useEffect(() => {
+    slicedPosts.forEach((post) => {
+      progress.register(`media-${post.id}`);
+    });
+  }, []);
 
   return (
     <StyledCards>
@@ -49,7 +63,8 @@ export default function Cards({
                   playsInline
                   disablePictureInPicture
                   onClick={() => handleClick(post.id)}
-                  onLoadedData={onLoad}
+                  onCanPlayThrough={() => progress.done(`media-${post.id}`)}
+                  onError={() => progress.done(`media-${post.id}`)}
                 ></video>
               ) : (
                 <img
@@ -57,7 +72,8 @@ export default function Cards({
                   src={post.img}
                   alt={post.title}
                   onClick={() => handleClick(post.id)}
-                  onLoad={onLoad}
+                  onLoad={() => progress.done(`media-${post.id}`)}
+                  onError={() => progress.done(`media-${post.id}`)}
                 />
               )}
             </div>

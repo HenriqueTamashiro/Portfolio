@@ -4,13 +4,8 @@ import Window from "../../components/Window/index";
 
 import profilePict from "../../assets/imgs/profilePict.png";
 import Footer from "../../components/Footer";
-import { useEffect } from "react";
 
 export default function About({ progress }) {
-  useEffect(() => {
-    progress.finish();
-  }, [progress]);
-
   return (
     <LoaderWrapper>
       <Content>

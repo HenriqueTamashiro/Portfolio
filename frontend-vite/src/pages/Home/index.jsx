@@ -7,7 +7,7 @@ import Hero from "../../components/Hero";
 import FocusWindow from "../../components/FocusWindow";
 import Cards from "../../components/Cards";
 import Footer from "../../components/Footer";
-import LoaderWrapper from "../../components/LoaderWrapper/";
+import LoaderWrapper from "../../components/LoaderWrapper/index";
 
 import {
   Container,
@@ -24,24 +24,6 @@ export default function Home({ progress }) {
   const [content, setContent] = useState(null);
   const [cardId, setCardid] = useState(null);
   const cardRef = useRef({});
-
-  const loadedCount = useRef(0);
-  const TOTAL_ASSETS = 5;
-
-  const handleAssetLoad = () => {
-    loadedCount.current += 1;
-
-    if (loadedCount.current === TOTAL_ASSETS) {
-      progress.done();
-    }
-  };
-
-  useEffect(() => {
-    loadedCount.current = 0;
-
-    progress.start();
-    progress.register();
-  }, [progress]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -70,9 +52,18 @@ export default function Home({ progress }) {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    progress.start();
+    return () => progress.reset();
+  }, []);
+
+  useEffect(() => {
+    progress.register("picHome-profile");
+  }, []);
+
   return (
     <LoaderWrapper>
-      <Container className={progress.status === "Success" ? "show" : "hide"}>
+      <Container>
         <FocusWindow
           onOff={focus}
           post={content}
@@ -86,19 +77,20 @@ export default function Home({ progress }) {
         />
 
         {/* HERO */}
-        <section className="hiddenSection" onReady={handleAssetLoad}>
+        <section className="hiddenSection">
           <Holder>
             <HolderContent>
               <Hero />
             </HolderContent>
 
-            <HolderContent onReady={handleAssetLoad}>
-              <div className="divPicture">
+            <HolderContent>
+              <div className="divPicture" id="profile">
                 <span className="lessBgPict" />
                 <img
                   src={profilePict}
                   className="w-80 h-80px profilePicture"
-                  onLoad={handleAssetLoad}
+                  onLoad={() => progress.done(`picHome-profile`)}
+                  onError={() => progress.done("picHome-profile")}
                 />
                 <span className="greaterBgPict" />
               </div>
@@ -126,14 +118,14 @@ export default function Home({ progress }) {
               setFocus={setFocus}
               setCardid={setCardid}
               cardRef={cardRef}
-              onLoad={progress.done}
+              progress={progress}
             />
           </Content>
         </section>
 
         {/* FOOTER */}
         <section className="hiddenSection">
-          <Footer onReady={handleAssetLoad} />
+          <Footer />
         </section>
       </Container>
     </LoaderWrapper>

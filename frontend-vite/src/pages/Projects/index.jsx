@@ -9,9 +9,15 @@ import { useEffect } from "react";
 
 export default function Projects({ progress }) {
   useEffect(() => {
-    progress.setProgress(0);
     progress.start();
-    progress.register();
+
+    return () => progress.reset();
+  }, []);
+
+  useEffect(() => {
+    Posts.forEach((post) => {
+      progress.register(`post-media-${post.id}`);
+    });
   }, []);
 
   return (
@@ -25,7 +31,7 @@ export default function Projects({ progress }) {
                   <span className="tittle-circuit">
                     <h1>Projetos</h1>
                   </span>
-                  <div className="tech-wrapper" onReady={progress.done}>
+                  <div className="tech-wrapper">
                     <div className="tech tech-corner-top-right"></div>
                     <div className="tech tech-corner-bottom-right"></div>
                     <div className="tech2 tech2-corner-bottom-left"></div>
@@ -56,14 +62,18 @@ export default function Projects({ progress }) {
                           muted
                           playsInline
                           disablePictureInPicture
-                          onLoadedData={progress.done}
+                          onCanPlayThrough={() =>
+                            progress.done(`post-media-${post.id}`)
+                          }
+                          onError={() => progress.done(`post-media-${post.id}`)}
                         />
                       ) : (
                         <img
                           className="imageContainer"
                           src={post.img}
                           alt={post.title}
-                          onLoadedData={progress.done}
+                          onLoad={() => progress.done(`post-media-${post.id}`)}
+                          onError={() => progress.done(`post-media-${post.id}`)}
                         />
                       )}
                     </div>

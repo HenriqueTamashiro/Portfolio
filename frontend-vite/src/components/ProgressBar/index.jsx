@@ -17,7 +17,7 @@ export default function ProgressBar({ progress, status }) {
   return (
     <WindowLayout className={status === "Success" ? "hide" : "show"}>
       {status === "error" && <p>Erro ao carregar</p>}
-
+      <h2>{progress}</h2>
       <div className="progress-bckgr">
         <div
           className="progress-bar"

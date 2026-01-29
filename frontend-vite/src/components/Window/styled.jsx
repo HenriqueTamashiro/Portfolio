@@ -13,6 +13,9 @@ export const WindowLayout = styled.div`
   .post-about {
     display: grid;
     background: ${({ theme }) => theme.colors.windowBackground};
+    transition:
+      opacity 0.4s ease,
+      transform 0.4s ease;
 
     .corner {
       position: absolute;

@@ -1,7 +1,16 @@
 import { WindowLayout } from "./styled";
 import { Posts } from "../../Placeholder/data2.jsx";
+import { useEffect } from "react";
 
 export default function Window({ img, progress }) {
+  useEffect(() => {
+    progress.register("post-about-render");
+    progress.register("post-about-image");
+
+    requestAnimationFrame(() => {
+      progress.done("post-about-render");
+    });
+  }, []);
   return (
     <WindowLayout>
       <article className="post-about">
@@ -35,8 +44,8 @@ export default function Window({ img, progress }) {
             <img
               src={img}
               alt="IMAGEM"
-              onLoad={progress.finish}
-              onError={progress.finish}
+              onLoad={() => progress.done("post-about-image")}
+              onError={() => progress.done("post-about-image")}
             />
           </span>
         </div>

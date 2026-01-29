@@ -5,7 +5,7 @@ import Projects from "../pages/Projects";
 import Contact from "../pages/Contact";
 import PageWrapper from "../components/LoaderWrapper";
 
-import AppLayout from "../Layout/Loading/index";
+import AppLayout from "../layout/Loading/index";
 
 export default function AppRoutes() {
   return (
