@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import LoadingContext from "../../layout/Loading/LoadingContext";
 import LoaderWrapper from "../../components/LoaderWrapper";
 import ContactForm from "../../components/Forms/Contact";
 import Footer from "../../components/Footer";
