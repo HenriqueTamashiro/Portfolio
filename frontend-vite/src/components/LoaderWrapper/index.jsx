@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function PageWrapper({ children }) {
+export default function PageWrapper({ children, progress }) {
   const [load, setLoad] = useState(false);
 
   useEffect(() => {
@@ -9,5 +9,9 @@ export default function PageWrapper({ children }) {
     }, 300);
     return () => clearTimeout(timeOut);
   }, []);
-  return <div className={load ? "page-active" : "page"}>{children}</div>;
+  return (
+    <div className={progress.status === "Success" ? "show" : "hide"}>
+      {children}
+    </div>
+  );
 }

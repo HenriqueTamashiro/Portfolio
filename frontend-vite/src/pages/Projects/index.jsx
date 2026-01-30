@@ -5,9 +5,11 @@ import CircuitSVG from "../../components/subcomponents/CircuitSVG/CircuitV2.jsx"
 import * as Pattern from "../../components/subcomponents/CircuitSVG/Patterns/index.jsx";
 
 import { Posts } from "../../Placeholder/data.jsx";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Projects({ progress }) {
+  const [visibility, setVisibility] = useState(false);
+
   useEffect(() => {
     progress.start();
 
@@ -20,9 +22,28 @@ export default function Projects({ progress }) {
     });
   }, []);
 
+  useEffect(() => {
+    if (progress.status === "Success") {
+      setVisibility(true);
+    } else {
+      setVisibility(false);
+    }
+
+    if (progress.status !== "Success") {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      // garante limpeza ao sair da página
+      document.body.style.overflow = "auto";
+    };
+  }, [progress.status]);
+
   return (
-    <LoaderWrapper>
-      <Content>
+    <LoaderWrapper progress={progress}>
+      <Content className={visibility ? "show" : "hide"}>
         <Holder>
           <div className="post-wrapper">
             <div className="section-wrapper">

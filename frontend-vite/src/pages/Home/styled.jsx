@@ -150,6 +150,7 @@ export const SubSector = styled.span`
 export const Container = styled.div`
   width: 100%;
   padding-top: 60px;
+  transition: opacity 0.4s ease;
 
   .contentTittle {
     display: flex;

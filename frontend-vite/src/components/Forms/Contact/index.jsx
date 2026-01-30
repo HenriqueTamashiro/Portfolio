@@ -1,10 +1,6 @@
-import { useEffect } from "react";
 import { WindowLayout } from "./styled";
 
-export default function ContactForm({ progress }) {
-  useEffect(() => {
-    progress.finish();
-  }, [progress]);
+export default function ContactForm() {
   return (
     <WindowLayout>
       <form method="POST" action={""}>

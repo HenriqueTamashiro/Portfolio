@@ -50,6 +50,7 @@ background: radial-gradient(
   }
 
   .baseSection {
+      opacity: 0;
     transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
     will-change: opacity, transform;
   }
@@ -66,5 +67,17 @@ background: radial-gradient(
     transform: translateY(0);
     pointer-events: auto;
     z-index: 0;
+  }
+  
+  .show {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.8s ease;
+  }
+
+  .hide {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
   }
 `;

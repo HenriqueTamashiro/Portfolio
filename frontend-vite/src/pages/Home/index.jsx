@@ -23,6 +23,7 @@ export default function Home({ progress }) {
   const [focus, setFocus] = useState(false);
   const [content, setContent] = useState(null);
   const [cardId, setCardid] = useState(null);
+  const [visibility, setVisibility] = useState(false);
   const cardRef = useRef({});
 
   useEffect(() => {
@@ -61,9 +62,28 @@ export default function Home({ progress }) {
     progress.register("picHome-profile");
   }, []);
 
+  useEffect(() => {
+    if (progress.status === "Success") {
+      setVisibility(true);
+    } else {
+      setVisibility(false);
+    }
+
+    if (progress.status !== "Success") {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      // garante limpeza ao sair da página
+      document.body.style.overflow = "auto";
+    };
+  }, [progress.status]);
+
   return (
-    <LoaderWrapper>
-      <Container>
+    <LoaderWrapper progress={progress}>
+      <Container className={visibility ? "show" : "hide"}>
         <FocusWindow
           onOff={focus}
           post={content}
