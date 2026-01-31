@@ -3,7 +3,7 @@ import holderImg from "../../assets/imgs/bgPicture.png";
 import cornerPNG from "../../assets/imgs/cornerPNG.png";
 
 export const WindowLayout = styled.div`
-  --base-color: ${({ theme }) => theme.colors.menuLightColor};
+  --base-color: ${({ theme }) => theme.colors.menuLightColorOpt};
   --picture-size: min(600px, 90vw);
   --picture-width: min(500px, 80vw);
   --picture-height: min(500px, 80vw);
@@ -21,7 +21,7 @@ export const WindowLayout = styled.div`
 
   .post-about {
     display: grid;
-
+    overflow: hidden;
     width: 100%;
     height: auto;
     padding: 30px;
@@ -63,6 +63,7 @@ export const WindowLayout = styled.div`
 
   .about-container {
     position: relative;
+    overflow: hidden;
   }
 
   .title-row {
@@ -91,6 +92,10 @@ export const WindowLayout = styled.div`
     width: 100%;
     padding: 10px 45px 5px 45px;
     z-index: 10;
+    overflow: hidden;
+
+    border-radius: 3%;
+    margin-left: 15px;
   }
 
   .content > * {
@@ -113,6 +118,7 @@ export const WindowLayout = styled.div`
     max-height: 1200px;
     overflow-y: auto;
     z-index: 9;
+    overflow-x: hidden;
   }
 
   .img-holder {
@@ -129,7 +135,7 @@ export const WindowLayout = styled.div`
     content: "";
     position: absolute;
 
-    z-index: -1;
+    z-index: 2;
 
     box-shadow:
       ${({ theme }) => theme.colors.menuLightColor} 0px 0px 15px,
