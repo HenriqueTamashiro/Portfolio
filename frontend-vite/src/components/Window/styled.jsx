@@ -1,26 +1,30 @@
 import styled from "styled-components";
 import holderImg from "../../assets/imgs/bgPicture.png";
 import cornerPNG from "../../assets/imgs/cornerPNG.png";
-import circuit_background from "../../assets/imgs/circuit-background.png";
-import bgImg from "../../assets/imgs/imageBackground23.png";
 
 export const WindowLayout = styled.div`
   --base-color: ${({ theme }) => theme.colors.menuLightColor};
   --picture-size: min(600px, 90vw);
+  --picture-width: min(500px, 80vw);
+  --picture-height: min(500px, 80vw);
 
   display: grid;
   position: relative;
+
   border-radius: 8px;
+
   width: 100%;
   max-width: 1500px;
+
   min-height: 600px;
-  margin-top: 130px;
+  margin-top: 50px;
 
   .post-about {
     display: grid;
 
     width: 100%;
-    height: 1100px;
+    height: auto;
+    padding: 30px;
 
     transition:
       opacity 0.4s ease,
@@ -78,21 +82,15 @@ export const WindowLayout = styled.div`
 
   .content {
     position: relative;
-
-    padding: 10px 15px;
     z-index: 10;
   }
 
-  .content::before {
-    content: "";
-
-    position: absolute;
-    left: 0;
-    top: 0;
+  .content-container {
+    display: grid;
+    position: relative;
     width: 100%;
-    height: 100%;
-
-    z-index: 0;
+    padding: 10px 45px 5px 45px;
+    z-index: 10;
   }
 
   .content > * {
@@ -105,23 +103,26 @@ export const WindowLayout = styled.div`
     font-size: 16px;
   }
 
+  .presentation {
+    margin: 10px 17px 25px 5px;
+    font-size: 16px;
+  }
+
   .posts-wrapper {
     position: relative;
-    gap: 15px;
-    max-height: 700px;
+    max-height: 1200px;
     overflow-y: auto;
     z-index: 9;
-
-    .presentation {
-      margin-left: -10px;
-    }
   }
 
   .img-holder {
-    width: var(--picture-size);
+    width: var(--picture-width);
+    height: var(--picture-height);
     aspect-ratio: 1 / 1;
     margin: 0 auto;
+    padding-right: 15px;
     position: relative;
+    justify-self: center;
   }
 
   .img-holder::before {
@@ -135,7 +136,7 @@ export const WindowLayout = styled.div`
       inset ${({ theme }) => theme.colors.menuLightColor} 0px 0px 5px,
       inset ${({ theme }) => theme.colors.menuLightColor} 0px 0px 20px;
 
-    width: 100%;
+    width: var(--picture-width);
     height: 100%;
     border-radius: 50%;
   }
@@ -151,7 +152,7 @@ export const WindowLayout = styled.div`
       inset ${({ theme }) => theme.colors.primaryGlow} 0px 0px 5px,
       inset ${({ theme }) => theme.colors.primaryGlow} 0px 0px 20px;
 
-    width: 100%;
+    width: var(--picture-width);
     height: 100%;
     border-radius: 50%;
   }
@@ -160,8 +161,8 @@ export const WindowLayout = styled.div`
     z-index: 1;
     position: relative;
     display: block;
-    width: 100%;
-    height: 100%;
+    width: var(--picture-width);
+    height: var(--picture-height);
     aspect-ratio: 1 / 1;
     border-radius: 50%;
 
@@ -170,9 +171,8 @@ export const WindowLayout = styled.div`
 
   .bgPicture img {
     position: relative;
-
-    width: 100%;
-    height: 100%;
+    width: var(--picture-width);
+    height: var(--picture-height);
     border-radius: 50%;
     object-fit: cover;
 
@@ -190,6 +190,10 @@ export const WindowLayout = styled.div`
   @media (width > 1115px) {
     .post-about {
       grid-template-columns: 1fr 500px;
+    }
+
+    .img-holder {
+      top: 100px;
     }
   }
 

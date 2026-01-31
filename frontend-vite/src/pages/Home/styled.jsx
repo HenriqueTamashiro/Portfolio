@@ -1,5 +1,6 @@
 import bgImg from "../../assets/imgs/imageBackground23.png";
 
+import tamashiroLogo from "../../assets/imgs/logoTamashiro.png";
 import styled from "styled-components";
 
 export const Content = styled.div`
@@ -82,6 +83,23 @@ export const HolderContent = styled.div`
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
+
+    /* .profilePicture {
+      width: 320px;
+      height: 320px;
+
+      background: linear-gradient(
+        to bottom,
+        ${({ theme }) => theme.colors.primaryLightColor} 10%,
+        ${({ theme }) => theme.colors.primaryGlow} 50%,
+        ${({ theme }) => theme.colors.primaryLightColor} 100%
+      );
+
+      -webkit-mask: url(${tamashiroLogo}) no-repeat center / contain;
+      mask: url(${tamashiroLogo}) no-repeat center / contain;
+
+      animation: opacityTransition 5s ease-in-out infinite;
+    } */
 
     .lessBgPict {
       transform: translateX(14%);

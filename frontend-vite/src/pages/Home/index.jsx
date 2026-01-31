@@ -17,7 +17,7 @@ import {
   Holder,
 } from "./styled";
 
-import profilePict from "../../assets/imgs/profilePict.png";
+import profilePict from "../../assets/imgs/logoTamashiro.png";
 
 export default function Home({ progress }) {
   const [focus, setFocus] = useState(false);
