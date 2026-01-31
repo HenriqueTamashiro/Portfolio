@@ -13,12 +13,12 @@ export default function Window({ img, progress }) {
   return (
     <WindowLayout>
       <article className="post-about">
-        <div className="corner corner-top-left"></div>
-        <div className="corner corner-top-right"></div>
-        <div className="corner corner-bottom-left"></div>
-        <div className="corner corner-bottom-right"></div>
         <div className="about-container">
           <div className="content">
+            {/* <div className="corner corner-top-left"></div>
+            <div className="corner corner-top-right"></div>
+            <div className="corner corner-bottom-left"></div>
+            <div className="corner corner-bottom-right"></div> */}
             <div className="posts-wrapper">
               <p className="presentation">
                 Meu nome é Henrique Tamashiro, sou desenvolvedor FullStack com

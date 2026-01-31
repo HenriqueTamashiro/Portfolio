@@ -26,6 +26,7 @@ export const themeTeste = {
     menuLightColor: "#2e4981",
     menuLightColorOpt: "#354c7c6f",
     windowBackground: "#0627525c",
+    windowBackgroundOpt: "#03132a",
     inputBackground: "#071635",
 
     textColor: "#fff",

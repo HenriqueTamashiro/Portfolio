@@ -8,6 +8,7 @@ export default function FocusWindow({ onOff, post, onClose }) {
 
   useEffect(() => {
     if (onOff) {
+      document.body.style.overflow = "hidden";
       const timing = setTimeout(() => {
         setLoad(true);
         windowRef.current?.scrollIntoView({
@@ -17,6 +18,7 @@ export default function FocusWindow({ onOff, post, onClose }) {
       }, 200);
       return () => clearTimeout(timing);
     } else {
+      document.body.style.overflow = "auto";
       setLoad(false);
     }
   }, [onOff]);
@@ -25,41 +27,42 @@ export default function FocusWindow({ onOff, post, onClose }) {
 
   return (
     <Focus ref={windowRef}>
-      <div className="overlay" onClick={onClose} />
-      <div className={load ? "article-active" : "article"}>
-        <FocusArticle>
-          <button onClick={onClose}>
-            <i class="bi bi-x-lg" />
-          </button>
-          <div className="article-tittle">
-            <h1>{post.title}</h1>
-          </div>
-          <div className="tagContainer">
-            {post.tags.map((tag, i) => (
-              <img key={i} src={tag} alt="icon" className="tagIcon" />
-            ))}
-          </div>
-          <div className="content">
-            {/\.(mp4|webm|ogg)$/i.test(post.img) ? (
-              <ReactPlayer
-                autoPlay={false}
-                controls
-                width="100%"
-                height="100%"
-                playIcon
-                src={post.img}
-              />
-            ) : (
-              <img src={post.img} alt={post.title} />
-            )}
-          </div>
-          <div className="postedContainer">
-            <div className="posted" alt="Data">
-              {post.created_at?.toLocaleDateString()}
+      <div className="overlay" onClick={onClose}>
+        <div className={load ? "article-active" : "article"}>
+          <FocusArticle>
+            <button onClick={onClose}>
+              <i class="bi bi-x-lg" />
+            </button>
+            <div className="article-tittle">
+              <h1>{post.title}</h1>
             </div>
-          </div>
-          <p>{post.text}</p>
-        </FocusArticle>
+            <div className="tagContainer">
+              {post.tags.map((tag, i) => (
+                <img key={i} src={tag} alt="icon" className="tagIcon" />
+              ))}
+            </div>
+            <div className="content">
+              {/\.(mp4|webm|ogg)$/i.test(post.img) ? (
+                <ReactPlayer
+                  autoPlay={false}
+                  controls
+                  width="100%"
+                  height="100%"
+                  playIcon
+                  src={post.img}
+                />
+              ) : (
+                <img src={post.img} alt={post.title} />
+              )}
+            </div>
+            <div className="postedContainer">
+              <div className="posted" alt="Data">
+                {post.created_at?.toLocaleDateString()}
+              </div>
+            </div>
+            <p>{post.text}</p>
+          </FocusArticle>
+        </div>
       </div>
     </Focus>
   );

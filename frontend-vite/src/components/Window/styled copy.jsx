@@ -1,27 +1,18 @@
 import styled from "styled-components";
 import holderImg from "../../assets/imgs/bgPicture.png";
 import cornerPNG from "../../assets/imgs/cornerPNG.png";
-import circuit_background from "../../assets/imgs/circuit-background.png";
-import bgImg from "../../assets/imgs/imageBackground23.png";
 
 export const WindowLayout = styled.div`
-  --base-color: ${({ theme }) => theme.colors.menuLightColor};
-  --picture-size: min(600px, 90vw);
-
   display: grid;
   position: relative;
   border-radius: 8px;
-  width: 100%;
+  max-height: auto;
   max-width: 1500px;
-  min-height: 600px;
   margin-top: 130px;
 
   .post-about {
     display: grid;
-
-    width: 100%;
-    height: 1100px;
-
+    background: ${({ theme }) => theme.colors.windowBackground};
     transition:
       opacity 0.4s ease,
       transform 0.4s ease;
@@ -59,6 +50,7 @@ export const WindowLayout = styled.div`
 
   .about-container {
     position: relative;
+    border: 1px solid ${({ theme }) => theme.colors.primaryBorder};
   }
 
   .title-row {
@@ -78,14 +70,13 @@ export const WindowLayout = styled.div`
 
   .content {
     position: relative;
-
+    background: transparent;
     padding: 10px 15px;
-    z-index: 10;
+    z-index: 1;
   }
 
   .content::before {
     content: "";
-
     position: absolute;
     left: 0;
     top: 0;
@@ -106,11 +97,9 @@ export const WindowLayout = styled.div`
   }
 
   .posts-wrapper {
-    position: relative;
     gap: 15px;
     max-height: 700px;
     overflow-y: auto;
-    z-index: 9;
 
     .presentation {
       margin-left: -10px;
@@ -118,101 +107,39 @@ export const WindowLayout = styled.div`
   }
 
   .img-holder {
-    width: var(--picture-size);
-    aspect-ratio: 1 / 1;
-    margin: 0 auto;
     position: relative;
-  }
-
-  .img-holder::before {
-    content: "";
-    position: absolute;
-
-    z-index: -1;
-
-    box-shadow:
-      ${({ theme }) => theme.colors.menuLightColor} 0px 0px 15px,
-      inset ${({ theme }) => theme.colors.menuLightColor} 0px 0px 5px,
-      inset ${({ theme }) => theme.colors.menuLightColor} 0px 0px 20px;
-
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-  }
-
-  .img-holder::after {
-    content: "";
-    position: absolute;
-    inset: 5px;
-
-    z-index: 10;
-    box-shadow:
-      ${({ theme }) => theme.colors.primaryGlow} 0px 0px 15px,
-      inset ${({ theme }) => theme.colors.primaryGlow} 0px 0px 5px,
-      inset ${({ theme }) => theme.colors.primaryGlow} 0px 0px 20px;
-
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
+    z-index: 0;
+    min-width: auto;
+    min-height: auto;
   }
 
   .bgPicture {
-    z-index: 1;
     position: relative;
     display: block;
+
     width: 100%;
     height: 100%;
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
 
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
     background: url(${holderImg}) center / cover no-repeat;
   }
 
-  .bgPicture img {
+  .bgPicture > img {
     position: relative;
 
     width: 100%;
     height: 100%;
-    border-radius: 50%;
+
     object-fit: cover;
 
     z-index: 1;
     box-shadow: inset 0 0 80px 30px #000000dd;
   }
 
-  .img-holder::before {
-    animation: blobFloatRotate 15s ease-in-out infinite;
-  }
-  .img-holder::after {
-    animation: blobFloatRotate 15s ease-in-out infinite reverse;
-  }
-
   @media (width > 1115px) {
     .post-about {
       grid-template-columns: 1fr 500px;
-    }
-  }
-
-  @keyframes blobFloatRotate {
-    0% {
-      transform: rotate(0deg) scale(0.99);
-      border-radius: 50%;
-    }
-    25% {
-      transform: rotate(90deg) scale(1);
-      border-radius: 45%;
-    }
-    50% {
-      transform: rotate(180deg) scale(1.01);
-      border-radius: 40%;
-    }
-    75% {
-      transform: rotate(360deg) scale(1);
-      border-radius: 45%;
-    }
-    100% {
-      transform: rotate(0deg) scale(0.99);
-      border-radius: 50%;
     }
   }
 `;

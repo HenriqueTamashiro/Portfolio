@@ -6,14 +6,21 @@ export const Focus = styled.div`
   z-index: 999;
   min-width: 100%;
   width: 100%;
+  height: 100%;
   display: flex;
+  overflow-y: auto;
 
   align-items: flex-start;
   justify-content: center;
 
   .overlay {
+    display: grid;
+    justify-items: center;
+
     width: 100%;
+    height: 100%;
     position: absolute;
+    overflow-y: auto;
     inset: 0;
     background: ${({ theme }) => theme.colors.primaryColorOpt};
   }
@@ -48,8 +55,11 @@ export const Focus = styled.div`
     justify-content: center;
     align-items: center;
     max-width: 65%;
+    padding-bottom: 45px;
 
-    transition: opacity 0.8s ease, transform 0.6s ease;
+    transition:
+      opacity 0.8s ease,
+      transform 0.6s ease;
     opacity: 1;
   }
 `;
@@ -57,6 +67,9 @@ export const Focus = styled.div`
 export const FocusArticle = styled.div`
   display: grid;
   justify-self: center;
+  height: fit-content;
+  min-width: 400px;
+  overflow-y: auto;
 
   border-radius: 8px;
   background: ${({ theme }) => theme.colors.secundaryLightColor};
