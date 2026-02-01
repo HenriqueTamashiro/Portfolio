@@ -8,6 +8,7 @@ import FocusWindow from "../../components/FocusWindow";
 import Cards from "../../components/Cards";
 import Footer from "../../components/Footer";
 import LoaderWrapper from "../../components/LoaderWrapper/index";
+import Timeline from "../../components/Timeline/index";
 
 import {
   Container,
@@ -76,7 +77,6 @@ export default function Home({ progress }) {
     }
 
     return () => {
-      // garante limpeza ao sair da página
       document.body.style.overflow = "auto";
     };
   }, [progress.status]);
@@ -126,6 +126,7 @@ export default function Home({ progress }) {
 
         {/* PROJETOS */}
         <section className="hiddenSection">
+          <Timeline progress={progress} />
           <div className="contentTittle">
             Projetos
             <div className="divider" />
