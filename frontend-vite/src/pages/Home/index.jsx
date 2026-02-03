@@ -127,7 +127,7 @@ export default function Home({ progress }) {
         {/* PROJETOS */}
         <section className="hiddenSection">
           <Timeline progress={progress} />
-          <div className="contentTittle">
+          <div className="contentTittle hiddenSection timeline-item">
             Projetos
             <div className="divider" />
             <h5>Recentes</h5>

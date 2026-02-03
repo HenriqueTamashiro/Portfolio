@@ -14,7 +14,6 @@ export const StyledCards = styled.div`
   gap: 2rem;
   padding: 0 25px 25px 25px;
   margin-bottom: 20px;
-  margin-top: 20px;
 
   @media (max-width: 150vw) {
     grid-template-columns: 1fr 1fr 1fr 1fr;

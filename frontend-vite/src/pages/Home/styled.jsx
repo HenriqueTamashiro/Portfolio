@@ -175,6 +175,7 @@ export const Container = styled.div`
     flex-direction: column;
     position: relative;
     margin-top: 20px;
+    margin-bottom: 20px;
     align-items: center;
     justify-content: center;
     color: ${({ theme }) => theme.colors.textColor};
@@ -183,6 +184,9 @@ export const Container = styled.div`
     font-size: 35px;
     font-weight: 600;
     text-transform: uppercase;
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
 
     width: 100%;
     height: 120px;
