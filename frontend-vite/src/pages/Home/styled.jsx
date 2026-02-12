@@ -70,6 +70,7 @@ export const HolderContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  justify-items: center;
   text-align: center;
 
   /*Estilos */

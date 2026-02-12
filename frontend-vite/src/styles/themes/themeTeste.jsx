@@ -24,6 +24,7 @@ export const themeTeste = {
     primaryBorder: "#486299",
 
     menuLightColor: "#2e4981",
+    menuDarkColor: "#1a2c50",
     menuLightColorOpt: "#354c7c6f",
     windowBackground: "#0627525c",
     windowBackgroundOpt: "#03132a",

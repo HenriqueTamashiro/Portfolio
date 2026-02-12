@@ -1,9 +1,16 @@
-import { Content, Holder, Corner } from "./styled";
+import { Content, Holder, Corner, MidSVG } from "./styled";
 
 import { useEffect, useState } from "react";
 
+import MidFragment from "../../assets/imgs/mid-circuit.svg?react";
+import TechPolygon from "../../assets/imgs/tech-polygon.svg?react";
+import TechFragment1 from "../../assets/imgs/tech-fragment1.svg?react";
+import TechFragment2 from "../../assets/imgs/tech-fragment2.svg?react";
+import TechFragment3 from "../../assets/imgs/tech-fragment3.svg?react";
+import MobileIcon from "../../assets/imgs/mob.svg?react";
+
 export default function Timeline({ progress }) {
-  const [visibility, setVisibility] = useState(false);
+  const [, setVisibility] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -21,7 +28,7 @@ export default function Timeline({ progress }) {
           }
         });
       },
-      { threshold: 0.15, rootMargin: "0px 0px -10% 0px" },
+      { threshold: 0.1, rootMargin: "0px 0px -1% 0px" },
     );
 
     const items = document.querySelectorAll(".timeline-item");
@@ -43,12 +50,26 @@ export default function Timeline({ progress }) {
 
   return (
     <Content>
+      <div className="tech-wheel">
+        <TechFragment1 className="tech-fragment1 wheel" />
+        <TechFragment2 className="tech-fragment2 wheel" />
+        <TechFragment3 className="tech-fragment3 wheel" />
+      </div>
+      <div className="tech-polygon">
+        <TechPolygon className="tech-polygon1 poly" />
+        <TechPolygon className="tech-polygon2 poly" />
+        <TechPolygon className="tech-polygon3 poly" />
+        <TechPolygon className="tech-polygon4 poly" />
+        <TechPolygon className="tech-polygon5 poly" />
+        <TechPolygon className="tech-polygon6 poly" />
+      </div>
       <Holder>
         <div className="post-wrapper">
           <div className="section-wrapper">
-            <div className="Item left showSection timeline-item">
+            <div className="Item left hiddenSection timeline-item">
               <div className="background-fragment right" />
               <div className="background-fragment2 left" />
+
               <div className="tittle-item">
                 <Corner
                   className="top-left"
@@ -74,8 +95,10 @@ export default function Timeline({ progress }) {
                 adaptação progressiva de layout e componentes reutilizáveis em
                 React.
               </p>
+
+              <MobileIcon className="mobile-icon" stroke="#000" />
             </div>
-            <div className="Item right showSection timeline-item">
+            <div className="Item right hiddenSection timeline-item">
               <div className="background-fragment right" />
               <div className="background-fragment2 left" />
               <div className="tittle-item">
@@ -102,6 +125,7 @@ export default function Timeline({ progress }) {
                 Client-Server, REST e MVC, com separação de responsabilidades e
                 código escalável.
               </p>
+              <i className="bi bi-stack-overflow"></i>
             </div>
             <div className="Item left hiddenSection timeline-item">
               <div className="background-fragment right" />
@@ -130,10 +154,11 @@ export default function Timeline({ progress }) {
                 carregamento, renderização eficiente e melhor experiência do
                 usuário.
               </p>
+              <i class="bi bi-fast-forward"></i>
             </div>
             <div className="Item right hiddenSection timeline-item">
               <div className="background-fragment right" />
-              <div className="background-fragment2 left" />
+
               <div className="tittle-item">
                 <Corner
                   className="top-left"
@@ -157,9 +182,15 @@ export default function Timeline({ progress }) {
                 Infraestrutura com Nginx como servidor e reverse proxy,
                 aplicações Node.js em ambiente Linux e deploy em cloud.
               </p>
+              <i class="bi bi-gear-wide gear1"></i>
+              <i class="bi bi-gear-wide gear2"></i>
             </div>
 
-            <div className="gap-timeline"></div>
+            <div className="gap-timeline">
+              <MidSVG viewBox="0 0 50 555">
+                <MidFragment className="fragment" />
+              </MidSVG>
+            </div>
           </div>
         </div>
       </Holder>

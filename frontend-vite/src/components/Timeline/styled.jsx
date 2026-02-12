@@ -1,24 +1,27 @@
 import styled from "styled-components";
-import line_divider from "../../assets/imgs/divider.png";
 import bg_fragment from "../../assets/imgs/circuit2.png";
 import bg_fragment2 from "../../assets/imgs/svgBolt.svg";
-import background from "../../assets/imgs/imageBackground23.png";
+import background from "../../assets/imgs/background-timeline.png";
 
 export const Content = styled.div`
-  --base-color: ${({ theme }) => theme.colors.primaryBorder};
+  --base-color: ${({ theme }) => theme.colors.menuDarkColor};
+  --tech-base-poly: #243963;
+  --tech-poly: #304c85;
+  --base-font: 45px;
 
   position: relative;
-  margin-top: 100px;
+  margin-top: 10px;
   width: 100%;
   display: grid;
   justify-content: center;
   color: #fff;
+  overflow: hidden;
 
   &::before {
     content: "";
     position: absolute;
     inset: 0;
-
+    height: 100%;
     background: url(${background}) no-repeat center/cover;
     opacity: 0.2;
 
@@ -28,7 +31,7 @@ export const Content = styled.div`
       180deg,
       transparent,
       white 20%,
-      white 75%,
+      white 50%,
       transparent
     );
 
@@ -36,15 +39,13 @@ export const Content = styled.div`
       180deg,
       transparent,
       white 20%,
-      white 75%,
+      white 50%,
       transparent
     );
-
-    height: 60%;
   }
 
   h1 {
-    font-size: clamp(15px, 25px, 30px);
+    font-size: clamp(15px, 23px, 30px);
     text-transform: uppercase;
     font-weight: 600;
   }
@@ -62,6 +63,121 @@ export const Content = styled.div`
     padding: 15px;
   }
 
+  .tech-polygon {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.4;
+
+    width: auto;
+    height: auto;
+
+    z-index: -1;
+    top: 440px;
+    left: 30%;
+
+    .poly {
+      color: var(--tech-base-poly);
+      stroke: var(--tech-poly);
+    }
+
+    .tech-polygon1 {
+      position: absolute;
+      top: 0;
+      animation: ease-out-tech 10s infinite alternate-reverse;
+    }
+    .tech-polygon2 {
+      position: absolute;
+      top: 51px;
+      left: 61px;
+      animation: ease-out-tech 15s infinite reverse;
+    }
+    .tech-polygon3 {
+      position: absolute;
+      top: 75px;
+      left: -60px;
+      animation: ease-out-tech 8s infinite reverse;
+    }
+    .tech-polygon4 {
+      position: absolute;
+      top: 120px;
+      left: 0px;
+      animation: ease-out-tech 12s infinite;
+    }
+    .tech-polygon5 {
+      position: absolute;
+      top: 100px;
+      left: 120px;
+      animation: ease-out-tech 8s infinite;
+    }
+    .tech-polygon6 {
+      position: absolute;
+      top: 145px;
+      left: -120px;
+      animation: ease-out-tech 4s infinite;
+    }
+
+    @keyframes ease-out-tech {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-9px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  .tech-wheel {
+    position: absolute;
+    pointer-events: none;
+
+    width: auto;
+    height: auto;
+
+    z-index: -1;
+    top: 620px;
+    left: 60%;
+
+    opacity: 0.4;
+
+    .wheel {
+      color: var(--base-color);
+    }
+
+    .tech-fragment1 {
+      position: absolute;
+      top: 250px;
+      left: 0;
+      animation: spin-tech 20s infinite;
+    }
+    .tech-fragment2 {
+      position: absolute;
+      top: 280px;
+      left: 30px;
+      animation: spin-tech 12s infinite reverse;
+    }
+    .tech-fragment3 {
+      position: absolute;
+      top: 315px;
+      left: 60px;
+      animation: spin-tech 8s infinite alternate-reverse;
+    }
+
+    @keyframes spin-tech {
+      0% {
+        transform: rotate(0deg);
+      }
+      50% {
+        transform: rotate(180deg);
+      }
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+  }
+
   @media (width < 900px) {
     margin-bottom: 50px;
   }
@@ -69,13 +185,13 @@ export const Content = styled.div`
 
 export const Holder = styled.div`
   position: relative;
-  width: 100%;
+  max-width: 800px;
   padding: 2rem;
   border-radius: 8px;
+  z-index: 2;
 
   .post-wrapper {
     width: 100%;
-    height: fit-content;
   }
 
   .section-wrapper {
@@ -86,14 +202,24 @@ export const Holder = styled.div`
 
   .gap-timeline {
     position: absolute;
-    grid-column: 2;
+    left: 50%;
+    transform: translate(-50%, 1%);
+    width: 100%;
+    height: 100%;
+  }
 
-    justify-self: center;
+  .Item.left {
+    margin-left: -88px;
+    margin-top: 320px;
+    grid-column: 1;
+    justify-self: start;
+  }
 
-    position: fixed;
-    background: white;
-    width: 1px;
-    height: 140vh;
+  .Item.right {
+    margin-left: 50px;
+    margin-top: 10px;
+    grid-column: 3;
+    justify-self: start;
   }
 
   .Item {
@@ -101,7 +227,7 @@ export const Holder = styled.div`
     text-align: center;
     overflow: hidden;
     z-index: 2;
-
+    margin-bottom: 140px;
     width: 430px;
     height: 180px;
     background: ${({ theme }) => theme.colors.windowBackgroundOpt};
@@ -111,23 +237,88 @@ export const Holder = styled.div`
     h1 {
       margin-top: 10px;
     }
-  }
 
-  .Item.left {
-    margin-bottom: 450px;
-    margin-left: 370px;
-    grid-column: 1;
-    justify-self: start;
-  }
+    .bi-laptop,
+    .bi-phone {
+      position: absolute;
+      font-size: var(--base-font);
+      z-index: -1;
+      opacity: 0.4;
+      color: ${({ theme }) => theme.colors.primaryBorder};
+    }
 
-  .Item.right {
-    margin-right: 350px;
-    margin-top: 300px;
-    grid-column: 3;
-    justify-self: start;
+    .mobile-icon {
+      --stroke-color: ${({ theme }) => theme.colors.windowBackgroundOpt};
+      --fill-color: ${({ theme }) => theme.colors.menuDarkColor};
+      --background-svg: transparent;
+
+      position: absolute;
+      z-index: -1;
+      opacity: 0.8;
+      width: 140px;
+      height: 140px;
+
+      bottom: -8px;
+      left: 0px;
+    }
+
+    .bi-phone {
+      bottom: -10px;
+      left: 110px;
+    }
+    .bi-laptop {
+      font-size: calc(var(--base-font) + 70px);
+      bottom: -45px;
+      left: 0px;
+    }
+
+    .bi-stack-overflow {
+      color: ${({ theme }) => theme.colors.menuDarkColor};
+
+      position: absolute;
+      z-index: -1;
+      opacity: 0.8;
+      font-size: 100px;
+
+      bottom: -8px;
+      left: 0px;
+    }
+
+    .bi-fast-forward {
+      color: ${({ theme }) => theme.colors.menuDarkColor};
+
+      position: absolute;
+      z-index: -1;
+      opacity: 0.8;
+      font-size: 100px;
+
+      bottom: -15px;
+      left: 5px;
+    }
+
+    .bi-gear-wide {
+      color: ${({ theme }) => theme.colors.menuDarkColor};
+
+      position: absolute;
+      z-index: -1;
+      opacity: 0.8;
+    }
+
+    .gear1 {
+      font-size: 100px;
+
+      bottom: -5px;
+      left: 5px;
+    }
+    .gear2 {
+      font-size: 50px;
+      bottom: -10px;
+      left: 90px;
+    }
   }
 
   .hiddenSection {
+    position: relative;
     opacity: 0;
     transform: translateY(40px);
   }
@@ -157,8 +348,8 @@ export const Holder = styled.div`
   }
 
   .background-fragment.right {
-    top: 0;
-    right: 0;
+    top: -5px;
+    right: 9px;
   }
 
   .background-fragment2.left {
@@ -190,13 +381,20 @@ export const Holder = styled.div`
   }
 
   @media (width < 900px) {
-    .Articles.left,
-    .Articles.right {
+    .Item.left,
+    .Item.right {
       grid-column: 2;
-      margin-top: 0;
-      min-height: 700px;
-      min-width: 400px;
-      left: 0;
+      margin: 0 0 50px 0;
+      padding: 0;
+    }
+
+    .Item {
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gap-timeline {
+      display: none;
     }
   }
 `;
@@ -206,18 +404,36 @@ export const Corner = styled.svg`
   width: 50px;
   height: 50px;
   color: var(--base-color);
-
   pointer-events: none;
 
   &.top-right {
     top: -10px;
-    right: 18px;
+    right: 19px;
     transform: scale(-1, -1);
   }
 
   &.top-left {
     top: -10px;
-    left: 12px;
+    left: 13px;
     transform: scale(1, -1);
+  }
+`;
+
+export const MidSVG = styled.svg`
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+  z-index: 1;
+
+  .fragment {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+
+    width: 300px;
+    height: 100%;
+    color: var(--base-color);
   }
 `;

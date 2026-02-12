@@ -35,6 +35,7 @@ export const StyledCards = styled.div`
       grid-template-columns: 1fr;
       grid-template-rows: 1fr;
       grid-auto-rows: auto;
+      justify-items: center;
     }
   }
 
