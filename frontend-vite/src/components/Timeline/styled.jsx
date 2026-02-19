@@ -180,6 +180,10 @@ export const Content = styled.div`
 
   @media (width < 900px) {
     margin-bottom: 50px;
+
+    .tech-polygon {
+      top: 80px;
+    }
   }
 `;
 
