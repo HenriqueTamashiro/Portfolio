@@ -4,7 +4,7 @@ export default function CircuitSVG({ pattern }) {
   const buildPattern = (patterns = []) =>
     patterns.reduce(
       (accum, [x, y], i) => accum + `${i === 0 ? "M" : "L"}${x} ${y}`,
-      "",
+      ""
     );
 
   const d = buildPattern(pattern);

@@ -46,7 +46,7 @@ export const Content = styled.div`
 export const Holder = styled.div`
   position: relative;
   width: 100%;
-  padding: 1rem;
+  padding: 2rem;
   border-radius: 8px;
 
   .post-wrapper {
@@ -65,18 +65,11 @@ export const Holder = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     position: relative;
-    gap: 50px;
   }
 
   .Articles {
-    border-top: 1px solid ${({ theme }) => theme.colors.primaryBorder};
-    border-bottom: 1px solid ${({ theme }) => theme.colors.primaryBorder};
-
     position: relative;
-
     text-align: center;
-
-    border-radius: 8px;
 
     z-index: 2;
 
@@ -98,7 +91,7 @@ export const Holder = styled.div`
     }
 
     h1 {
-      margin-top: 20px;
+      margin-top: 50px;
     }
   }
 
@@ -106,12 +99,41 @@ export const Holder = styled.div`
     right: 29px;
 
     grid-column: 1;
+    justify-self: start;
+    clip-path: polygon(
+      0% 4%,
+      45% 4%,
+      50% 1%,
+      100% 1%,
+      95% 1%,
+      100% 4%,
+      100% 94%,
+      95% 97%,
+      45% 97%,
+      40% 100%,
+      0% 100%
+    );
   }
 
   .Articles.right {
     left: 29px;
     margin-top: 350px;
     grid-column: 3;
+    justify-self: start;
+    clip-path: polygon(
+      0% 4%,
+      5% 1%,
+      50% 1%,
+      55% 4%,
+      100% 4%,
+      100% 4%,
+      100% 95%,
+      100% 100%,
+      60% 100%,
+      55% 97%,
+      5% 97%,
+      0% 95%
+    );
   }
 
   .tagContainer {
@@ -163,6 +185,39 @@ export const Holder = styled.div`
       min-width: 400px;
       left: 0;
     }
+
+    .Articles.left {
+      clip-path: polygon(
+        0% 2%,
+        45% 2%,
+        50% 0%,
+        100% 0%,
+        95% 0%,
+        100% 2%,
+        100% 92%,
+        95% 95%,
+        45% 95%,
+        40% 97%,
+        0% 97%
+      );
+    }
+
+    .Articles.right {
+      clip-path: polygon(
+        0% 3%,
+        5% 0%,
+        50% 0%,
+        55% 3%,
+        100% 3%,
+        100% 5%,
+        100% 95%,
+        100% 98%,
+        60% 98%,
+        55% 95%,
+        5% 95%,
+        0% 90%
+      );
+    }
   }
 `;
 
@@ -177,6 +232,7 @@ export const CircuitWrapper = styled.div`
   display: flex;
   justify-content: center;
 
+  margin: 0;
   z-index: 1;
 
   clip-path: polygon(
@@ -194,12 +250,6 @@ export const CircuitWrapper = styled.div`
     5% 95%,
     0% 94%
   );
-
-  @media (width < 900px) {
-    & {
-      right: 50px;
-    }
-  }
 
   .tittle-circuit {
     align-self: center;
