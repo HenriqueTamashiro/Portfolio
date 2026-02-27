@@ -40,6 +40,7 @@ jobs:
           key: ${{ secrets.GCP_VM_SSH_KEY }}
           source: "frontend-vite/dist/*"
           target: "/var/www/html"
+          overwrite: true
 
       - name: Move files to web directory
         uses: appleboy/ssh-action@v1.0.0
