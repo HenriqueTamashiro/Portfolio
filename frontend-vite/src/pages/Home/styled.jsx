@@ -103,7 +103,7 @@ export const HolderContent = styled.div`
     } */
 
     .lessBgPict {
-      /* transform: translateX(14%); */
+      transform: translateX(14%);
       width: clamp(200px, 5vw, 200px);
       height: 250px;
 
@@ -123,7 +123,7 @@ export const HolderContent = styled.div`
   }
 
   .greaterBgPict {
-    /* transform: translateX(-22%); */
+    transform: translateX(-22%);
     width: clamp(200px, 5vw, 200px);
     height: 250px;
     background: linear-gradient(
