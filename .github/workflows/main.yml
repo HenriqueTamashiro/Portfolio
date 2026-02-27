@@ -40,3 +40,14 @@ jobs:
           key: ${{ secrets.GCP_VM_SSH_KEY }}
           source: "frontend-vite/dist/*"
           target: "/tmp/portfolio-dist"
+
+      - name: Move files to web directory
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.GCP_VM_HOST }}
+          username: ${{ secrets.GCP_VM_USER }}
+          key: ${{ secrets.GCP_VM_SSH_KEY }}
+          script: |
+            sudo rm -rf /var/www/html/*
+            sudo cp -r /tmp/portfolio-dist/* /var/www/html/
+            sudo systemctl restart nginx
