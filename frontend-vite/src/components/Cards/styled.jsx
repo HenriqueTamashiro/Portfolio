@@ -145,7 +145,7 @@ export const StyledCards = styled.div`
 
 export const Articles = styled.section`
   position: relative;
-  min-width: 400px;
+  min-width: 200px;
   max-width: 640px;
   max-height: auto;
   border-radius: 8px;
@@ -159,16 +159,25 @@ export const Articles = styled.section`
   }
 
   .mediaContainer {
-    position: relative;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .mediaContainer img,
+  .mediaContainer video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .mediaContainer .videoContainer,
   .mediaContainer .imageContainer {
     pointer-events: auto;
-    object-fit: cover;
-    min-width: 400px;
+    min-width: 300px;
     width: 100%;
-    height: 350px;
+    height: 100%;
     overflow: hidden;
     border-bottom: 1px solid ${({ theme }) => theme.colors.primaryBorder};
     border-top: 1px solid ${({ theme }) => theme.colors.primaryBorder};
