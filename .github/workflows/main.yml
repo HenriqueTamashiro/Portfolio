@@ -39,7 +39,7 @@ jobs:
           username: ${{ secrets.GCP_VM_USER }}
           key: ${{ secrets.GCP_VM_SSH_KEY }}
           source: "frontend-vite/dist/*"
-          target: "/tmp/portfolio-dist"
+          target: "/var/www/html"
 
       - name: Move files to web directory
         uses: appleboy/ssh-action@v1.0.0
