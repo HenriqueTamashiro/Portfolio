@@ -145,7 +145,7 @@ export const StyledCards = styled.div`
 
 export const Articles = styled.section`
   position: relative;
-  min-width: 50vw;
+
   max-width: 640px;
   max-height: auto;
   border-radius: 8px;
