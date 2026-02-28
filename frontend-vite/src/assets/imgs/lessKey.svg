@@ -10,47 +10,15 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs1">
-    <linearGradient
-       id="swatch10">
-      <stop
-         style="stop-color:#ffffff;stop-opacity:1;"
-         offset="0"
-         id="stop10" />
-    </linearGradient>
-    <linearGradient
-       id="swatch9">
-      <stop
-         style="stop-color:#000000;stop-opacity:1;"
-         offset="0"
-         id="stop9" />
-    </linearGradient>
-    <linearGradient
-       xlink:href="#swatch10"
-       id="linearGradient9"
-       x1="6.9747305"
-       y1="15.563469"
-       x2="21.388214"
-       y2="15.563469"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(-6.8038199,-4.5546422)" />
-    <linearGradient
-       xlink:href="#swatch10"
-       id="linearGradient10"
-       x1="6.9747305"
-       y1="15.563469"
-       x2="21.388214"
-       y2="15.563469"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(-6.8038199,-4.5546422)" />
-  </defs>
+
   <path
      d="m 14.285566,0.17464312 a 0.27337561,0.27337561 0 0 0 -0.140625,0.054687 L 0.27775312,10.801597 a 0.27337561,0.27337561 0 0 0 0,0.433594 L 14.144941,21.787925 a 0.27337561,0.27337561 0 0 0 0.439453,-0.216797 V 18.356285 A 0.27337561,0.27337561 0 0 0 14.476972,18.139488 L 5.1351751,11.037925 14.476972,3.9168306 A 0.27337561,0.27337561 0 0 0 14.584394,3.7000337 V 0.44612752 A 0.27337561,0.27337561 0 0 0 14.43205,0.20198682 0.27337561,0.27337561 0 0 0 14.285566,0.17464312 Z m 0.02539,0.2714844 V 3.7000337 l -9.6269529,7.3378913 9.6269529,7.31836 v 3.214843 L 0.44376912,11.018394 Z"
-     style="display:inline;fill:url(#linearGradient9);fill-rule:nonzero;stroke:url(#linearGradient10);stroke-width:0.347;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:0.6;stroke-dasharray:none;paint-order:markers fill stroke"
+     style="display:inline;fill-rule:nonzero;stroke-width:0.347;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:0.6;stroke-dasharray:none;paint-order:markers fill stroke"
+     stroke="currentColor"
      id="path7" />
   <path
      d="m 3.1692673,-0.64005918 a 0.27337561,0.27337561 0 0 1 0.1406248,0.054687 L 17.177081,9.9868948 a 0.27337561,0.27337561 0 0 1 0,0.4335942 L 3.3098921,20.973223 A 0.27337561,0.27337561 0 0 1 2.8704393,20.756426 v -3.214843 a 0.27337561,0.27337561 0 0 1 0.107422,-0.216797 L 12.319659,10.223223 2.9778613,3.1021283 A 0.27337561,0.27337561 0 0 1 2.8704393,2.8853314 v -3.25390618 a 0.27337561,0.27337561 0 0 1 0.152345,-0.2441407 0.27337561,0.27337561 0 0 1 0.146483,-0.0273437 z m -0.02539,0.2714844 V 2.8853314 l 9.6269527,7.3378916 -9.6269527,7.31836 v 3.214843 L 17.011065,10.203692 Z"
      style="display:none;stroke-width:10.0467"
+      stroke="currentColor"
      id="path7-5" />
 </svg>

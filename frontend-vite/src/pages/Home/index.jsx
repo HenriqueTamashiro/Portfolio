@@ -10,6 +10,9 @@ import Footer from "../../components/Footer";
 import LoaderWrapper from "../../components/LoaderWrapper/index";
 import Timeline from "../../components/Timeline/index";
 
+import LessKey from "../../assets/imgs/lessKey.svg?react";
+import GreaterKey from "../../assets/imgs/greaterKey.svg?react";
+
 import {
   Container,
   SubSector,
@@ -105,14 +108,16 @@ export default function Home({ progress }) {
 
             <HolderContent>
               <div className="divPicture" id="profile">
-                <span className="lessBgPict" />
+                <LessKey className="lessBgPict" />
+                {/* <span className="lessBgPict" /> */}
                 <img
                   src={profilePict}
                   className="w-80 h-80px profilePicture"
                   onLoad={() => progress.done(`picHome-profile`)}
                   onError={() => progress.done("picHome-profile")}
                 />
-                <span className="greaterBgPict" />
+                <GreaterKey className="greaterBgPict" />
+                {/* <span className="greaterBgPict" /> */}
               </div>
             </HolderContent>
 

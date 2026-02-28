@@ -107,15 +107,7 @@ export const HolderContent = styled.div`
       width: clamp(200px, 5vw, 200px);
       height: 250px;
 
-      background: linear-gradient(
-        to bottom,
-        ${({ theme }) => theme.colors.primaryLightColor} 10%,
-        ${({ theme }) => theme.colors.primaryGlow} 50%,
-        ${({ theme }) => theme.colors.primaryLightColor} 100%
-      );
-      -webkit-mask: url("src/assets/imgs/lessKey.svg") no-repeat center /
-        contain;
-      mask: url("src/assets/imgs/lessKey.svg") no-repeat center / contain;
+      color: ${({ theme }) => theme.colors.primaryGlow};
 
       z-index: -1;
       animation: opacityTransition 5s ease-in-out infinite;
@@ -126,15 +118,8 @@ export const HolderContent = styled.div`
     transform: translateX(-22%);
     width: clamp(200px, 5vw, 200px);
     height: 250px;
-    background: linear-gradient(
-      to bottom,
-      ${({ theme }) => theme.colors.primaryLightColor} 10%,
-      ${({ theme }) => theme.colors.primaryGlow} 50%,
-      ${({ theme }) => theme.colors.primaryLightColor} 100%
-    );
-    -webkit-mask: url("src/assets/imgs/greaterKey.svg") no-repeat center /
-      contain;
-    mask: url("src/assets/imgs/greaterKey.svg") no-repeat center / contain;
+
+    color: ${({ theme }) => theme.colors.primaryGlow};
 
     z-index: -1;
     animation: opacityTransition 5s ease-in-out infinite;
