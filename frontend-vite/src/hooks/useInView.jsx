@@ -12,7 +12,7 @@ export function useInView(opt = {}) {
       ([entry]) => {
         setVisible(entry.isIntersecting);
       },
-      { threshold: 0.3, opt },
+      { threshold: 0.3, ...opt },
     );
 
     observer.observe(element);
