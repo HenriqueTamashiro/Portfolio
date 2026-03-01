@@ -239,3 +239,16 @@ export const Container = styled.div`
     }
   }
 `;
+
+export const SectionView = styled.section`
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 100ms ease;
+
+  ${({ $animate }) =>
+    $animate &&
+    `
+    opacity: 1;
+    transform: translateY(0);
+  `}
+`;

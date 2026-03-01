@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 
-import { Content } from "./styled";
+import { Content, SectionView } from "./styled";
 
 import TechCarousel from "../../components/Carousel";
 import Hero from "../../components/Hero";
@@ -12,6 +12,8 @@ import Timeline from "../../components/Timeline/index";
 
 import LessKey from "../../assets/imgs/lessKey.svg?react";
 import GreaterKey from "../../assets/imgs/greaterKey.svg?react";
+
+import { useInView } from "../../hooks/useInView";
 
 import {
   Container,
@@ -29,6 +31,7 @@ export default function Home({ progress }) {
   const [cardId, setCardid] = useState(null);
   const [visibility, setVisibility] = useState(false);
   const cardRef = useRef({});
+  const [visible, setVisible] = useInView();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -100,7 +103,8 @@ export default function Home({ progress }) {
         />
 
         {/* HERO */}
-        <section className="hiddenSection">
+
+        <section className="hiddenSection" ref={visible} $animate={setVisible}>
           <Holder>
             <HolderContent>
               <Hero />
@@ -122,9 +126,11 @@ export default function Home({ progress }) {
             </HolderContent>
 
             <SectorStyled>
-              <SubSector>
-                <TechCarousel />
-              </SubSector>
+              <SectionView ref={visible} $animate={setVisible}>
+                <SubSector>
+                  <TechCarousel />
+                </SubSector>
+              </SectionView>
             </SectorStyled>
           </Holder>
         </section>
@@ -132,6 +138,7 @@ export default function Home({ progress }) {
         {/* PROJETOS */}
         <section className="hiddenSection">
           <Timeline progress={progress} />
+
           <div className="contentTittle hiddenSection timeline-item">
             Projetos
             <div className="divider" />
