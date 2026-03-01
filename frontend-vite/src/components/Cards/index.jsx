@@ -68,7 +68,6 @@ export default function Cards({
                 ></video>
               ) : (
                 <img
-                  loading="lazy"
                   className="imageContainer"
                   src={post.img}
                   alt={post.title}
