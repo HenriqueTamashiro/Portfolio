@@ -44,7 +44,6 @@ export const Content = styled.div`
 
   p {
     font-size: 15px;
-    padding: 15px;
   }
 
   .tech-polygon {
@@ -193,7 +192,7 @@ export const Holder = styled.div`
   }
 
   .Item.left {
-    margin-left: -88px;
+    margin-left: -5px;
     margin-top: 320px;
     grid-column: 1;
     justify-self: start;
