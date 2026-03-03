@@ -84,6 +84,7 @@ export const WindowLayout = styled.div`
   .content {
     position: relative;
     z-index: 10;
+    overflow-y: hidden;
   }
 
   .content-container {
