@@ -212,7 +212,7 @@ export const Holder = styled.div`
     overflow: hidden;
     z-index: 2;
     margin-bottom: 140px;
-    width: 400px;
+    width: 350px;
     height: 180px;
     background: ${({ theme }) => theme.colors.windowBackgroundOpt};
 
@@ -355,7 +355,7 @@ export const Holder = styled.div`
     top: -10px;
     background: var(--base-color);
     z-index: -10;
-    width: 335px;
+    width: 285px;
     height: 50px;
   }
 
