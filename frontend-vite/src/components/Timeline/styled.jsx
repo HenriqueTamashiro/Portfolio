@@ -26,22 +26,6 @@ export const Content = styled.div`
     opacity: 0.2;
 
     z-index: -1;
-
-    -webkit-mask: linear-gradient(
-      180deg,
-      transparent,
-      white 20%,
-      white 50%,
-      transparent
-    );
-
-    mask: linear-gradient(
-      180deg,
-      transparent,
-      white 20%,
-      white 50%,
-      transparent
-    );
   }
 
   h1 {
@@ -228,7 +212,7 @@ export const Holder = styled.div`
     overflow: hidden;
     z-index: 2;
     margin-bottom: 140px;
-    width: 430px;
+    width: 400px;
     height: 180px;
     background: ${({ theme }) => theme.colors.windowBackgroundOpt};
 
@@ -367,11 +351,11 @@ export const Holder = styled.div`
   .tittle-item::before {
     content: "";
     position: absolute;
-    right: 68px;
+    right: 30px;
     top: -10px;
     background: var(--base-color);
     z-index: -10;
-    width: 300px;
+    width: 335px;
     height: 50px;
   }
 
@@ -408,13 +392,13 @@ export const Corner = styled.svg`
 
   &.top-right {
     top: -10px;
-    right: 19px;
+    right: -13px;
     transform: scale(-1, -1);
   }
 
   &.top-left {
     top: -10px;
-    left: 13px;
+    left: -13px;
     transform: scale(1, -1);
   }
 `;
