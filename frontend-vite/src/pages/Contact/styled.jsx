@@ -93,14 +93,31 @@ export const Container = styled.div`
 
   @media (max-width: 950px) {
     grid-template-columns: 1fr;
-    grid-template-rows: auto 0.1rem auto;
+    grid-template-rows: auto auto auto;
+    gap: 1.5rem;
+
+    .icon {
+      width: 92px;
+      height: 92px;
+
+      i {
+        font-size: 52px;
+      }
+    }
+
+    .icons-contact {
+      grid-template-columns: 1fr;
+      gap: 14px;
+      text-align: center;
+    }
 
     .gap-contact {
       position: relative;
-      grid-template-rows: 2;
       width: 100%;
-      height: 100%;
-      transform: rotate(180deg);
+      height: 2px;
+    }
+
+    .gap-contact {
       mask: linear-gradient(
         90deg,
         transparent,
