@@ -159,7 +159,17 @@ export const Articles = styled.section`
   }
 
   .mediaContainer {
-    position: relative;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .mediaContainer img,
+  .mediaContainer video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .mediaContainer .videoContainer,
