@@ -72,4 +72,26 @@ export const Posts = [
     tags: [expressIcon, nodeIcon, mysqlIcon],
     created_at: new Date("11/11/2025"),
   },
+  {
+    id: 7,
+    title: "Conteúdo 7",
+    img: ImgTeste,
+    textPreview:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit.Quaerat aliquam expedita quod, cumque unde totam aspernatur, culpa molestiae velit eveniet provident, cum sunt nobis assumenda optio rem at ex. Quasi. ",
+
+    text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.QuaeratLorem, ipsum dolor sit amet consectetur adipisicing elit.QuaeratAtque nihil Lorem ipsum dolor sit amet...",
+    tags: [expressIcon, nodeIcon, mysqlIcon],
+    created_at: new Date("09/11/2025"),
+  },
+  {
+    id: 8,
+    title: "Conteúdo 8",
+    img: ImgTeste,
+    textPreview:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit.Quaerat aliquam expedita quod, cumque unde totam aspernatur, culpa molestiae velit eveniet provident, cum sunt nobis assumenda optio rem at ex. Quasi. ",
+
+    text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.QuaeratLorem, ipsum dolor sit amet consectetur adipisicing elit.QuaeratAtque nihil Lorem ipsum dolor sit amet...",
+    tags: [expressIcon, nodeIcon, mysqlIcon],
+    created_at: new Date("09/11/2025"),
+  },
 ];

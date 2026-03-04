@@ -35,6 +35,10 @@ export default function Projects({ progress }) {
 
   const isVideo = (src = "") => /\.(mp4|webm|ogg)$/i.test(src);
 
+  const sortedPosts = [...Posts].sort((a, b) => {
+    return new Date(b.created_at) - new Date(a.created_at);
+  });
+
   return (
     <LoaderWrapper progress={progress}>
       <Content className={isVisible ? "show" : "hide"}>
@@ -87,7 +91,7 @@ export default function Projects({ progress }) {
             <h2>Projetos</h2>
             <div className="side-wrapper">
               <div className="projectList">
-                {Posts.map((post) => (
+                {sortedPosts.map((post) => (
                   <button
                     key={post.id}
                     type="button"

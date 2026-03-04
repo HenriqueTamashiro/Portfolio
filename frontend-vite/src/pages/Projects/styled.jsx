@@ -31,7 +31,7 @@ export const Holder = styled.div`
     background: ${({ theme }) => theme.colors.secundaryLightColor};
     border: 1px solid ${({ theme }) => theme.colors.primaryBorder};
     border-radius: 12px;
-    min-height: 75vh;
+    min-height: 95vh;
   }
 
   .sideMenu {
@@ -170,7 +170,7 @@ export const Holder = styled.div`
   }
 
   .textContainer p {
-    margin: 0;
+    margin: 15px;
     line-height: 1.65;
     white-space: pre-line;
   }
