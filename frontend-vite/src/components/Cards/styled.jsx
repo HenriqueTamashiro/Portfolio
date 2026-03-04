@@ -55,7 +55,7 @@ export const StyledCards = styled.div`
   .cards {
     height: 100%;
     display: grid;
-    grid-template-rows: auto auto auto auto 1fr;
+    grid-template-rows: auto auto auto auto auto auto;
     z-index: 1;
     border-top: 1px solid ${({ theme }) => theme.colors.primaryBorder};
     border-bottom: 1px solid ${({ theme }) => theme.colors.primaryBorder};
@@ -225,22 +225,20 @@ export const Articles = styled.section`
   }
 
   .article-tittle {
-    height: 80px;
-    overflow: hidden;
+    min-height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 10px 16px;
   }
 
   .article-content {
     text-align: start;
     padding: 30px;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    height: 150px;
+    display: block;
+    overflow: visible;
+    height: auto;
     margin-bottom: 20px;
   }
 `;

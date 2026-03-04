@@ -99,6 +99,13 @@ export const WindowLayout = styled.div`
     margin-left: 15px;
   }
 
+  @media (max-width: 768px) {
+    .content-container {
+      padding: 10px 16px 15px 50px;
+      margin-left: 0;
+    }
+  }
+
   .content > * {
     position: relative;
     z-index: 1;

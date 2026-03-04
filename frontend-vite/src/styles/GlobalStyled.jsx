@@ -11,8 +11,6 @@ export default createGlobalStyle`
   body {
     font-family: "Poppins", sans-serif;
     min-height: 100vh;
-    overflow-x: hidden;
-    overflow-y: hidden;
     color: ${({ theme }) => theme.colors.textColor};
 
 background: radial-gradient(

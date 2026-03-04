@@ -39,6 +39,7 @@ export const Holder = styled.div`
   justify-content: center;
 
   width: 100%;
+  overflow-x: clip;
 
   &::before {
     content: "";
@@ -84,6 +85,7 @@ export const HolderContent = styled.div`
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
+    overflow-x: clip;
 
     /* .profilePicture {
       width: 320px;
@@ -134,6 +136,21 @@ export const HolderContent = styled.div`
     }
     100% {
       opacity: 0.3;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .divPicture {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .divPicture .lessBgPict {
+      transform: translateX(6%);
+    }
+
+    .greaterBgPict {
+      transform: translateX(-10%);
     }
   }
 `;

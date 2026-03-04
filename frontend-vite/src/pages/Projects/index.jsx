@@ -1,117 +1,106 @@
-import { Content, Holder, MiddleContent, CircuitWrapper } from "./styled";
+import { useEffect, useMemo, useState } from "react";
 import Footer from "../../components/Footer";
 import LoaderWrapper from "../../components/LoaderWrapper";
-import CircuitSVG from "../../components/subcomponents/CircuitSVG/CircuitV2.jsx";
-import * as Pattern from "../../components/subcomponents/CircuitSVG/Patterns/index.jsx";
-
 import { Posts } from "../../Placeholder/data.jsx";
-import { useEffect, useState } from "react";
+import { Content, Holder } from "./styled";
 
 export default function Projects({ progress }) {
-  const [visibility, setVisibility] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [activeProjectId, setActiveProjectId] = useState(Posts[0]?.id ?? null);
+
+  const activeProject = useMemo(() => {
+    return (
+      Posts.find((post) => post.id === activeProjectId) ?? Posts[0] ?? null
+    );
+  }, [activeProjectId]);
 
   useEffect(() => {
     progress.start();
-
     return () => progress.reset();
-  }, []);
+  }, [progress]);
 
   useEffect(() => {
-    Posts.forEach((post) => {
-      progress.register(`post-media-${post.id}`);
-    });
-  }, []);
+    progress.register("projects-initial-render");
+    progress.done("projects-initial-render");
+  }, [progress]);
 
   useEffect(() => {
-    if (progress.status === "Success") {
-      setVisibility(true);
-    } else {
-      setVisibility(false);
-    }
-
-    if (progress.status !== "Success") {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
+    const loaded = progress.status === "Success";
+    setIsVisible(loaded);
 
     return () => {
-      // garante limpeza ao sair da página
       document.body.style.overflow = "auto";
     };
   }, [progress.status]);
 
+  const isVideo = (src = "") => /\.(mp4|webm|ogg)$/i.test(src);
+
   return (
     <LoaderWrapper progress={progress}>
-      <Content className={visibility ? "show" : "hide"}>
+      <Content className={isVisible ? "show" : "hide"}>
         <Holder>
-          <div className="post-wrapper">
-            <div className="section-wrapper">
-              <MiddleContent>
-                <CircuitWrapper>
-                  <span className="tittle-circuit">
-                    <h1>Projetos</h1>
-                  </span>
-                  <div className="tech-wrapper">
-                    <div className="tech tech-corner-top-right"></div>
-                    <div className="tech tech-corner-bottom-right"></div>
-                    <div className="tech2 tech2-corner-bottom-left"></div>
-                    <div className="tech2 tech2-corner-top-left"></div>
-                  </div>
-                  <CircuitSVG pattern={Pattern.Circuit1} />
-                </CircuitWrapper>
-              </MiddleContent>
+          <section className="mainProject">
+            <header>
+              <h1>{activeProject?.title}</h1>
+              <span>{activeProject?.created_at?.toLocaleDateString()}</span>
+            </header>
 
-              {Posts.map((post, index) => {
-                const side = index % 2 === 0 ? "left" : "right";
+            <div className="projectContent">
+              <div className="tagContainer">
+                {activeProject?.tags?.map((tag, index) => (
+                  <img
+                    key={index}
+                    src={tag}
+                    alt="Tecnologia"
+                    className="tagIcon"
+                  />
+                ))}
+              </div>
 
-                return (
-                  <div key={post.id ?? index} className={`Articles ${side}`}>
-                    <h1>{post.title}</h1>
-                    <div className="tagContainer">
-                      {post.tags.map((tag, i) => (
-                        <img key={i} src={tag} alt="icon" className="tagIcon" />
-                      ))}
-                    </div>
-                    <div className="mediaContainer">
-                      {/\.(mp4|webm|ogg)$/i.test(post.img) ? (
-                        <video
-                          className="videoContainer"
-                          src={post.img}
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
-                          disablePictureInPicture
-                          onCanPlayThrough={() =>
-                            progress.done(`post-media-${post.id}`)
-                          }
-                          onError={() => progress.done(`post-media-${post.id}`)}
-                        />
-                      ) : (
-                        <img
-                          className="imageContainer"
-                          src={post.img}
-                          alt={post.title}
-                          onLoad={() => progress.done(`post-media-${post.id}`)}
-                          onError={() => progress.done(`post-media-${post.id}`)}
-                        />
-                      )}
-                    </div>
+              <div className="mediaContainer">
+                {isVideo(activeProject?.img) ? (
+                  <video
+                    className="videoContainer"
+                    src={activeProject?.img}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    disablePictureInPicture
+                  />
+                ) : (
+                  <img
+                    className="imageContainer"
+                    src={activeProject?.img}
+                    alt={activeProject?.title}
+                  />
+                )}
+              </div>
 
-                    <div className="postedContainer">
-                      <div className="posted" alt="Data">
-                        {post.created_at?.toLocaleDateString()}
-                      </div>
-                    </div>
-                    <div className="text-container">
-                      <p>{post.text}</p>
-                    </div>
-                  </div>
-                );
-              })}
+              <article className="textContainer">
+                <p>{activeProject?.text}</p>
+              </article>
             </div>
-          </div>
+          </section>
+
+          <aside className="sideMenu">
+            <h2>Projetos</h2>
+            <div className="side-wrapper">
+              <div className="projectList">
+                {Posts.map((post) => (
+                  <button
+                    key={post.id}
+                    type="button"
+                    className={`projectItem ${post.id === activeProject?.id ? "active" : ""}`}
+                    onClick={() => setActiveProjectId(post.id)}
+                  >
+                    <h3>{post.title}</h3>
+                    <p>{post.textPreview}</p>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </aside>
         </Holder>
       </Content>
       <Footer />

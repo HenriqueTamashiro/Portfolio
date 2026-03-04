@@ -1,393 +1,190 @@
-import styled, { keyframes } from "styled-components";
-import CircuitCircle from "../../assets/imgs/circuitCircle.png";
-import Circuit from "../../assets/imgs/circuit2.png";
-
-const dash = keyframes`
-  to {
-    stroke-dashoffset: -1500;
-  }
-`;
+import styled from "styled-components";
 
 export const Content = styled.div`
   margin-top: 100px;
-  margin-bottom: 500px;
+  margin-bottom: 100px;
   display: grid;
   justify-content: center;
   color: #fff;
+  overflow-y: auto;
 
-  h1 {
-    font-size: clamp(25px, 35px, 40px);
-    text-transform: uppercase;
-    font-weight: 600;
+  &.hide {
+    opacity: 0;
   }
 
-  h2 {
-    font-size: 40px;
-  }
-
-  h3 {
-    font-size: 20px;
-  }
-
-  .percentScroll {
-    position: fixed;
-    top: 50vh;
-    left: 50vw;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
-    pointer-events: none;
-  }
-
-  @media (width < 900px) {
-    margin-bottom: 50px;
+  &.show {
+    opacity: 1;
+    transition: opacity 0.25s ease;
   }
 `;
 
 export const Holder = styled.div`
-  position: relative;
-  width: 100%;
-  padding: 2rem;
-  border-radius: 8px;
+  width: min(1500px, 92vw);
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+  overflow: auto;
 
-  .post-wrapper {
-    width: 100%;
-  }
-
-  .line {
-    stroke: white;
-    stroke-width: 4;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    fill: none;
-  }
-
-  .section-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    position: relative;
-  }
-
-  .Articles {
-    position: relative;
-    text-align: center;
-
-    z-index: 2;
-
-    width: 40vw;
-    height: 100%;
+  .sideMenu,
+  .mainProject {
     background: ${({ theme }) => theme.colors.secundaryLightColor};
-
-    .mediaContainer {
-      width: auto;
-      height: auto;
-      border-top: 1px solid ${({ theme }) => theme.colors.primaryBorder};
-      border-bottom: 1px solid ${({ theme }) => theme.colors.primaryBorder};
-    }
-
-    .text-container {
-      text-align: start;
-      font-size: 17px;
-      margin: 10px 10px 100px 10px;
-    }
-
-    h1 {
-      margin-top: 50px;
-    }
+    border: 1px solid ${({ theme }) => theme.colors.primaryBorder};
+    border-radius: 12px;
+    min-height: 75vh;
   }
 
-  .Articles.left {
-    right: 29px;
-
-    grid-column: 1;
-    justify-self: start;
-    clip-path: polygon(
-      0% 4%,
-      45% 4%,
-      50% 1%,
-      100% 1%,
-      95% 1%,
-      100% 4%,
-      100% 94%,
-      95% 97%,
-      45% 97%,
-      40% 100%,
-      0% 100%
-    );
+  .sideMenu {
+    padding: 1rem;
+    position: sticky;
+    top: 110px;
+    max-height: 75vh;
+    display: flex;
+    flex-direction: column;
   }
 
-  .Articles.right {
-    left: 29px;
-    margin-top: 350px;
-    grid-column: 3;
-    justify-self: start;
-    clip-path: polygon(
-      0% 4%,
-      5% 1%,
-      50% 1%,
-      55% 4%,
-      100% 4%,
-      100% 4%,
-      100% 95%,
-      100% 100%,
-      60% 100%,
-      55% 97%,
-      5% 97%,
-      0% 95%
-    );
+  .sideMenu h2 {
+    border-bottom: 1px solid ${({ theme }) => theme.colors.primaryBorder};
+    margin: 0 0 1rem;
+    font-size: clamp(1.1rem, 1.6vw, 1.5rem);
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .side-wrapper {
+    border: 1px solid ${({ theme }) => theme.colors.primaryBorder};
+    background: ${({ theme }) => theme.colors.secundaryDarkColor};
+    padding: 1rem;
+    overflow-y: auto;
+    border-radius: 12px;
+  }
+
+  .projectContent {
+    height: 25vh;
+  }
+
+  .projectList {
+    display: grid;
+    gap: 0.7rem;
+
+    padding-right: 0.2rem;
+  }
+
+  .projectItem {
+    all: unset;
+    cursor: pointer;
+    display: grid;
+    gap: 0.35rem;
+    padding: 0.75rem;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    background: ${({ theme }) => theme.colors.primaryDarkColor};
+    transition:
+      border-color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .projectItem:hover {
+    border-color: ${({ theme }) => theme.colors.primaryBorder};
+    transform: translateY(4px);
+  }
+
+  .projectItem.active {
+    border-color: ${({ theme }) => theme.colors.primaryBorder};
+    box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.primaryBorder};
+  }
+
+  .projectItem h3 {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  .projectItem p {
+    margin: 0;
+    font-size: 0.82rem;
+    line-height: 1.35;
+    opacity: 0.88;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .mainProject {
+    padding: clamp(1rem, 2vw, 1.5rem);
+    display: grid;
+    align-content: start;
+    gap: 1rem;
+    overflow: auto;
+  }
+
+  .mainProject header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.primaryBorder};
+    padding-bottom: 0.8rem;
+  }
+
+  .mainProject h1 {
+    margin: 0;
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .mainProject header span {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    white-space: nowrap;
   }
 
   .tagContainer {
     display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: ${({ theme }) => theme.colors.primaryColor};
-
-    clip-path: polygon(5% 0%, 100% 0, 100% 100%, 0% 100%);
-    width: 100%;
-    height: auto;
-    z-index: 1;
-    gap: 10px;
+    flex-wrap: wrap;
+    gap: 0.45rem;
   }
 
   .tagIcon {
-    width: 35px;
-    height: 35px;
-  }
-
-  .postedContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 34px;
+    height: 34px;
     background: ${({ theme }) => theme.colors.primaryColor};
+    border-radius: 8px;
+    padding: 6px;
+  }
+
+  .mediaContainer {
+    border: 1px solid ${({ theme }) => theme.colors.primaryBorder};
+    border-radius: 10px;
+    overflow: hidden;
+    background: #000;
+  }
+
+  .videoContainer,
+  .imageContainer {
     width: 100%;
-    height: auto;
-    gap: 10px;
-    z-index: 2;
-    clip-path: polygon(0% 0%, 100% 0, 95% 100%, 0% 100%);
-  }
-
-  .posted {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 35px;
-    height: 35px;
-  }
-
-  @media (width < 900px) {
-    .Articles.left,
-    .Articles.right {
-      grid-column: 2;
-      margin-top: 0;
-      min-height: 700px;
-      min-width: 400px;
-      left: 0;
-    }
-
-    .Articles.left {
-      clip-path: polygon(
-        0% 2%,
-        45% 2%,
-        50% 0%,
-        100% 0%,
-        95% 0%,
-        100% 2%,
-        100% 92%,
-        95% 95%,
-        45% 95%,
-        40% 97%,
-        0% 97%
-      );
-    }
-
-    .Articles.right {
-      clip-path: polygon(
-        0% 3%,
-        5% 0%,
-        50% 0%,
-        55% 3%,
-        100% 3%,
-        100% 5%,
-        100% 95%,
-        100% 98%,
-        60% 98%,
-        55% 95%,
-        5% 95%,
-        0% 90%
-      );
-    }
-  }
-`;
-
-export const CircuitWrapper = styled.div`
-  grid-column: 2;
-  position: relative;
-  width: clamp(50px, 12vw, 800px);
-  height: 100%;
-  background: ${({ theme }) => theme.colors.secundaryLightColor};
-  top: var(--nav-height, 80px);
-
-  display: flex;
-  justify-content: center;
-
-  margin: 0;
-  z-index: 1;
-
-  clip-path: polygon(
-    0% 3%,
-    5% 2%,
-    50% 2%,
-    55% 3%,
-    100% 3%,
-    95% 3%,
-    100% 4%,
-    100% 95%,
-    95% 96%,
-    60% 96%,
-    55% 95%,
-    5% 95%,
-    0% 94%
-  );
-
-  .tittle-circuit {
-    align-self: center;
-    text-align: center;
-    align-items: center;
-    z-index: 9999;
-    position: absolute;
-  }
-
-  .tittle-circuit h1 {
-    font-size: 38px;
-    writing-mode: vertical-rl;
-    text-orientation: upright;
-    font-weight: bold;
-    letter-spacing: -4px;
-    z-index: 9999;
-  }
-`;
-
-export const MiddleContent = styled.div`
-  grid-column: 2;
-  position: sticky;
-
-  top: 0;
-
-  display: flex;
-  justify-content: center;
-  pointer-events: none;
-
-  height: 93vh;
-  margin-top: -1000px;
-  z-index: 9;
-
-  svg {
-    width: 100%;
-    height: auto;
+    max-height: 55vh;
+    object-fit: cover;
     display: block;
   }
 
-  .tech-wrapper {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-
-  .tech {
-    background: url(${CircuitCircle}) center / contain no-repeat;
-    position: absolute;
-    width: clamp(1vw, 10vw, 10vw);
-    height: clamp(1vh, 15vh, 18vh);
-
-    z-index: 2;
-    pointer-events: none;
-  }
-  .tech2 {
-    background: url(${Circuit}) center / contain no-repeat;
-    position: absolute;
-    width: clamp(2vw, 30vw, 30vw);
-    height: clamp(2vh, 30vh, 30vh);
-
-    z-index: 2;
-    pointer-events: none;
-  }
-
-  .tech-corner-top-right {
-    position: absolute;
-    top: 5%;
-    right: -35%;
-  }
-  .tech-corner-bottom-right {
-    position: absolute;
-    bottom: 5%;
-    right: -35%;
-    transform: rotateX(180deg);
-  }
-  .tech2-corner-bottom-left {
-    position: absolute;
-    bottom: 5%;
-    left: -110%;
-  }
-  .tech2-corner-top-left {
-    position: absolute;
-    top: 4%;
-    left: -110%;
-    transform: rotateX(180deg);
-  }
-
-  .circuit {
-    margin: 0%;
-    width: auto;
-    height: auto;
-    min-height: fit-content;
-    min-width: fit-content;
-  }
-
-  .circuit-path {
-    stroke: ${({ theme }) => theme.colors.primaryBorder};
-    stroke-width: 4;
-    fill: none;
-
-    stroke-dasharray: 750;
-    stroke-dashoffset: 0;
-
-    animation: ${dash} 9s linear infinite;
-  }
-
-  .circuit-pathBg {
-    stroke: ${({ theme }) => theme.colors.primaryDarkColor};
-    stroke-width: 5;
-    fill: none;
-  }
-
-  circle {
-    fill: ${({ theme }) => theme.colors.primaryGlow};
-    animation: pulse 2s ease-in-out infinite;
-  }
-  rect {
-    fill: ${({ theme }) => theme.colors.primaryGlow};
-    animation: pulse 2s ease-in-out infinite;
+  .textContainer p {
+    margin: 0;
+    line-height: 1.65;
+    white-space: pre-line;
   }
 
   @media (width < 900px) {
-    min-width: 90px;
-    height: 100svh;
-    width: auto;
-    gap: 1em;
-    grid-column: 3;
-    justify-content: right;
-    pointer-events: none;
-  }
+    grid-template-columns: 1fr;
 
-  @keyframes pulse {
-    0%,
-    100% {
-      opacity: 0.4;
+    .mainProject {
+      max-height: 55vh;
     }
-    50% {
-      opacity: 1;
+
+    .sideMenu {
+      position: static;
+      max-height: 50px;
     }
   }
 `;

@@ -40,6 +40,17 @@ export const HeroStyle = styled.section`
     animation: spin 12s ease-in-out infinite;
   }
 
+  @media (max-width: 768px) {
+    .hero {
+      padding-left: 0;
+    }
+
+    .intro h1 {
+      white-space: normal;
+      overflow-wrap: anywhere;
+    }
+  }
+
   @keyframes spin {
     0% {
       background-position: 0% 50%;
