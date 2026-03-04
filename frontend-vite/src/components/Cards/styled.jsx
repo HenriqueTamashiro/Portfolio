@@ -55,7 +55,7 @@ export const StyledCards = styled.div`
   .cards {
     height: 100%;
     display: grid;
-    grid-template-rows: auto auto auto auto auto auto;
+    grid-template-rows: auto auto auto auto 1fr;
     z-index: 1;
     border-top: 1px solid ${({ theme }) => theme.colors.primaryBorder};
     border-bottom: 1px solid ${({ theme }) => theme.colors.primaryBorder};
@@ -145,7 +145,7 @@ export const StyledCards = styled.div`
 
 export const Articles = styled.section`
   position: relative;
-
+  min-width: 400px;
   max-width: 640px;
   max-height: auto;
   border-radius: 8px;
@@ -159,25 +159,16 @@ export const Articles = styled.section`
   }
 
   .mediaContainer {
-    aspect-ratio: 16 / 9;
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .mediaContainer img,
-  .mediaContainer video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+    position: relative;
   }
 
   .mediaContainer .videoContainer,
   .mediaContainer .imageContainer {
     pointer-events: auto;
-    min-width: 300px;
+    object-fit: cover;
+    min-width: 400px;
     width: 100%;
-    height: 100%;
+    height: 350px;
     overflow: hidden;
     border-bottom: 1px solid ${({ theme }) => theme.colors.primaryBorder};
     border-top: 1px solid ${({ theme }) => theme.colors.primaryBorder};
@@ -225,20 +216,22 @@ export const Articles = styled.section`
   }
 
   .article-tittle {
-    min-height: 80px;
+    height: 80px;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 10px 16px;
   }
 
   .article-content {
     text-align: start;
     padding: 30px;
-    display: block;
-    overflow: visible;
-    height: auto;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 150px;
     margin-bottom: 20px;
   }
 `;
