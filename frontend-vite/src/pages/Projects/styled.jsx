@@ -31,7 +31,7 @@ export const Holder = styled.div`
     background: ${({ theme }) => theme.colors.secundaryLightColor};
     border: 1px solid ${({ theme }) => theme.colors.primaryBorder};
     border-radius: 12px;
-    min-height: 95vh;
+    min-height: 100vh;
   }
 
   .sideMenu {
@@ -46,7 +46,7 @@ export const Holder = styled.div`
   .sideMenu h2 {
     border-bottom: 1px solid ${({ theme }) => theme.colors.primaryBorder};
     margin: 0 0 1rem;
-    font-size: clamp(1.1rem, 1.6vw, 1.5rem);
+    font-size: clamp(1.5rem, 1.7vw, 1.7rem);
     text-transform: uppercase;
     text-align: center;
   }
@@ -144,6 +144,7 @@ export const Holder = styled.div`
     display: flex;
     flex-wrap: wrap;
     gap: 0.45rem;
+    padding-bottom: 5px;
   }
 
   .tagIcon {
@@ -175,11 +176,23 @@ export const Holder = styled.div`
     white-space: pre-line;
   }
 
+  .tittle-container {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.primaryBorder};
+    font-size: 12px;
+  }
+
   @media (width < 900px) {
     grid-template-columns: 1fr;
 
+    .sideMenu {
+      min-height: 50vh;
+    }
+
     .mainProject {
-      max-height: 55vh;
+      min-height: 65vh;
     }
 
     .sideMenu {

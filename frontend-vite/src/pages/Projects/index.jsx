@@ -98,7 +98,11 @@ export default function Projects({ progress }) {
                     className={`projectItem ${post.id === activeProject?.id ? "active" : ""}`}
                     onClick={() => setActiveProjectId(post.id)}
                   >
-                    <h3>{post.title}</h3>
+                    <div className="tittle-container">
+                      <h3>{post.title}</h3>
+                      <span>{post.created_at.toLocaleDateString()}</span>
+                    </div>
+
                     <p>{post.textPreview}</p>
                   </button>
                 ))}
