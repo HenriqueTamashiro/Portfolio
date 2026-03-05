@@ -28,10 +28,10 @@ export const Holder = styled.div`
 
   .sideMenu,
   .mainProject {
-    background: ${({ theme }) => theme.colors.secundaryLightColor};
+    background: ${({ theme }) => theme.colors.menuLightColorOpt};
     border: 1px solid ${({ theme }) => theme.colors.primaryBorder};
     border-radius: 12px;
-    min-height: 100vh;
+    min-height: 85vh;
   }
 
   .sideMenu {
@@ -57,6 +57,7 @@ export const Holder = styled.div`
     padding: 1rem;
     overflow-y: auto;
     border-radius: 12px;
+    height: 75vh;
   }
 
   .projectContent {

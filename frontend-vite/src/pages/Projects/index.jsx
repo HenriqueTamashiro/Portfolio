@@ -100,7 +100,9 @@ export default function Projects({ progress }) {
                   >
                     <div className="tittle-container">
                       <h3>{post.title}</h3>
-                      <span>{post.created_at.toLocaleDateString()}</span>
+                      <span>
+                        {new Date(post.created_at).toLocaleDateString("pt-BR")}
+                      </span>
                     </div>
 
                     <p>{post.textPreview}</p>
