@@ -119,6 +119,12 @@ export const StyledCards = styled.div`
     transform: scaleX(1);
   }
 
+  @media (hover: none), (max-width: 55em) {
+    .tab {
+      transform: scaleX(1);
+    }
+  }
+
   .tab:hover {
     background: ${({ theme }) => theme.colors.secundaryLightColor};
   }
