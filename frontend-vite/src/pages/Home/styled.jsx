@@ -184,6 +184,7 @@ export const Container = styled.div`
     color: ${({ theme }) => theme.colors.textColor};
 
     text-align: center;
+    font-family: "Poppins", sans-serif;
     font-size: 35px;
     font-weight: 600;
     text-transform: uppercase;
