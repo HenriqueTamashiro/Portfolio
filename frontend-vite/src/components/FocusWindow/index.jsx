@@ -60,7 +60,13 @@ export default function FocusWindow({ onOff, post, onClose }) {
                 {post.created_at?.toLocaleDateString()}
               </div>
             </div>
-            <p>{post.text}</p>
+
+            {post.text.map((nest) => (
+              <div key={nest.id} className="description">
+                <h4>{nest.title}</h4>
+                <p className="contents">{nest.content}</p>
+              </div>
+            ))}
           </FocusArticle>
         </div>
       </div>

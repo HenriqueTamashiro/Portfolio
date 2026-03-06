@@ -28,7 +28,7 @@ export const Focus = styled.div`
   .content {
     object-fit: cover;
     width: 100%;
-    min-width: 350px;
+    min-width: auto;
     height: 500px;
     max-height: 80vh;
     overflow-y: hidden;
@@ -41,6 +41,25 @@ export const Focus = styled.div`
 
     height: auto;
     z-index: 2;
+  }
+
+  .description {
+    padding: 20px 20px 20px 20px;
+
+    h4 {
+      text-transform: uppercase;
+      font-weight: 500;
+      border-bottom: 3px solid ${({ theme }) => theme.colors.primaryGlow};
+
+      border-radius: 5px;
+      width: fit-content;
+      padding: 2px;
+    }
+
+    .contents {
+      margin: 0;
+      font-size: 14px;
+    }
   }
 
   /* Efeito de transição */
@@ -68,11 +87,11 @@ export const FocusArticle = styled.div`
   display: grid;
   justify-self: center;
   height: fit-content;
-  min-width: 400px;
+  min-width: 300px;
   overflow-y: auto;
 
   border-radius: 8px;
-  background: ${({ theme }) => theme.colors.secundaryLightColor};
+  background: ${({ theme }) => theme.colors.menuDarkColor};
   z-index: 1;
   border-top: 1px solid ${({ theme }) => theme.colors.primaryBorder};
   border-bottom: 1px solid ${({ theme }) => theme.colors.primaryBorder};
@@ -160,10 +179,14 @@ export const FocusArticle = styled.div`
     height: 100%;
     z-index: 1;
     gap: 10px;
+    padding: 5px;
   }
 
   .tagIcon {
     width: 35px;
     height: 35px;
+    border-right: 2px solid ${({ theme }) => theme.colors.menuDarkColor};
+    border-bottom: 2px solid ${({ theme }) => theme.colors.menuDarkColor};
+    border-radius: 8px;
   }
 `;

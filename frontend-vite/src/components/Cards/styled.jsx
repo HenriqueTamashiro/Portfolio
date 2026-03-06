@@ -217,11 +217,15 @@ export const Articles = styled.section`
     height: 100%;
     z-index: 1;
     gap: 10px;
+    padding: 5px;
   }
 
   .tagIcon {
     width: 35px;
     height: 35px;
+    border-right: 2px solid ${({ theme }) => theme.colors.menuDarkColor};
+    border-bottom: 2px solid ${({ theme }) => theme.colors.menuDarkColor};
+    border-radius: 8px;
   }
 
   .article-tittle {

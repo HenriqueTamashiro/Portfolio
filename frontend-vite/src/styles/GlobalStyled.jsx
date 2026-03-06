@@ -9,7 +9,7 @@ export default createGlobalStyle`
   }
 
   body {
-    font-family: "Poppins", sans-serif;
+     font-family: "Roboto Condensed", sans-serif;
     min-height: 100vh;
     color: ${({ theme }) => theme.colors.textColor};
 

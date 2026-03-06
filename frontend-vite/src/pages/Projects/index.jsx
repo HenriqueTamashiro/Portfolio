@@ -80,10 +80,12 @@ export default function Projects({ progress }) {
                   />
                 )}
               </div>
-
-              <article className="textContainer">
-                <p>{activeProject?.text}</p>
-              </article>
+              {activeProject.text.map((section) => (
+                <div key={section.id} className="description">
+                  <h4>{section.title}</h4>
+                  <p className="content">{section.content}</p>
+                </div>
+              ))}
             </div>
           </section>
 

@@ -171,8 +171,22 @@ export const Holder = styled.div`
     display: block;
   }
 
-  .textContainer p {
+  .textContainer {
     margin: 15px;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .textSection h3 {
+    margin: 0 0 0.4rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.primaryBorder};
+  }
+
+  .textSection p {
+    margin: 0;
     line-height: 1.65;
     white-space: pre-line;
   }
@@ -183,6 +197,25 @@ export const Holder = styled.div`
     justify-content: space-between;
     border-bottom: 1px solid ${({ theme }) => theme.colors.primaryBorder};
     font-size: 12px;
+  }
+
+  .description {
+    padding: 20px 20px 20px 20px;
+
+    h4 {
+      text-transform: uppercase;
+      font-weight: 500;
+      border-bottom: 3px solid ${({ theme }) => theme.colors.primaryGlow};
+
+      border-radius: 5px;
+      width: fit-content;
+      padding: 2px;
+    }
+
+    .content {
+      font-size: 14px;
+      margin: 0;
+    }
   }
 
   @media (width < 900px) {

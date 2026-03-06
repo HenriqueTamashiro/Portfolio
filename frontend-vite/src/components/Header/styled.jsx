@@ -10,7 +10,6 @@ export const Nav = styled.nav`
   display: flex;
   align-items: end;
   justify-content: end;
-  gap: 1px;
   z-index: 99;
   backdrop-filter: blur(20px);
   ${({ theme }) => theme.colors.gradients.primary}
@@ -19,14 +18,16 @@ export const Nav = styled.nav`
     color: ${({ theme }) => theme.colors.textColor};
     border-radius: 4px;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
     font-size: 17px;
+    text-transform: uppercase;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     height: 100%;
-    width: 85px;
+    width: auto;
+    padding: 12px;
     transition: 400ms;
   }
 
