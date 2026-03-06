@@ -50,6 +50,9 @@ export const Holder = styled.div`
     text-transform: uppercase;
     text-align: center;
   }
+  .sideMenu h3 {
+    text-transform: uppercase;
+  }
 
   .side-wrapper {
     border: 1px solid ${({ theme }) => theme.colors.primaryBorder};
