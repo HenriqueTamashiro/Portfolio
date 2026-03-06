@@ -156,6 +156,7 @@ export const Articles = styled.section`
     line-height: 1.1;
     font-weight: bold;
     margin: 0;
+    text-transform: uppercase;
   }
 
   .mediaContainer {

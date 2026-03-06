@@ -31,6 +31,7 @@ export const Content = styled.div`
   h1 {
     font-size: clamp(15px, 23px, 30px);
     text-transform: uppercase;
+    font-family: "Poppins", sans-serif;
     font-weight: 600;
   }
 

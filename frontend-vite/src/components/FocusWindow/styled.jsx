@@ -144,6 +144,7 @@ export const FocusArticle = styled.div`
     align-items: center;
     justify-content: center;
     text-align: center;
+    text-transform: uppercase;
   }
 
   .postedContainer {

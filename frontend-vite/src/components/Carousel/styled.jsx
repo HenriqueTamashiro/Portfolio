@@ -28,6 +28,7 @@ export const CarouselStyle = styled.section`
 
     color: ${({ theme }) => theme.colors.textColor};
     text-transform: uppercase;
+    font-family: "Poppins", sans-serif;
     font-weight: 600;
     font-size: 25px;
 
@@ -79,7 +80,8 @@ export const CarouselStyle = styled.section`
     position: absolute;
     inset: 0;
 
-    background: radial-gradient(
+    background:
+      radial-gradient(
         ${({ theme }) => theme.colors.secondaryLightColor} 1px,
         transparent 1px
       ),
@@ -88,9 +90,13 @@ export const CarouselStyle = styled.section`
         transparent 1px
       ),
       linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
-    background-size: 15px 15px, 70px 70px;
+    background-size:
+      15px 15px,
+      70px 70px;
     background-repeat: repeat, repeat;
-    background-position: 5px 5px, 0 0;
+    background-position:
+      5px 5px,
+      0 0;
     z-index: -1;
   }
 
