@@ -56,6 +56,7 @@ export const Posts = [
     ],
     tags: [expressIcon, nodeIcon, reduxIcon, axiosIcon, mysqlIcon],
     created_at: new Date("2024/10/28"),
+    link: "",
   },
   {
     id: 2,
@@ -108,6 +109,7 @@ export const Posts = [
     ],
     tags: [expressIcon, nodeIcon, mysqlIcon],
     created_at: new Date("2024/08/15"),
+    link: "https://github.com/HenriqueTamashiro/Agenda",
   },
   {
     id: 3,
@@ -159,5 +161,6 @@ export const Posts = [
     ],
     tags: [expressIcon, nodeIcon],
     created_at: new Date("2024/02/01"),
+    link: "https://github.com/HenriqueTamashiro/Projeto-Conference",
   },
 ];

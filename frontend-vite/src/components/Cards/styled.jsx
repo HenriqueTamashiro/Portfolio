@@ -94,11 +94,17 @@ export const StyledCards = styled.div`
 
     cursor: pointer;
     padding: 4px;
+    border: 0;
+    color: ${({ theme }) => theme.colors.textColor};
+    text-decoration: none;
+    z-index: 3;
   }
 
   .tab i {
     font-size: 15px;
     margin-bottom: 1px;
+
+    text-decoration: none;
   }
 
   .tab .label {
@@ -106,6 +112,7 @@ export const StyledCards = styled.div`
     text-orientation: upright;
     font-size: 8px;
     font-weight: bold;
+    text-decoration: none;
   }
 
   .buttonContainer:hover .tab {
@@ -114,6 +121,11 @@ export const StyledCards = styled.div`
 
   .tab:hover {
     background: ${({ theme }) => theme.colors.secundaryLightColor};
+  }
+
+  .tab.tab-disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
   }
 
   .buttn {

@@ -88,10 +88,27 @@ export default function Cards({
             </div>
 
             <div className="buttonContainer">
-              <span className="tab">
-                <i className="bi bi-github"></i>
-                <span className="label">Github</span>
-              </span>
+              {post.link ? (
+                <a
+                  href={post.link}
+                  className="tab"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <i className="bi bi-github"></i>
+                  <span className="label">Github</span>
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  className="tab tab-disabled"
+                  disabled
+                  aria-label="Link do Github indisponível"
+                >
+                  <i className="bi bi-github"></i>
+                  <span className="label">Github</span>
+                </button>
+              )}
               <button
                 onClick={() => handleClick(post.id)}
                 className="buttn outline"
