@@ -1,16 +1,16 @@
-# Portfolio
+﻿# Portfólio
 
-Aplicacao web de portfolio pessoal desenvolvida em React com Vite. O projeto apresenta informacoes profissionais, projetos recentes, stack tecnologica e contato, com foco em interface visual customizada, animacoes e responsividade.
+Aplicação web de portfólio pessoal desenvolvida em React com Vite. O projeto apresenta informações profissionais, projetos recentes, stack tecnológica e contato, com foco em interface visual customizada, animações e responsividade.
 
-## Visao geral
+## Visão geral
 
 - Frontend SPA com React 19 e React Router
-- Estilizacao com `styled-components`, Tailwind CSS e Bootstrap
+- Estilização com `styled-components`, Tailwind CSS e Bootstrap
 - Gerenciamento de estado com Redux Toolkit
-- Barra/progresso de carregamento de midias por pagina
-- Componentes de destaque: Hero, Timeline, Cards de projetos, FocusWindow e formulario de contato
+- Barra/progresso de carregamento de mídias por página
+- Componentes de destaque: Hero, Timeline, Cards de projetos, FocusWindow e formulário de contato
 
-## Estrutura do repositorio
+## Estrutura do repositório
 
 ```text
 Portfolio/
@@ -26,17 +26,17 @@ Portfolio/
 ## Requisitos
 
 - Node.js 20+ (recomendado)
-- npm 10+ (ou versao compativel com seu Node)
+- npm 10+ (ou versão compatível com seu Node)
 
 ## Como rodar localmente
 
-1. Clone o repositorio:
+1. Clone o repositório:
 ```bash
 git clone https://github.com/HenriqueTamashiro/Portfolio.git
 cd Portfolio/frontend-vite
 ```
 
-2. Instale as dependencias:
+2. Instale as dependências:
 ```bash
 npm install
 ```
@@ -51,12 +51,12 @@ npm run dev
 http://localhost:5173
 ```
 
-## Scripts disponiveis
+## Scripts disponíveis
 
-No diretorio `frontend-vite`:
+No diretório `frontend-vite`:
 
 - `npm run dev`: inicia servidor de desenvolvimento (Vite)
-- `npm run build`: gera build de producao
+- `npm run build`: gera build de produção
 - `npm run preview`: sobe servidor para testar o build
 - `npm run lint`: executa o ESLint
 
@@ -77,6 +77,6 @@ No diretorio `frontend-vite`:
 - Bootstrap 5 + Bootstrap Icons
 - Redux Toolkit + React Redux
 
-## Licenca
+## Licença
 
-Este projeto e de uso pessoal para apresentacao de portfolio.
+Este projeto é de uso pessoal para apresentação de portfólio.
