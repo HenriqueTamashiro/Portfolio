@@ -1,28 +1,21 @@
 import { useState, useRef, useEffect } from "react";
-
-import { Content, SectionView } from "./styled";
-
-import TechCarousel from "../../components/Carousel";
 import Hero from "../../components/Hero";
 import FocusWindow from "../../components/FocusWindow";
 import Cards from "../../components/Cards";
 import Footer from "../../components/Footer";
 import LoaderWrapper from "../../components/LoaderWrapper/index";
 import Timeline from "../../components/Timeline/index";
-
-import LessKey from "../../assets/imgs/lessKey.svg?react";
-import GreaterKey from "../../assets/imgs/greaterKey.svg?react";
-
 import { useInView } from "../../hooks/useInView";
-
 import {
   Container,
   SubSector,
   SectorStyled,
   HolderContent,
   Holder,
+  Content,
+  SectionView,
+  SectionHeader,
 } from "./styled";
-
 import profilePict from "../../assets/imgs/profilePict.png";
 
 export default function Home({ progress }) {
@@ -49,14 +42,12 @@ export default function Home({ progress }) {
         rootMargin: "0px 0px -1% 0px",
       },
     );
-
     const sections = document.querySelectorAll("section");
     sections.forEach((sec, index) => {
       sec.classList.add("baseSection");
       if (index !== 0) sec.classList.add("hiddenSection");
       observer.observe(sec);
     });
-
     return () => observer.disconnect();
   }, []);
 
@@ -75,13 +66,11 @@ export default function Home({ progress }) {
     } else {
       setVisibility(false);
     }
-
     if (progress.status !== "Success") {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
     }
-
     return () => {
       document.body.style.overflow = "auto";
     };
@@ -103,48 +92,34 @@ export default function Home({ progress }) {
         />
 
         {/* HERO */}
-
         <section className="hiddenSection" ref={visible} $animate={setVisible}>
           <Holder>
             <HolderContent>
               <Hero />
             </HolderContent>
-
             <HolderContent>
               <div className="divPicture" id="profile">
-                <LessKey className="lessBgPict" />
-                {/* <span className="lessBgPict" /> */}
                 <img
                   src={profilePict}
-                  className="w-80 h-80px profilePicture"
-                  onLoad={() => progress.done(`picHome-profile`)}
+                  className="profilePicture"
+                  onLoad={() => progress.done("picHome-profile")}
                   onError={() => progress.done("picHome-profile")}
                 />
-                <GreaterKey className="greaterBgPict" />
-                {/* <span className="greaterBgPict" /> */}
               </div>
             </HolderContent>
-
-            <SectorStyled>
-              <SectionView ref={visible} $animate={setVisible}>
-                <SubSector>
-                  <TechCarousel />
-                </SubSector>
-              </SectionView>
-            </SectorStyled>
           </Holder>
         </section>
 
         {/* PROJETOS */}
         <section className="hiddenSection">
           <Timeline progress={progress} />
-
-          <div className="contentTittle hiddenSection timeline-item">
-            Projetos
-            <div className="divider" />
-            <h5>Recentes</h5>
-          </div>
-
+          <SectionHeader>
+            <div className="contentTittle timeline-item">
+              Projetos
+              <div className="divider" />
+              <h5>Recentes</h5>
+            </div>
+          </SectionHeader>
           <Content>
             <Cards
               setContent={setContent}

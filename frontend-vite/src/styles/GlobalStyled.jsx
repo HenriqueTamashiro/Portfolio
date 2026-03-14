@@ -9,71 +9,69 @@ export default createGlobalStyle`
   }
 
   body {
-     font-family: "Roboto Condensed", sans-serif;
+    font-family: "Inter", "Roboto Condensed", sans-serif;
     min-height: 100vh;
     color: ${({ theme }) => theme.colors.textColor};
-
-background: radial-gradient(
-  ${({ theme }) => theme.colors.primaryColor} 20%,
-  ${({ theme }) => theme.colors.primaryDarkColor} 50%,
-  ${({ theme }) => theme.colors.primaryLightColorOpt} 100%
-);
-
-
-    background-size: 800% 800%;
-    animation: gradientMove 10s ease infinite;
-  }
-
-  @keyframes gradientMove {
-    0% { background-position: 0% 10%; }
-    50% { background-position: 80% 10%; }
-    100% { background-position: 0% 10%; }
+    background: ${({ theme }) => theme.colors.primaryDarkColor};
+    background-image:
+      radial-gradient(ellipse at 15% 0%, #3b1fa022 0%, transparent 55%),
+      radial-gradient(ellipse at 85% 5%, #00c9b115 0%, transparent 45%),
+      radial-gradient(ellipse at 50% 100%, #1e3a6e18 0%, transparent 60%);
+    background-attachment: fixed;
   }
 
   html, body, #root {
     height: 100%;
-    scrollbar-color:
-      ${({ theme }) => theme.colors.primaryGlow} transparent;
+    scrollbar-color: ${({ theme }) => theme.colors.primaryGlow} transparent;
     scrollbar-width: thin;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.colors.primaryBorder};
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: ${({ theme }) => theme.colors.primaryGlow};
   }
 
   .page {
     opacity: 0;
     transform: translateY(60px);
   }
-
   .page-active {
     opacity: 1;
     transform: translateY(0);
     transition: opacity 0.8s ease, transform 0.6s ease;
   }
-
   .baseSection {
-      opacity: 0;
+    opacity: 0;
     transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
     will-change: opacity, transform;
   }
-
   .hiddenSection {
     opacity: 0;
     transform: translateY(10px);
     pointer-events: none;
     visibility: hidden;
   }
-
   .showSection {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
     z-index: 0;
+    visibility: visible;
   }
-  
   .show {
-  opacity: 1;
-  pointer-events: auto;
-  transition: opacity 0.8s ease;
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.8s ease;
   }
-
   .hide {
     opacity: 0;
     pointer-events: none;

@@ -1,32 +1,19 @@
 import styled from "styled-components";
-import background from "../../assets/imgs/imageBackground23.png";
 
 export const Content = styled.div`
   position: relative;
-
   overflow-x: hidden;
-  background: url(${background}) no-repeat center/cover;
-  box-shadow: inset #000000 0px 0px 950px 50px;
   display: grid;
   justify-content: center;
-
-  /*Estilos */
   color: #fff;
+  padding-top: 64px;
+  min-height: 100vh;
 
   p {
-    padding: 30px;
-    font-size: 20px;
+    font-size: 1rem;
+    line-height: 1.7;
   }
-
-  h1 {
-    font-size: 60px;
-  }
-
-  h2 {
-    font-size: 40px;
-  }
-
-  h3 {
-    font-size: 20px;
-  }
+  h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); }
+  h2 { font-size: clamp(1.4rem, 3vw, 2rem); }
+  h3 { font-size: clamp(1rem, 2vw, 1.4rem); }
 `;

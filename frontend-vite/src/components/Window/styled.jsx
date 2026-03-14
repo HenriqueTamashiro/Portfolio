@@ -1,174 +1,65 @@
 import styled from "styled-components";
 import holderImg from "../../assets/imgs/bgPicture.png";
-import cornerPNG from "../../assets/imgs/cornerPNG.png";
 
 export const WindowLayout = styled.div`
-  --base-color: ${({ theme }) => theme.colors.menuLightColorOpt};
-  --picture-size: min(600px, 90vw);
-  --picture-width: min(500px, 80vw);
-  --picture-height: min(500px, 80vw);
+  --picture-width: clamp(180px, 22vw, 280px);
+  --picture-height: clamp(180px, 22vw, 280px);
 
-  display: grid;
-  position: relative;
-
-  border-radius: 8px;
-
-  width: 100%;
-  max-width: 1500px;
-
-  min-height: 600px;
-  margin-top: 50px;
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+  padding: 3rem 0 4rem;
 
   .post-about {
     display: grid;
-    overflow: hidden;
-    width: 100%;
-    height: auto;
-    padding: 30px;
+    grid-template-columns: auto 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
 
-    transition:
-      opacity 0.4s ease,
-      transform 0.4s ease;
-
-    .corner {
-      position: absolute;
-      content: url(${cornerPNG});
-      width: 17px;
-      height: 17px;
-
-      z-index: 2;
+  @media (max-width: 900px) {
+    .post-about {
+      grid-template-columns: 1fr;
     }
-
-    .corner-top-left {
-      left: -1px;
-      top: -1px;
-      clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
-    }
-    .corner-top-right {
-      right: -1px;
-      top: -1px;
-      clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
-    }
-    .corner-bottom-left {
-      left: -1px;
-      bottom: -1px;
-      clip-path: polygon(0% 0%, 0% 100%, 100% 100%);
-    }
-    .corner-bottom-right {
-      right: -1px;
-      bottom: -1px;
-      clip-path: polygon(100% 100%, 0% 100%, 100% 0%);
+    .img-holder {
+      margin: 0 auto;
     }
   }
 
-  .about-container {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .title-row {
-    display: flex;
-    font-weight: 600;
-    flex-direction: column;
-    width: fit-content;
-    padding: 0 5px 0 5px;
-    font-size: 25px;
-    text-transform: uppercase;
-  }
-
-  .tittle-content > * {
-    position: relative;
-    z-index: 1;
-  }
-
-  .content {
-    position: relative;
-    z-index: 10;
-    overflow-y: hidden;
-  }
-
-  .content-container {
-    display: grid;
-    position: relative;
-    width: 100%;
-    padding: 10px 45px 5px 45px;
-    z-index: 10;
-    overflow: hidden;
-
-    border-radius: 3%;
-    margin-left: 15px;
-  }
-
-  @media (max-width: 768px) {
-    .content-container {
-      padding: 10px 16px 15px 50px;
-      margin-left: 0;
-    }
-  }
-
-  .content > * {
-    position: relative;
-    z-index: 1;
-  }
-
-  .content p {
-    margin: -25px 0 0 -25px;
-    font-size: 16px;
-  }
-
-  .presentation {
-    margin: 10px 17px 25px 5px;
-    font-size: 16px;
-  }
-
-  .posts-wrapper {
-    position: relative;
-    max-height: 1200px;
-    overflow-y: auto;
-    z-index: 9;
-    overflow-x: hidden;
-  }
-
+  /* Profile image */
   .img-holder {
     width: var(--picture-width);
     height: var(--picture-height);
     aspect-ratio: 1 / 1;
-    margin: 0 auto;
-    padding-right: 15px;
     position: relative;
     justify-self: center;
+    flex-shrink: 0;
   }
 
   .img-holder::before {
     content: "";
     position: absolute;
-
     z-index: 2;
-
     box-shadow:
-      ${({ theme }) => theme.colors.menuLightColor} 0px 0px 15px,
-      inset ${({ theme }) => theme.colors.menuLightColor} 0px 0px 5px,
-      inset ${({ theme }) => theme.colors.menuLightColor} 0px 0px 20px;
-
+      ${({ theme }) => theme.colors.primaryGlow}44 0px 0px 20px,
+      inset ${({ theme }) => theme.colors.primaryGlow}22 0px 0px 10px;
     width: var(--picture-width);
     height: 100%;
     border-radius: 50%;
+    animation: blobFloatRotate 15s ease-in-out infinite;
   }
 
   .img-holder::after {
     content: "";
     position: absolute;
     inset: 5px;
-
     z-index: 10;
     box-shadow:
-      ${({ theme }) => theme.colors.primaryGlow} 0px 0px 15px,
-      inset ${({ theme }) => theme.colors.primaryGlow} 0px 0px 5px,
-      inset ${({ theme }) => theme.colors.primaryGlow} 0px 0px 20px;
-
-    width: var(--picture-width);
-    height: 100%;
+      ${({ theme }) => theme.colors.tealGlow}33 0px 0px 15px,
+      inset ${({ theme }) => theme.colors.tealGlow}22 0px 0px 8px;
+    width: calc(var(--picture-width) - 10px);
+    height: calc(100% - 10px);
     border-radius: 50%;
+    animation: blobFloatRotate 15s ease-in-out infinite reverse;
   }
 
   .bgPicture {
@@ -179,7 +70,6 @@ export const WindowLayout = styled.div`
     height: var(--picture-height);
     aspect-ratio: 1 / 1;
     border-radius: 50%;
-
     background: url(${holderImg}) center / cover no-repeat;
   }
 
@@ -189,48 +79,87 @@ export const WindowLayout = styled.div`
     height: var(--picture-height);
     border-radius: 50%;
     object-fit: cover;
-
     z-index: 1;
-    box-shadow: inset 0 0 80px 30px #000000dd;
-  }
-
-  .img-holder::before {
-    animation: blobFloatRotate 15s ease-in-out infinite;
-  }
-  .img-holder::after {
-    animation: blobFloatRotate 15s ease-in-out infinite reverse;
-  }
-
-  @media (width > 1115px) {
-    .post-about {
-      grid-template-columns: 1fr 500px;
-    }
-
-    .img-holder {
-      top: 100px;
-    }
+    border: 2px solid ${({ theme }) => theme.colors.primaryBorder};
   }
 
   @keyframes blobFloatRotate {
-    0% {
-      transform: rotate(0deg) scale(0.99);
-      border-radius: 50%;
-    }
-    25% {
-      transform: rotate(90deg) scale(1);
-      border-radius: 45%;
-    }
-    50% {
-      transform: rotate(180deg) scale(1.01);
-      border-radius: 40%;
-    }
-    75% {
-      transform: rotate(360deg) scale(1);
-      border-radius: 45%;
-    }
-    100% {
-      transform: rotate(0deg) scale(0.99);
-      border-radius: 50%;
-    }
+    0% { transform: rotate(0deg) scale(0.99); border-radius: 50%; }
+    25% { transform: rotate(90deg) scale(1); border-radius: 45%; }
+    50% { transform: rotate(180deg) scale(1.01); border-radius: 40%; }
+    75% { transform: rotate(360deg) scale(1); border-radius: 45%; }
+    100% { transform: rotate(0deg) scale(0.99); border-radius: 50%; }
+  }
+
+  /* About content */
+  .about-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .posts-wrapper {
+    position: relative;
+    max-height: 1200px;
+    overflow-y: auto;
+    z-index: 9;
+  }
+
+  .content-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .presentation {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: ${({ theme }) => theme.colors.textMuted};
+    padding: 1rem 1.2rem;
+    border-left: 3px solid ${({ theme }) => theme.colors.primaryGlow};
+    background: ${({ theme }) => theme.colors.secundaryLightColor};
+    border-radius: 0 8px 8px 0;
+  }
+
+  .content {
+    background: ${({ theme }) => theme.colors.cardBackground};
+    border: 1px solid ${({ theme }) => theme.colors.cardBorder};
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+  }
+
+  .content:hover {
+    border-color: ${({ theme }) => theme.colors.cardBorderHover};
+  }
+
+  .title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: ${({ theme }) => theme.colors.textAccent};
+    background: ${({ theme }) => theme.colors.secundaryDarkColor};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.cardBorder};
+  }
+
+  .corner {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: ${({ theme }) => theme.colors.primaryGlow};
+    opacity: 0.6;
+  }
+
+  .content p {
+    margin: 0;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: ${({ theme }) => theme.colors.textMuted};
   }
 `;
