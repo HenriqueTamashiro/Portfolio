@@ -77,4 +77,16 @@ export default createGlobalStyle`
     pointer-events: none;
     transition: opacity 0.8s ease;
   }
+
+  @media (max-width: 480px) {
+    * {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    *::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
 `;
