@@ -44,19 +44,23 @@ export default function Contact({ progress }) {
     <LoaderWrapper progress={progress}>
       <Container className={visibility ? "show" : "hide"}>
         <div className="icons-contact ">
-          <div className="icon">
-            <i className="bi bi-telephone-fill"></i>
+          <div className="contact-item">
+            <div className="icon">
+              <i className="bi bi-telephone-fill"></i>
+            </div>
+            <div className="text-box">
+              <h1>Telefone</h1>
+              <p>(11) 98485-4733</p>
+            </div>
           </div>
-          <div className="text-box">
-            <h1>Telefone</h1>
-            <p>(11) 98485-4733</p>
-          </div>
-          <div className="icon">
-            <i className="bi bi-envelope-at-fill"></i>
-          </div>
-          <div className="text-box">
-            <h1>E-MAIL</h1>
-            <p>tamashirodev@outlook.com</p>
+          <div className="contact-item">
+            <div className="icon">
+              <i className="bi bi-envelope-at-fill"></i>
+            </div>
+            <div className="text-box">
+              <h1>E-MAIL</h1>
+              <p>tamashirodev@outlook.com</p>
+            </div>
           </div>
         </div>
         <div className="gap-contact"></div>

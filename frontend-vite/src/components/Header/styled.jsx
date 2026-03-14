@@ -30,7 +30,11 @@ export const Nav = styled.nav`
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: linear-gradient(135deg, ${({ theme }) => theme.colors.primaryGlow}, ${({ theme }) => theme.colors.tealGlow});
+    background: linear-gradient(
+      135deg,
+      ${({ theme }) => theme.colors.primaryGlow},
+      ${({ theme }) => theme.colors.tealGlow}
+    );
     flex-shrink: 0;
   }
 
@@ -46,14 +50,17 @@ export const Nav = styled.nav`
     border-radius: 6px;
     text-decoration: none;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 16px;
+    text-transform: uppercase;
     letter-spacing: 0.02em;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 36px;
     padding: 0 16px;
-    transition: color 0.2s ease, background 0.2s ease;
+    transition:
+      color 0.2s ease,
+      background 0.2s ease;
     position: relative;
   }
 
@@ -75,7 +82,11 @@ export const Nav = styled.nav`
     transform: translateX(-50%);
     width: 60%;
     height: 2px;
-    background: linear-gradient(90deg, ${({ theme }) => theme.colors.primaryGlow}, ${({ theme }) => theme.colors.tealGlow});
+    background: linear-gradient(
+      90deg,
+      ${({ theme }) => theme.colors.primaryGlow},
+      ${({ theme }) => theme.colors.tealGlow}
+    );
     border-radius: 2px 2px 0 0;
   }
 

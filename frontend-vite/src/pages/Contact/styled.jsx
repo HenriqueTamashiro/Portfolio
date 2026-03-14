@@ -17,7 +17,7 @@ export const Container = styled.div`
     flex-direction: column;
     justify-items: start;
     align-items: flex-start;
-    gap: 3rem;
+    gap: 5rem;
     width: 100%;
     max-width: 100%;
     height: auto;
@@ -27,19 +27,27 @@ export const Container = styled.div`
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: ${({ theme }) => theme.colors.textColor};
+      color: ${({ theme }) => theme.colors.primaryGlow};
       margin: 0 0 0.5rem 0;
     }
 
     p {
       font-size: clamp(1rem, 1.8vw, 1.3rem);
       font-weight: 500;
-      color: ${({ theme }) => theme.colors.primaryGlow};
+      color: ${({ theme }) => theme.colors.textColor};
       margin: 0;
     }
   }
 
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    width: 100%;
+  }
+
   .icon {
+    flex-shrink: 0;
     display: flex;
     width: clamp(80px, 12vw, 120px);
     height: clamp(80px, 12vw, 120px);
@@ -52,7 +60,7 @@ export const Container = styled.div`
 
     i {
       font-size: clamp(2.2rem, 3.5vw, 3rem);
-      color: ${({ theme }) => theme.colors.primaryGlow};
+      color: ${({ theme }) => theme.colors.textColor};
     }
   }
 
@@ -65,6 +73,7 @@ export const Container = styled.div`
 
   .text-box {
     width: 100%;
+    min-width: 0;
   }
 
   .gap-contact {
@@ -91,23 +100,18 @@ export const Container = styled.div`
     border: 1px solid ${({ theme }) => theme.colors.cardBorder};
   }
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1100px) {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
-    gap: 2rem;
-    padding: 80px clamp(1rem, 3vw, 2rem) 3rem;
+    gap: 1.5rem;
 
     .icons-contact {
-      flex-direction: row;
-      flex-wrap: wrap;
+      flex-direction: column;
       gap: 2rem;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
     }
 
-    .text-box {
-      width: auto;
+    .contact-item {
+      align-items: center;
     }
 
     .gap-contact {
@@ -125,28 +129,24 @@ export const Container = styled.div`
   }
 
   @media (max-width: 600px) {
-    padding: 60px 1rem 2rem;
-    gap: 1.5rem;
-
-    .icons-contact {
-      gap: 2rem;
-    }
-
-    h1 {
-      font-size: 1rem;
-    }
-
-    p {
-      font-size: 0.95rem;
+    .contact-item {
+      gap: 1rem;
+      align-items: flex-start;
     }
 
     .icon {
-      width: clamp(70px, 18vw, 100px);
-      height: clamp(70px, 18vw, 100px);
+      width: clamp(64px, 20vw, 88px);
+      height: clamp(64px, 20vw, 88px);
 
       i {
-        font-size: clamp(1.8rem, 3vw, 2.5rem);
+        font-size: clamp(1.8rem, 6vw, 2.4rem);
       }
+    }
+
+    .text-box h1,
+    .text-box p {
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
   }
 `;

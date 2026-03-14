@@ -131,6 +131,9 @@ export const TechGridStyle = styled.section`
       grid-template-columns: repeat(2, 1fr);
       gap: 1.2rem;
       padding: 1.2rem;
+      max-height: min(70vh, 520px);
+      overflow-y: auto;
+      overscroll-behavior: contain;
 
       &::before {
         background-image:
@@ -149,6 +152,15 @@ export const TechGridStyle = styled.section`
             transparent calc(50% + 0.5px)
           );
       }
+
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: ${({ theme }) => theme.colors.primaryBorder};
+        border-radius: 999px;
+      }
     }
 
     .tech-card {
@@ -164,6 +176,7 @@ export const TechGridStyle = styled.section`
       grid-template-columns: 1fr;
       gap: 1rem;
       padding: 1rem;
+      max-height: min(60vh, 460px);
 
       &::before {
         display: none;
