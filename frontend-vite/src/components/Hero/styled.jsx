@@ -65,7 +65,7 @@ export const HeroStyle = styled.section`
   }
 
   .intro h1 {
-    font-size: clamp(2rem, 5.5vw, 6rem);
+    font-size: clamp(3rem, 5.5vw, 6rem);
     font-weight: 800;
     line-height: 1.1;
     letter-spacing: -0.03em;
