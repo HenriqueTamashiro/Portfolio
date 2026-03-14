@@ -2,8 +2,8 @@ import styled from "styled-components";
 import holderImg from "../../assets/imgs/bgPicture.png";
 
 export const WindowLayout = styled.div`
-  --picture-width: clamp(180px, 22vw, 280px);
-  --picture-height: clamp(180px, 22vw, 280px);
+  --picture-width: clamp(200px, 26vw, 320px);
+  --picture-height: clamp(200px, 26vw, 320px);
 
   width: min(1100px, 92vw);
   margin: 0 auto;

@@ -37,13 +37,15 @@ export const HolderContent = styled.div`
   }
 
   .profilePicture {
-    width: 300px;
-    height: 300px;
+    width: clamp(220px, 28vw, 360px);
+    height: clamp(220px, 28vw, 360px);
     border-radius: 50%;
     object-fit: cover;
     position: relative;
     z-index: 2;
     border: 2px solid ${({ theme }) => theme.colors.primaryBorder};
+    box-shadow: 0 0 40px ${({ theme }) => theme.colors.primaryGlow}33,
+                inset 0 0 20px ${({ theme }) => theme.colors.primaryGlow}22;
   }
 
   .lessBgPict,
@@ -63,12 +65,7 @@ export const HolderContent = styled.div`
     bottom: -20px;
   }
 
-  @media (max-width: 900px) {
-    .profilePicture {
-      width: 220px;
-      height: 220px;
-    }
-  }
+
 `;
 
 export const SectorStyled = styled.div`
