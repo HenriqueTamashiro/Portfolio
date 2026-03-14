@@ -95,6 +95,7 @@ export const SectionHeader = styled.div`
   padding: 3rem 0 1.5rem;
 
   .contentTittle {
+    text-transform: uppercase;
     font-size: clamp(1.6rem, 3.5vw, 2.2rem);
     font-weight: 700;
     letter-spacing: -0.02em;

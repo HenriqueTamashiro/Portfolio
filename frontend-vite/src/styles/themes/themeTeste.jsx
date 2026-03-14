@@ -22,6 +22,7 @@ export const themeTeste = {
     boxShadowLightColor: "#5b8cff33 0 0 12px 2px",
     boxShadowMenuLightColor: "#5b8cff55 0 0 8px 1px",
     boxShadowTeal: " 0 8px 32px rgba(91, 255, 233, 0.199)",
+    boxShadowPurple: " 0 8px 32px rgba(169, 85, 247, 0.199)",
 
     /* Dark surfaces */
     secundaryDarkColor: "#0a0a18",
@@ -33,7 +34,7 @@ export const themeTeste = {
     secundaryGlow: "#5b8cff",
     primaryGlow: "#6e9fff",
     tealGlow: "#00c9b1",
-    purpleGlow: "#a855f7",
+    purpleGlow: "#7021bb",
 
     /* Borders */
     primaryBorder: "#2a2a4a",

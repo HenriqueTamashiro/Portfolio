@@ -78,8 +78,8 @@ export const Holder = styled.div`
 
     &:hover {
       background: ${({ theme }) => theme.colors.primaryLightColor};
-      border-color: ${({ theme }) => theme.colors.tealGlow};
-      box-shadow: ${({ theme }) => theme.colors.boxShadowTeal};
+      border-color: ${({ theme }) => theme.colors.purpleGlow};
+      box-shadow: ${({ theme }) => theme.colors.boxShadowPurple};
     }
   }
 

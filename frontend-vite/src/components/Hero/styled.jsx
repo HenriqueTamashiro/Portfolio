@@ -71,7 +71,7 @@ export const HeroStyle = styled.section`
     margin: 0.4rem 0 0.2rem;
     background: linear-gradient(
       135deg,
-      ${({ theme }) => theme.colors.menuLightColor} 0%,
+      ${({ theme }) => theme.colors.purpleGlow} 0%,
       ${({ theme }) => theme.colors.primaryGlow} 40%,
       ${({ theme }) => theme.colors.tealGlow} 100%
     );
