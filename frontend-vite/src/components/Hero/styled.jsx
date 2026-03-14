@@ -14,6 +14,7 @@ export const HeroStyle = styled.section`
 
   .intro {
     display: flex;
+    width: 103%;
     flex-direction: column;
     gap: 0.1rem;
   }
@@ -68,7 +69,7 @@ export const HeroStyle = styled.section`
     font-weight: 800;
     line-height: 1.1;
     letter-spacing: -0.03em;
-    margin: 0.4rem 0 0.2rem;
+    margin: 0.1rem 0 0.2rem;
     background: linear-gradient(
       135deg,
       ${({ theme }) => theme.colors.purpleGlow} 0%,
@@ -80,6 +81,7 @@ export const HeroStyle = styled.section`
     background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: gradientShift 8s ease-in-out infinite;
+    flex-wrap: nowrap;
   }
 
   @keyframes gradientShift {
@@ -95,15 +97,15 @@ export const HeroStyle = styled.section`
   }
 
   .buttons {
-    margin-top: 2rem;
+    margin: 2rem 0 0 0;
     display: flex;
     gap: 12px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
 
   .btn {
     text-decoration: none;
-    padding: 0.65em 1.5em;
+    padding: 1em 1.5em;
     border-radius: 8px;
     font-weight: 600;
     font-size: clamp(0.85rem, 1.2vw, 0.95rem);
@@ -132,7 +134,7 @@ export const HeroStyle = styled.section`
       ${({ theme }) => theme.colors.primaryGlow}
     );
     box-shadow: 0 0 30px ${({ theme }) => theme.colors.boxShadowLightColor};
-    transform: translateY(-1px);
+    transform: translateY(-3px);
   }
 
   .btn.outline {
@@ -145,7 +147,7 @@ export const HeroStyle = styled.section`
     border-color: ${({ theme }) => theme.colors.primaryGlow};
     color: ${({ theme }) => theme.colors.primaryGlow};
     background: ${({ theme }) => theme.colors.menuLightColorOpt};
-    transform: translateY(-1px);
+    transform: translateY(-3px);
   }
 
   @media (max-width: 768px) {
