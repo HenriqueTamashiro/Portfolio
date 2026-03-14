@@ -183,7 +183,7 @@ export const FocusArticle = styled.div`
   .tagIcon {
     width: 32px;
     height: 32px;
-    border-radius: 4px;
+    color: ${({ theme }) => theme.colors.textColor};
     opacity: 0.85;
     transition: opacity 0.2s ease;
   }

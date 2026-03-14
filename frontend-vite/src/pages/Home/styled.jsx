@@ -11,17 +11,16 @@ export const Holder = styled.div`
   grid-template-rows: auto auto;
   align-items: center;
   justify-items: center;
-  gap: 1rem;
-  width: min(1200px, 90vw);
-  margin: 0 auto;
-  min-height: calc(100vh - 64px);
-  padding: 4rem 0 2rem;
+  gap: 1.5rem;
+  width: min(1100px, 90vw);
+  margin: 28px auto 16px;
+  min-height: auto;
 
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
     min-height: auto;
-    padding: 3rem 0 2rem;
+    padding: 2.5rem 0 2rem;
   }
 `;
 
@@ -38,15 +37,16 @@ export const HolderContent = styled.div`
   }
 
   .profilePicture {
-    width: clamp(220px, 28vw, 360px);
-    height: clamp(220px, 28vw, 360px);
+    width: clamp(280px, 24vw, 380px);
+    height: clamp(280px, 24vw, 380px);
     border-radius: 50%;
     object-fit: cover;
     position: relative;
     z-index: 2;
     border: 2px solid ${({ theme }) => theme.colors.primaryBorder};
-    box-shadow: 0 0 40px ${({ theme }) => theme.colors.primaryGlow}33,
-                inset 0 0 20px ${({ theme }) => theme.colors.primaryGlow}22;
+    box-shadow:
+      0 0 40px ${({ theme }) => theme.colors.primaryGlow}33,
+      inset 0 0 20px ${({ theme }) => theme.colors.primaryGlow}22;
   }
 
   .lessBgPict,
@@ -65,8 +65,6 @@ export const HolderContent = styled.div`
     right: -30px;
     bottom: -20px;
   }
-
-
 `;
 
 export const SectorStyled = styled.div`

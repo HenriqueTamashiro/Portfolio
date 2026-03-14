@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import Footer from "../../components/Footer";
 import LoaderWrapper from "../../components/LoaderWrapper";
 import { Posts } from "../../Placeholder/data.jsx";
+import ProjectTagIcon from "../../components/ProjectTagIcon";
 import { Content, Holder } from "./styled";
 
 export default function Projects({ progress }) {
@@ -52,12 +53,7 @@ export default function Projects({ progress }) {
             <div className="projectContent">
               <div className="tagContainer">
                 {activeProject?.tags?.map((tag, index) => (
-                  <img
-                    key={index}
-                    src={tag}
-                    alt="Tecnologia"
-                    className="tagIcon"
-                  />
+                  <ProjectTagIcon key={index} tag={tag} />
                 ))}
               </div>
 

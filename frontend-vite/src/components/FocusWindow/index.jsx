@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import ReactPlayer from "react-player";
 import { Focus, FocusArticle } from "./styled";
+import ProjectTagIcon from "../ProjectTagIcon";
 
 export default function FocusWindow({ onOff, post, onClose }) {
   const [load, setLoad] = useState(false);
@@ -38,7 +39,7 @@ export default function FocusWindow({ onOff, post, onClose }) {
             </div>
             <div className="tagContainer">
               {post.tags.map((tag, i) => (
-                <img key={i} src={tag} alt="icon" className="tagIcon" />
+                <ProjectTagIcon key={i} tag={tag} />
               ))}
             </div>
             <div className="content">

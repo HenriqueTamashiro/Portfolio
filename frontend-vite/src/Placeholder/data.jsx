@@ -1,14 +1,6 @@
 import ImgTeste from "../assets/imgs/image.png";
 import Confidence from "../assets/imgs/Confidence.png";
-import {
-  agendaVideo,
-  apiVideo,
-  expressIcon,
-  nodeIcon,
-  mysqlIcon,
-  reduxIcon,
-  axiosIcon,
-} from "../assets/Media/Videos/index";
+import { agendaVideo, apiVideo } from "../assets/Media/Videos/index";
 
 export const Posts = [
   {
@@ -54,7 +46,7 @@ export const Posts = [
           "O projeto demonstra práticas importantes como separação de responsabilidades, arquitetura modular, centralização de requisições HTTP com Axios e proteção de rotas privadas.",
       },
     ],
-    tags: [expressIcon, nodeIcon, reduxIcon, axiosIcon, mysqlIcon],
+    tags: ["express", "node", "redux", "axios", "mysql"],
     created_at: new Date("2024/10/28"),
     link: "",
   },
@@ -107,7 +99,7 @@ export const Posts = [
           "O projeto demonstra boas práticas como separação de responsabilidades, organização modular do código, uso de autenticação segura, abstração do banco de dados através de ORM e estrutura preparada para ambientes de desenvolvimento e produção.",
       },
     ],
-    tags: [expressIcon, nodeIcon, mysqlIcon],
+    tags: ["express", "node", "mysql"],
     created_at: new Date("2024/08/15"),
     link: "https://github.com/HenriqueTamashiro/Agenda",
   },
@@ -159,7 +151,7 @@ export const Posts = [
           "Mesmo sendo um projeto inicial, a aplicação demonstra conceitos importantes como autenticação baseada em token, integração com banco de dados relacional, organização básica entre frontend e backend e automação de deploy utilizando GitHub Actions.",
       },
     ],
-    tags: [expressIcon, nodeIcon],
+    tags: ["express", "node"],
     created_at: new Date("2024/02/01"),
     link: "https://github.com/HenriqueTamashiro/Projeto-Conference",
   },

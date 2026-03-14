@@ -157,6 +157,7 @@ export const Holder = styled.div`
     background: ${({ theme }) => theme.colors.primaryColor};
     border-radius: 8px;
     padding: 6px;
+    color: ${({ theme }) => theme.colors.textColor};
   }
 
   .mediaContainer {

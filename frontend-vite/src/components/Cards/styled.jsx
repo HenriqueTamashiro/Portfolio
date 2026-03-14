@@ -58,7 +58,7 @@ export const Articles = styled.section`
   .tagIcon {
     width: 22px;
     height: 22px;
-    border-radius: 4px;
+    color: ${({ theme }) => theme.colors.textColor};
     opacity: 0.85;
     transition: opacity 0.2s ease;
   }

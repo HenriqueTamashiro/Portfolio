@@ -1,6 +1,7 @@
 import { StyledCards, Articles } from "./styled";
 import { Posts } from "../../Placeholder/data.jsx";
 import { useEffect } from "react";
+import ProjectTagIcon from "../ProjectTagIcon";
 
 export default function Cards({
   setContent,
@@ -59,7 +60,7 @@ export default function Cards({
 
             <div className="tagContainer">
               {post.tags.map((tag, i) => (
-                <img key={i} src={tag} alt="icon" className="tagIcon" />
+                <ProjectTagIcon key={i} tag={tag} />
               ))}
             </div>
             <div className="mediaContainer">

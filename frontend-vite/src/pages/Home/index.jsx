@@ -1,11 +1,11 @@
 import { useState, useRef, useEffect } from "react";
 import Hero from "../../components/Hero";
-import TechGrid from "../../components/Carousel";
 import FocusWindow from "../../components/FocusWindow";
 import Cards from "../../components/Cards";
 import Footer from "../../components/Footer";
 import LoaderWrapper from "../../components/LoaderWrapper/index";
 import Timeline from "../../components/Timeline/index";
+import TechCarousel from "../../components/Carousel/index";
 import { useInView } from "../../hooks/useInView";
 import {
   Container,
@@ -109,16 +109,12 @@ export default function Home({ progress }) {
               </div>
             </HolderContent>
           </Holder>
-        </section>
-
-        {/* TECNOLOGIAS */}
-        <section className="hiddenSection">
-          <TechGrid />
+          <TechCarousel />
+          <Timeline progress={progress} />
         </section>
 
         {/* PROJETOS */}
         <section className="hiddenSection">
-          <Timeline progress={progress} />
           <SectionHeader>
             <div className="contentTittle timeline-item">
               Projetos
