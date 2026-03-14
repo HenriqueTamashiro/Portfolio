@@ -21,6 +21,7 @@ export const themeTeste = {
     /* Shadows */
     boxShadowLightColor: "#5b8cff33 0 0 12px 2px",
     boxShadowMenuLightColor: "#5b8cff55 0 0 8px 1px",
+    boxShadowTeal: " 0 8px 32px rgba(91, 255, 233, 0.199)",
 
     /* Dark surfaces */
     secundaryDarkColor: "#0a0a18",

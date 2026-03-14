@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Nav } from "./styled";
 import { NavLink, useLocation } from "react-router-dom";
+import Logo from "../../assets/imgs/logoTamashiro.svg?react";
 
 export default function Header({ progress }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,9 +24,8 @@ export default function Header({ progress }) {
 
   return (
     <Nav>
-      <NavLink to="/" className="logo" onClick={handleNavigate}>
-        <span className="logo-dot" />
-        HT
+      <NavLink to="/" className="logo" onClick={handleNavigate} end>
+        <Logo className="logo-icon" />
       </NavLink>
 
       <div className="desktop-links">
@@ -50,7 +50,12 @@ export default function Header({ progress }) {
 
       <div className={`mobile-menu ${isMenuOpen ? "open" : ""}`}>
         {links.map((link) => (
-          <NavLink key={`mobile-${link.to}`} to={link.to} onClick={handleNavigate} end>
+          <NavLink
+            key={`mobile-${link.to}`}
+            to={link.to}
+            onClick={handleNavigate}
+            end
+          >
             {link.label}
           </NavLink>
         ))}

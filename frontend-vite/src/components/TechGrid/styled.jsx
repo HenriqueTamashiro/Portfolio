@@ -51,8 +51,8 @@ export const TechGridStyle = styled.section`
 
     &:hover {
       background: ${({ theme }) => theme.colors.menuLightColorOpt};
-      border-color: ${({ theme }) => theme.colors.primaryGlow};
-      box-shadow: 0 12px 32px ${({ theme }) => theme.colors.primaryGlow}33;
+      border-color: ${({ theme }) => theme.colors.tealGlow};
+      box-shadow: ${({ theme }) => theme.colors.boxShadowTeal};
       transform: translateY(-8px);
     }
 
@@ -77,10 +77,10 @@ export const TechGridStyle = styled.section`
       transition: all 0.3s ease;
     }
 
-    & .tech-icon:hover,
+    &:hover .tech-icon,
     &:hover i {
       color: ${({ theme }) => theme.colors.tealGlow};
-      transform: scale(1.2);
+      transform: scale(1.1);
     }
 
     .tech-name {

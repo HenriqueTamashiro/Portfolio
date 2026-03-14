@@ -13,7 +13,7 @@ export default function TechGrid() {
     { name: "React", icon: <ReactLogo className="tech-icon" /> },
     { name: "Node.js", icon: <NodeLogo className="tech-icon" /> },
     { name: "Express.js", icon: <Express className="tech-icon" /> },
-    { name: "Typescript", icon: <i class="bi bi-typescript"></i> },
+    { name: "Typescript", icon: <i className="bi bi-typescript"></i> },
     { name: "JavaScript", icon: <i className="bi bi-javascript"></i> },
     { name: "MySQL", icon: <MysqlLogo className="tech-icon" /> },
     { name: "Sequelize", icon: <Sequelize className="tech-icon" /> },

@@ -16,26 +16,57 @@ export const Nav = styled.nav`
   border-bottom: 1px solid ${({ theme }) => theme.colors.primaryBorder};
 
   .logo {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: ${({ theme }) => theme.colors.textColor};
-    text-decoration: none;
-    letter-spacing: 0.05em;
-    display: flex;
+    position: relative;
+    display: inline-flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    width: auto;
+    min-width: 0;
+    height: 36px;
+    padding: 0 8px;
+    flex-shrink: 0;
+    color: ${({ theme }) => theme.colors.textMuted};
+    text-decoration: none;
+    border-radius: 6px;
+    transition:
+      color 0.2s ease,
+      background 0.2s ease;
   }
 
-  .logo-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
+  .logo-icon {
+    width: auto;
+    height: 100%;
+    display: block;
+    opacity: 0.8;
+    transition:
+      opacity 0.2s ease,
+      filter 0.2s ease;
+  }
+
+  .logo.active {
+    color: ${({ theme }) => theme.colors.primaryGlow};
+    background: ${({ theme }) => theme.colors.menuLightColorOpt};
+  }
+
+  .logo.active .logo-icon {
+    opacity: 1;
+    filter: drop-shadow(0 0 14px ${({ theme }) => theme.colors.primaryGlow}33);
+  }
+
+  .logo.active::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
     background: linear-gradient(
-      135deg,
+      90deg,
       ${({ theme }) => theme.colors.primaryGlow},
       ${({ theme }) => theme.colors.tealGlow}
     );
-    flex-shrink: 0;
+    border-radius: 2px 2px 0 0;
   }
 
   .desktop-links {
@@ -133,6 +164,11 @@ export const Nav = styled.nav`
   }
 
   @media (max-width: 768px) {
+    .logo {
+      height: 40px;
+      padding: 0 6px;
+    }
+
     .desktop-links {
       display: none;
     }

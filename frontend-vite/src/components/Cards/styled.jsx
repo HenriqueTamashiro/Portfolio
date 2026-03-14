@@ -18,9 +18,9 @@ export const Articles = styled.section`
   flex-direction: column;
 
   &:hover {
-    border-color: ${({ theme }) => theme.colors.cardBorderHover};
-    box-shadow: 0 8px 32px rgba(91, 140, 255, 0.12);
-    transform: translateY(-2px);
+    border-color: ${({ theme }) => theme.colors.tealGlow};
+    box-shadow: ${({ theme }) => theme.colors.boxShadowTeal};
+    transform: translateY(-6px);
   }
 
   .cards {

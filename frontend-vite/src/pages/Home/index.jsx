@@ -5,7 +5,7 @@ import Cards from "../../components/Cards";
 import Footer from "../../components/Footer";
 import LoaderWrapper from "../../components/LoaderWrapper/index";
 import Timeline from "../../components/Timeline/index";
-import TechCarousel from "../../components/Carousel/index";
+import TechGrid from "../../components/TechGrid/index";
 import { useInView } from "../../hooks/useInView";
 import {
   Container,
@@ -109,7 +109,7 @@ export default function Home({ progress }) {
               </div>
             </HolderContent>
           </Holder>
-          <TechCarousel />
+          <TechGrid />
           <Timeline progress={progress} />
         </section>
 

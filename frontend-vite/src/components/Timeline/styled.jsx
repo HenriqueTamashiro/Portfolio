@@ -77,9 +77,9 @@ export const Holder = styled.div`
     }
 
     &:hover {
-      border-color: ${({ theme }) => theme.colors.cardBorderHover};
       background: ${({ theme }) => theme.colors.primaryLightColor};
-      box-shadow: 0 0 20px ${({ theme }) => theme.colors.primaryGlow}22;
+      border-color: ${({ theme }) => theme.colors.tealGlow};
+      box-shadow: ${({ theme }) => theme.colors.boxShadowTeal};
     }
   }
 
