@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import Hero from "../../components/Hero";
-import TechCarousel from "../../components/Carousel";
+import TechGrid from "../../components/Carousel";
 import FocusWindow from "../../components/FocusWindow";
 import Cards from "../../components/Cards";
 import Footer from "../../components/Footer";
@@ -111,9 +111,9 @@ export default function Home({ progress }) {
           </Holder>
         </section>
 
-        {/* TECNOLOGIAS (Antigo Carousel) */}
+        {/* TECNOLOGIAS */}
         <section className="hiddenSection">
-          <TechCarousel />
+          <TechGrid />
         </section>
 
         {/* PROJETOS */}
