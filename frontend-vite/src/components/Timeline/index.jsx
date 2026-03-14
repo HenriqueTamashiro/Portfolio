@@ -22,7 +22,7 @@ export default function Timeline({ progress }) {
           }
         });
       },
-      { threshold: 0.1, rootMargin: "0px 0px -1% 0px" },
+      { threshold: 0.9, rootMargin: "0px 0px -1% 0px" },
     );
 
     const items = document.querySelectorAll(".timeline-item");

@@ -2,8 +2,8 @@ import styled from "styled-components";
 import holderImg from "../../assets/imgs/bgPicture.png";
 
 export const WindowLayout = styled.div`
-  --picture-width: clamp(240px, 32vw, 380px);
-  --picture-height: clamp(240px, 32vw, 380px);
+  --picture-width: clamp(240px, 32vw, 460px);
+  --picture-height: clamp(240px, 32vw, 460px);
 
   width: min(1100px, 92vw);
   margin: 0 auto;
@@ -84,11 +84,26 @@ export const WindowLayout = styled.div`
   }
 
   @keyframes blobFloatRotate {
-    0% { transform: rotate(0deg) scale(0.99); border-radius: 50%; }
-    25% { transform: rotate(90deg) scale(1); border-radius: 45%; }
-    50% { transform: rotate(180deg) scale(1.01); border-radius: 40%; }
-    75% { transform: rotate(360deg) scale(1); border-radius: 45%; }
-    100% { transform: rotate(0deg) scale(0.99); border-radius: 50%; }
+    0% {
+      transform: rotate(0deg) scale(0.99);
+      border-radius: 50%;
+    }
+    25% {
+      transform: rotate(90deg) scale(1);
+      border-radius: 45%;
+    }
+    50% {
+      transform: rotate(180deg) scale(1.01);
+      border-radius: 40%;
+    }
+    75% {
+      transform: rotate(360deg) scale(1);
+      border-radius: 45%;
+    }
+    100% {
+      transform: rotate(0deg) scale(0.99);
+      border-radius: 50%;
+    }
   }
 
   /* About content */
@@ -142,7 +157,7 @@ export const WindowLayout = styled.div`
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: ${({ theme }) => theme.colors.textAccent};
+    color: ${({ theme }) => theme.colors.textColor};
     background: ${({ theme }) => theme.colors.secundaryDarkColor};
     border-bottom: 1px solid ${({ theme }) => theme.colors.cardBorder};
   }

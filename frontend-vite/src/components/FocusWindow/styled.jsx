@@ -91,7 +91,7 @@ export const FocusArticle = styled.div`
   overflow-y: auto;
 
   border-radius: 8px;
-  background: ${({ theme }) => theme.colors.menuDarkColor};
+  background: ${({ theme }) => theme.colors.cardBackground};
   z-index: 1;
   border-top: 1px solid ${({ theme }) => theme.colors.primaryBorder};
   border-bottom: 1px solid ${({ theme }) => theme.colors.primaryBorder};
@@ -119,8 +119,8 @@ export const FocusArticle = styled.div`
     justify-content: center;
     border-bottom-left-radius: 8px;
     border-top-right-radius: 8px;
-    color: ${({ theme }) => theme.colors.primaryColor};
-    background: ${({ theme }) => theme.colors.menuLightColor};
+    color: ${({ theme }) => theme.colors.primaryGlow};
+    background: ${({ theme }) => theme.colors.menuLightColorOpt};
     cursor: pointer;
     z-index: 2;
     font-size: 40px;
@@ -150,22 +150,22 @@ export const FocusArticle = styled.div`
   .postedContainer {
     display: flex;
     align-items: center;
+    gap: 8px;
+
+    background: ${({ theme }) => theme.colors.secundaryDarkColor};
+    border-top: 1px solid ${({ theme }) => theme.colors.cardBorder};
+    align-items: center;
     justify-content: center;
-    background: ${({ theme }) => theme.colors.primaryColor};
-    width: 100%;
-    height: auto;
-    gap: 10px;
-    z-index: 2;
-    clip-path: polygon(0% 0%, 100% 0, 95% 100%, 0% 100%);
   }
 
   .posted {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    width: 35px;
-    height: 35px;
+    width: 28px;
+    height: 28px;
+    color: ${({ theme }) => theme.colors.textMuted};
+    font-size: 18px;
   }
 
   .tagContainer {
@@ -175,19 +175,19 @@ export const FocusArticle = styled.div`
 
     background: ${({ theme }) => theme.colors.primaryColor};
 
-    clip-path: polygon(5% 0%, 100% 0, 100% 100%, 0% 100%);
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    gap: 10px;
-    padding: 5px;
+    gap: 8px;
+    padding: 6px 20px 10px;
+    flex-wrap: wrap;
   }
 
   .tagIcon {
-    width: 35px;
-    height: 35px;
-    border-right: 2px solid ${({ theme }) => theme.colors.menuDarkColor};
-    border-bottom: 2px solid ${({ theme }) => theme.colors.menuDarkColor};
-    border-radius: 8px;
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
+  }
+  .tagIcon:hover {
+    opacity: 1;
   }
 `;

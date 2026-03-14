@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 export const Content = styled.div`
   position: relative;
-  margin-top: 20px;
+  margin-top: 0;
   width: 100%;
   display: grid;
   justify-content: center;
   color: #fff;
   overflow: hidden;
-  padding: 2rem 0;
+  padding: 2.75rem 0 1.5rem;
 
   h1 {
     font-size: clamp(15px, 23px, 30px);
@@ -67,7 +67,7 @@ export const Holder = styled.div`
 
     h1 {
       margin: 0 0 0.8rem 0;
-      color: ${({ theme }) => theme.colors.primaryGlow};
+      color: ${({ theme }) => theme.colors.textColor};
     }
 
     p {

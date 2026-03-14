@@ -10,7 +10,10 @@ export const Articles = styled.section`
   background: ${({ theme }) => theme.colors.cardBackground};
   border: 1px solid ${({ theme }) => theme.colors.cardBorder};
   overflow: hidden;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
   display: flex;
   flex-direction: column;
 
@@ -35,15 +38,21 @@ export const Articles = styled.section`
       margin: 0;
       letter-spacing: -0.01em;
       color: ${({ theme }) => theme.colors.textColor};
+      text-transform: uppercase;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
   }
 
   .tagContainer {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
     padding: 6px 20px 10px;
     flex-wrap: wrap;
+    background: ${({ theme }) => theme.colors.primaryColor};
   }
 
   .tagIcon {
@@ -93,10 +102,11 @@ export const Articles = styled.section`
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 20px;
+
     background: ${({ theme }) => theme.colors.secundaryDarkColor};
     border-top: 1px solid ${({ theme }) => theme.colors.cardBorder};
-    margin-top: auto;
+    align-items: center;
+    justify-content: center;
   }
 
   .posted {
@@ -113,6 +123,7 @@ export const Articles = styled.section`
     padding: 12px 20px;
     font-size: 0.875rem;
     color: ${({ theme }) => theme.colors.textMuted};
+    flex: 1;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
@@ -138,7 +149,9 @@ export const Articles = styled.section`
     color: ${({ theme }) => theme.colors.textMuted};
     text-decoration: none;
     cursor: pointer;
-    transition: background 0.2s ease, color 0.2s ease;
+    transition:
+      background 0.2s ease,
+      color 0.2s ease;
     font-size: 13px;
     gap: 3px;
     border-right: 1px solid ${({ theme }) => theme.colors.cardBorder};
@@ -177,7 +190,9 @@ export const Articles = styled.section`
     color: ${({ theme }) => theme.colors.textMuted};
     cursor: pointer;
     border: 0;
-    transition: background 0.2s ease, color 0.2s ease;
+    transition:
+      background 0.2s ease,
+      color 0.2s ease;
   }
 
   .buttn:hover {
