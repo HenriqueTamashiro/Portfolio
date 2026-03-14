@@ -23,30 +23,53 @@ export const TechGridStyle = styled.section`
   }
 
   .tech-grid-container {
+    position: relative;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(clamp(140px, 20vw, 200px), 1fr));
-    gap: 0;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    position: relative;
+    padding: 2rem;
 
-    /* Linhas horizontais divisórias */
+    /* Grid de linhas contínuas (eixos) */
     &::before {
       content: "";
       position: absolute;
-      top: 50%;
+      top: 0;
       left: 0;
       right: 0;
-      height: 1px;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        ${({ theme }) => theme.colors.primaryBorder},
-        transparent
-      );
-      z-index: 1;
+      bottom: 0;
+      background-image:
+        /* Linhas verticais */
+        linear-gradient(
+          90deg,
+          transparent calc(25% - 0.5px),
+          ${({ theme }) => theme.colors.primaryBorder} calc(25% - 0.5px),
+          ${({ theme }) => theme.colors.primaryBorder} calc(25% + 0.5px),
+          transparent calc(25% + 0.5px),
+          transparent calc(50% - 0.5px),
+          ${({ theme }) => theme.colors.primaryBorder} calc(50% - 0.5px),
+          ${({ theme }) => theme.colors.primaryBorder} calc(50% + 0.5px),
+          transparent calc(50% + 0.5px),
+          transparent calc(75% - 0.5px),
+          ${({ theme }) => theme.colors.primaryBorder} calc(75% - 0.5px),
+          ${({ theme }) => theme.colors.primaryBorder} calc(75% + 0.5px),
+          transparent calc(75% + 0.5px)
+        ),
+        /* Linhas horizontais */
+        linear-gradient(
+          180deg,
+          transparent calc(50% - 0.5px),
+          ${({ theme }) => theme.colors.primaryBorder} calc(50% - 0.5px),
+          ${({ theme }) => theme.colors.primaryBorder} calc(50% + 0.5px),
+          transparent calc(50% + 0.5px)
+        );
+      background-size: 100% 100%, 100% 100%;
+      background-position: 0 0, 0 0;
+      background-repeat: no-repeat;
       pointer-events: none;
+      z-index: 0;
     }
   }
 
@@ -56,30 +79,21 @@ export const TechGridStyle = styled.section`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: clamp(1.5rem, 3vw, 2.5rem);
-    min-height: clamp(140px, 20vw, 200px);
+    padding: clamp(1.5rem, 3vw, 2rem);
+    min-height: clamp(140px, 20vw, 180px);
     background: ${({ theme }) => theme.colors.cardBackground};
     border: 1px solid ${({ theme }) => theme.colors.cardBorder};
-    border-right: 1px solid ${({ theme }) => theme.colors.primaryBorder};
-    border-bottom: 1px solid ${({ theme }) => theme.colors.primaryBorder};
+    border-radius: 16px;
     transition: all 0.3s ease;
     cursor: pointer;
-
-    /* Remove borda direita do último item de cada linha */
-    &:nth-child(4n) {
-      border-right: 1px solid ${({ theme }) => theme.colors.cardBorder};
-    }
-
-    /* Remove borda inferior da última linha */
-    &:nth-last-child(-n + 4) {
-      border-bottom: 1px solid ${({ theme }) => theme.colors.cardBorder};
-    }
+    z-index: 1;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 
     &:hover {
       background: ${({ theme }) => theme.colors.menuLightColorOpt};
       border-color: ${({ theme }) => theme.colors.primaryGlow};
-      box-shadow: 0 0 20px ${({ theme }) => theme.colors.primaryGlow}22;
-      transform: translateY(-4px);
+      box-shadow: 0 12px 32px ${({ theme }) => theme.colors.primaryGlow}33;
+      transform: translateY(-8px);
     }
 
     .icon-wrapper {
@@ -106,7 +120,7 @@ export const TechGridStyle = styled.section`
     &:hover .tech-icon,
     &:hover i {
       color: ${({ theme }) => theme.colors.tealGlow};
-      transform: scale(1.15);
+      transform: scale(1.2);
     }
 
     .tech-name {
@@ -123,15 +137,29 @@ export const TechGridStyle = styled.section`
   @media (max-width: 1024px) {
     .tech-grid-container {
       grid-template-columns: repeat(3, 1fr);
-    }
+      gap: 1.5rem;
+      padding: 1.5rem;
 
-    .tech-card {
-      &:nth-child(3n) {
-        border-right: 1px solid ${({ theme }) => theme.colors.cardBorder};
-      }
-
-      &:nth-last-child(-n + 3) {
-        border-bottom: 1px solid ${({ theme }) => theme.colors.cardBorder};
+      &::before {
+        background-image:
+          linear-gradient(
+            90deg,
+            transparent calc(33.33% - 0.5px),
+            ${({ theme }) => theme.colors.primaryBorder} calc(33.33% - 0.5px),
+            ${({ theme }) => theme.colors.primaryBorder} calc(33.33% + 0.5px),
+            transparent calc(33.33% + 0.5px),
+            transparent calc(66.66% - 0.5px),
+            ${({ theme }) => theme.colors.primaryBorder} calc(66.66% - 0.5px),
+            ${({ theme }) => theme.colors.primaryBorder} calc(66.66% + 0.5px),
+            transparent calc(66.66% + 0.5px)
+          ),
+          linear-gradient(
+            180deg,
+            transparent calc(50% - 0.5px),
+            ${({ theme }) => theme.colors.primaryBorder} calc(50% - 0.5px),
+            ${({ theme }) => theme.colors.primaryBorder} calc(50% + 0.5px),
+            transparent calc(50% + 0.5px)
+          );
       }
     }
   }
@@ -141,19 +169,31 @@ export const TechGridStyle = styled.section`
 
     .tech-grid-container {
       grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem;
+      padding: 1.2rem;
+
+      &::before {
+        background-image:
+          linear-gradient(
+            90deg,
+            transparent calc(50% - 0.5px),
+            ${({ theme }) => theme.colors.primaryBorder} calc(50% - 0.5px),
+            ${({ theme }) => theme.colors.primaryBorder} calc(50% + 0.5px),
+            transparent calc(50% + 0.5px)
+          ),
+          linear-gradient(
+            180deg,
+            transparent calc(50% - 0.5px),
+            ${({ theme }) => theme.colors.primaryBorder} calc(50% - 0.5px),
+            ${({ theme }) => theme.colors.primaryBorder} calc(50% + 0.5px),
+            transparent calc(50% + 0.5px)
+          );
+      }
     }
 
     .tech-card {
       min-height: clamp(120px, 25vw, 160px);
       padding: clamp(1rem, 2vw, 1.5rem);
-
-      &:nth-child(2n) {
-        border-right: 1px solid ${({ theme }) => theme.colors.cardBorder};
-      }
-
-      &:nth-last-child(-n + 2) {
-        border-bottom: 1px solid ${({ theme }) => theme.colors.cardBorder};
-      }
     }
   }
 
@@ -162,16 +202,17 @@ export const TechGridStyle = styled.section`
 
     .tech-grid-container {
       grid-template-columns: 1fr;
+      gap: 1rem;
+      padding: 1rem;
+
+      &::before {
+        display: none;
+      }
     }
 
     .tech-card {
       min-height: 100px;
       padding: 1rem;
-      border-right: 1px solid ${({ theme }) => theme.colors.cardBorder};
-
-      &:last-child {
-        border-bottom: 1px solid ${({ theme }) => theme.colors.cardBorder};
-      }
     }
 
     .grid-header h1 {
