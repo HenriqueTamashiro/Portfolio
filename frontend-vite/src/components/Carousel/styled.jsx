@@ -31,46 +31,6 @@ export const TechGridStyle = styled.section`
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
-
-    /* Grid de linhas contínuas (eixos) */
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image:
-        /* Linhas verticais */
-        linear-gradient(
-          90deg,
-          transparent calc(25% - 0.5px),
-          ${({ theme }) => theme.colors.primaryBorder} calc(25% - 0.5px),
-          ${({ theme }) => theme.colors.primaryBorder} calc(25% + 0.5px),
-          transparent calc(25% + 0.5px),
-          transparent calc(50% - 0.5px),
-          ${({ theme }) => theme.colors.primaryBorder} calc(50% - 0.5px),
-          ${({ theme }) => theme.colors.primaryBorder} calc(50% + 0.5px),
-          transparent calc(50% + 0.5px),
-          transparent calc(75% - 0.5px),
-          ${({ theme }) => theme.colors.primaryBorder} calc(75% - 0.5px),
-          ${({ theme }) => theme.colors.primaryBorder} calc(75% + 0.5px),
-          transparent calc(75% + 0.5px)
-        ),
-        /* Linhas horizontais */
-        linear-gradient(
-          180deg,
-          transparent calc(50% - 0.5px),
-          ${({ theme }) => theme.colors.primaryBorder} calc(50% - 0.5px),
-          ${({ theme }) => theme.colors.primaryBorder} calc(50% + 0.5px),
-          transparent calc(50% + 0.5px)
-        );
-      background-size: 100% 100%, 100% 100%;
-      background-position: 0 0, 0 0;
-      background-repeat: no-repeat;
-      pointer-events: none;
-      z-index: 0;
-    }
   }
 
   .tech-card {
@@ -105,19 +65,19 @@ export const TechGridStyle = styled.section`
     }
 
     .tech-icon {
-      width: clamp(40px, 6vw, 60px);
-      height: clamp(40px, 6vw, 60px);
-      color: ${({ theme }) => theme.colors.primaryGlow};
+      width: clamp(40px, 6vw, 120px);
+      height: clamp(40px, 6vw, 120px);
+      color: ${({ theme }) => theme.colors.textColor};
       transition: all 0.3s ease;
     }
 
     i {
-      font-size: clamp(2rem, 4vw, 3rem);
-      color: ${({ theme }) => theme.colors.primaryGlow};
+      font-size: clamp(2rem, 4vw, 15rem);
+      color: ${({ theme }) => theme.colors.textColor};
       transition: all 0.3s ease;
     }
 
-    &:hover .tech-icon,
+    & .tech-icon:hover,
     &:hover i {
       color: ${({ theme }) => theme.colors.tealGlow};
       transform: scale(1.2);

@@ -4,6 +4,8 @@ import MysqlLogo from "../../assets/imgs/mysql-svgrepo.svg?react";
 import Sequelize from "../../assets/imgs/sequelize-svgrepo.svg?react";
 import Tailwind from "../../assets/imgs/tailwind-svgrepo.svg?react";
 import Express from "../../assets/imgs/express-svgrepo.svg?react";
+import Redux from "../../assets/imgs/reduxSVG.svg?react";
+
 import { TechGridStyle } from "./styled";
 
 export default function TechGrid() {
@@ -11,10 +13,12 @@ export default function TechGrid() {
     { name: "React", icon: <ReactLogo className="tech-icon" /> },
     { name: "Node.js", icon: <NodeLogo className="tech-icon" /> },
     { name: "Express.js", icon: <Express className="tech-icon" /> },
+    { name: "Typescript", icon: <i class="bi bi-typescript"></i> },
+    { name: "JavaScript", icon: <i className="bi bi-javascript"></i> },
     { name: "MySQL", icon: <MysqlLogo className="tech-icon" /> },
     { name: "Sequelize", icon: <Sequelize className="tech-icon" /> },
     { name: "TailWind", icon: <Tailwind className="tech-icon" /> },
-    { name: "JavaScript", icon: <i className="bi bi-javascript"></i> },
+    { name: "Redux", icon: <Redux className="tech-icon" /> },
     { name: "Bootstrap", icon: <i className="bi bi-bootstrap-fill"></i> },
   ];
 
@@ -23,7 +27,7 @@ export default function TechGrid() {
       <div className="grid-header">
         <h1>Tecnologias</h1>
       </div>
-      
+
       <div className="tech-grid-container">
         {technologies.map((tech, index) => (
           <div key={index} className="tech-card">
