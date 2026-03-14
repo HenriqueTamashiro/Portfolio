@@ -10,6 +10,7 @@ export const Holder = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
   align-items: center;
+  justify-items: center;
   gap: 1rem;
   width: min(1200px, 90vw);
   margin: 0 auto;

@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { WindowLayout } from "./styled";
 
 export default function ProgressBar({ progress, status }) {
-  const [active, setActive] = useState(null);
+  const [active, setActive] = useState(true);
 
   useEffect(() => {
     if (status === "Success") {
-      const timeout = setTimeout(() => setActive(false), 400);
+      const timeout = setTimeout(() => setActive(false), 800);
       return () => clearTimeout(timeout);
-    } else {
+    } else if (status === "Loading") {
       setActive(true);
     }
   }, [status]);
