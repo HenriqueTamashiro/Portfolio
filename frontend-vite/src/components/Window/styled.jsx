@@ -2,8 +2,8 @@ import styled from "styled-components";
 import holderImg from "../../assets/imgs/bgPicture.png";
 
 export const WindowLayout = styled.div`
-  --picture-width: clamp(200px, 26vw, 320px);
-  --picture-height: clamp(200px, 26vw, 320px);
+  --picture-width: clamp(240px, 32vw, 380px);
+  --picture-height: clamp(240px, 32vw, 380px);
 
   width: min(1100px, 92vw);
   margin: 0 auto;
@@ -13,7 +13,7 @@ export const WindowLayout = styled.div`
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 3rem;
-    align-items: start;
+    align-items: center;
   }
 
   @media (max-width: 900px) {

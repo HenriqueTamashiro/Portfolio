@@ -13,52 +13,53 @@ export const Container = styled.div`
   height: auto;
 
   .icons-contact {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto auto;
+    display: flex;
+    flex-direction: column;
     justify-items: start;
-    align-items: center;
-    gap: 1.5rem;
+    align-items: flex-start;
+    gap: 2.5rem;
     width: 100%;
     max-width: 100%;
     height: auto;
 
     h1 {
-      font-size: 1rem;
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       color: ${({ theme }) => theme.colors.textColor};
-      margin: 0;
+      margin: 0 0 0.5rem 0;
     }
 
     p {
-      font-size: 0.9rem;
-      font-weight: 400;
-      color: ${({ theme }) => theme.colors.textMuted};
+      font-size: clamp(1rem, 1.8vw, 1.3rem);
+      font-weight: 500;
+      color: ${({ theme }) => theme.colors.primaryGlow};
       margin: 0;
     }
   }
 
   .icon {
     display: flex;
-    width: 52px;
-    height: 52px;
+    width: clamp(60px, 8vw, 80px);
+    height: clamp(60px, 8vw, 80px);
     justify-content: center;
     align-items: center;
-    border-radius: 10px;
+    border-radius: 12px;
     background: ${({ theme }) => theme.colors.secundaryLightColor};
     border: 1px solid ${({ theme }) => theme.colors.primaryBorder};
-    transition: border-color 0.2s ease;
+    transition: all 0.3s ease;
 
     i {
-      font-size: 1.4rem;
+      font-size: clamp(1.6rem, 2.5vw, 2rem);
       color: ${({ theme }) => theme.colors.primaryGlow};
     }
   }
 
   .icon:hover {
     border-color: ${({ theme }) => theme.colors.primaryGlow};
+    background: ${({ theme }) => theme.colors.menuLightColorOpt};
+    box-shadow: 0 0 20px ${({ theme }) => theme.colors.primaryGlow}22;
   }
 
   .text-box {
@@ -95,7 +96,9 @@ export const Container = styled.div`
     gap: 1.5rem;
 
     .icons-contact {
-      grid-template-columns: auto 1fr;
+      flex-direction: row;
+      gap: 2rem;
+      align-items: center;
     }
 
     .gap-contact {
