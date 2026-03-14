@@ -1,6 +1,7 @@
 import { StyledCards, Articles } from "./styled";
 import { Posts } from "../../Placeholder/data.jsx";
 import { useEffect } from "react";
+import ProjectTagIcon from "../ProjectTagIcon";
 
 export default function Cards({
   setContent,
@@ -9,6 +10,16 @@ export default function Cards({
   cardRef,
   progress,
 }) {
+  const PREVIEW_MAX = 140;
+
+  function abbreviate(text, max = PREVIEW_MAX) {
+    if (!text) return "";
+    const cleanText = text.replace(/\s+/g, " ").trim();
+    if (cleanText.length <= max) return cleanText;
+    const sliced = cleanText.slice(0, max).replace(/\s+\S*$/, "");
+    return `${sliced}...`;
+  }
+
   const sortedPosts = [...Posts].sort((a, b) => {
     return new Date(b.created_at) - new Date(a.created_at);
   });
@@ -49,7 +60,7 @@ export default function Cards({
 
             <div className="tagContainer">
               {post.tags.map((tag, i) => (
-                <img key={i} src={tag} alt="icon" className="tagIcon" />
+                <ProjectTagIcon key={i} tag={tag} />
               ))}
             </div>
             <div className="mediaContainer">
@@ -84,7 +95,7 @@ export default function Cards({
             </div>
 
             <div className="article-content">
-              <p>{post.textPreview}</p>
+              <p>{abbreviate(post.textPreview)}</p>
             </div>
 
             <div className="buttonContainer">

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Content = styled.div`
-  margin-top: 100px;
-  margin-bottom: 100px;
+  padding-top: 80px;
+  padding-bottom: 4rem;
   display: grid;
   justify-content: center;
   color: #fff;
@@ -28,8 +28,8 @@ export const Holder = styled.div`
 
   .sideMenu,
   .mainProject {
-    background: ${({ theme }) => theme.colors.menuLightColorOpt};
-    border: 1px solid ${({ theme }) => theme.colors.primaryBorder};
+    background: ${({ theme }) => theme.colors.cardBackground};
+    border: 1px solid ${({ theme }) => theme.colors.cardBorder};
     border-radius: 12px;
     min-height: 85vh;
   }
@@ -81,21 +81,21 @@ export const Holder = styled.div`
     gap: 0.35rem;
     padding: 0.75rem;
     border-radius: 10px;
-    border: 1px solid transparent;
+    border: 1px solid ${({ theme }) => theme.colors.cardBorder};
     background: ${({ theme }) => theme.colors.primaryDarkColor};
     transition:
       border-color 0.2s ease,
-      transform 0.2s ease;
+      background 0.2s ease;
   }
 
   .projectItem:hover {
-    border-color: ${({ theme }) => theme.colors.primaryBorder};
-    transform: translateY(4px);
+    border-color: ${({ theme }) => theme.colors.cardBorderHover};
+    background: ${({ theme }) => theme.colors.secundaryLightColor};
   }
 
   .projectItem.active {
-    border-color: ${({ theme }) => theme.colors.primaryBorder};
-    box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.primaryBorder};
+    border-color: ${({ theme }) => theme.colors.primaryGlow};
+    background: ${({ theme }) => theme.colors.menuLightColorOpt};
   }
 
   .projectItem h3 {
@@ -157,6 +157,7 @@ export const Holder = styled.div`
     background: ${({ theme }) => theme.colors.primaryColor};
     border-radius: 8px;
     padding: 6px;
+    color: ${({ theme }) => theme.colors.textColor};
   }
 
   .mediaContainer {

@@ -2,44 +2,62 @@ import { css } from "styled-components";
 
 export const themeTeste = {
   name: "dark",
-
   colors: {
-    primaryColor: "#000a23",
-    primaryDarkColor: "#00050e",
+    /* Backgrounds */
+    primaryColor: "#0d0d1a",
+    primaryDarkColor: "#08080f",
+    primaryColorOpt: "#0d0d1afc",
+    primaryDarkColorOpt: "#08080fc7",
+    primaryLightColorOpt: "#0d0d1af6",
 
-    primaryColorOpt: "#001038fc",
-    primaryDarkColorOpt: "#00050ec7",
-    primaryLightColorOpt: "#000933f6",
-    tagsDarkColor: "#101c3b",
+    /* Surface / Card backgrounds */
+    tagsDarkColor: "#141428",
+    primaryLightColor: "#1e1e38",
+    secundaryLightColor: "#ffffff0f",
+    cardBackground: "#141428",
+    cardBorder: "#ffffff1a",
+    cardBorderHover: "#5b8cff55",
 
-    primaryLightColor: "#2b3450",
-    secundaryLightColor: "#76a1ff27",
-    boxShadowLightColor: "#76a1ff27  0 0 3px 1px;",
-    boxShadowMenuLightColor: "#76a1ff5c 0 0 3px 1px;",
+    /* Shadows */
+    boxShadowLightColor: "#5b8cff33 0 0 12px 2px",
+    boxShadowMenuLightColor: "#5b8cff55 0 0 8px 1px",
 
-    secundaryDarkColor: "#041330",
+    /* Dark surfaces */
+    secundaryDarkColor: "#0a0a18",
+    windowBackground: "#141428cc",
+    windowBackgroundOpt: "#0a0a18",
+    inputBackground: "#0d0d1a",
 
-    secundaryGlow: "#6b9aff",
-    primaryGlow: "#76a1ff",
-    primaryBorder: "#486299",
+    /* Glows / Accents */
+    secundaryGlow: "#5b8cff",
+    primaryGlow: "#6e9fff",
+    tealGlow: "#00c9b1",
+    purpleGlow: "#a855f7",
 
-    menuLightColor: "#2e4981",
-    menuDarkColor: "#1a2c50",
-    menuLightColorOpt: "#354c7c6f",
-    windowBackground: "#0627525c",
-    windowBackgroundOpt: "#03132a",
-    inputBackground: "#071635",
+    /* Borders */
+    primaryBorder: "#2a2a4a",
+    borderAccent: "#5b8cff44",
 
-    textColor: "#fff",
-    testColor: "#a200ff",
-    // #00c77b, #a200ff, #00beb5
+    /* Menu */
+    menuLightColor: "#1e3a6e",
+    menuDarkColor: "#0f1f3d",
+    menuLightColorOpt: "#1e3a6e55",
+
+    /* Text */
+    textColor: "#e8e8f0",
+    textMuted: "#8888aa",
+    textAccent: "#6e9fff",
+
+    /* HOT badge */
+    hotColor: "#ff4d4f",
 
     gradients: {
       primary: css`
         background: linear-gradient(
-          to right,
-          ${({ theme }) => theme.colors.primaryColor},
-          ${({ theme }) => theme.colors.secundaryLightColor}
+          135deg,
+          #3b1fa0 0%,
+          #0d0d1a 40%,
+          #0a2a2a 100%
         );
       `,
     },

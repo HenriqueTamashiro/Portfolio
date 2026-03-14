@@ -1,69 +1,41 @@
-import { useEffect } from "react";
-import { CarouselStyle } from "./styled";
-import addAnimation from "../../scripts/effects/carousel";
 import ReactLogo from "../../assets/imgs/React-icon.svg?react";
 import NodeLogo from "../../assets/imgs/svgNode.svg?react";
 import MysqlLogo from "../../assets/imgs/mysql-svgrepo.svg?react";
 import Sequelize from "../../assets/imgs/sequelize-svgrepo.svg?react";
 import Tailwind from "../../assets/imgs/tailwind-svgrepo.svg?react";
 import Express from "../../assets/imgs/express-svgrepo.svg?react";
+import Redux from "../../assets/imgs/reduxSVG.svg?react";
 
-export default function TechCarousel() {
-  useEffect(() => {
-    addAnimation();
-  }, []);
+import { TechGridStyle } from "./styled";
+
+export default function TechGrid() {
+  const technologies = [
+    { name: "React", icon: <ReactLogo className="tech-icon" /> },
+    { name: "Node.js", icon: <NodeLogo className="tech-icon" /> },
+    { name: "Express.js", icon: <Express className="tech-icon" /> },
+    { name: "Typescript", icon: <i class="bi bi-typescript"></i> },
+    { name: "JavaScript", icon: <i className="bi bi-javascript"></i> },
+    { name: "MySQL", icon: <MysqlLogo className="tech-icon" /> },
+    { name: "Sequelize", icon: <Sequelize className="tech-icon" /> },
+    { name: "TailWind", icon: <Tailwind className="tech-icon" /> },
+    { name: "Redux", icon: <Redux className="tech-icon" /> },
+    { name: "Bootstrap", icon: <i className="bi bi-bootstrap-fill"></i> },
+  ];
+
   return (
-    <CarouselStyle>
-      <div className="title-row ">
-        <h1 class="tittle-carousel">Tecnologias</h1>
+    <TechGridStyle>
+      <div className="grid-header">
+        <h1>Tecnologias</h1>
       </div>
-      <div className="scroller" data-direction="right" data-speed="slow">
-        <div className="inner_scroller ">
-          <div className="icon-item">
-            <Express className="express-icon " />
-            <p>Express.js</p>
-          </div>
-          <div className="icon-item">
-            <Tailwind className="tailwind-icon " />
-            <p>TailWind</p>
-          </div>
 
-          <div className="icon-item">
-            <Sequelize className="sequelize-icon " />
-            <p>Squelize</p>
+      <div className="tech-grid-container">
+        {technologies.map((tech, index) => (
+          <div key={index} className="tech-card">
+            <div className="icon-wrapper">{tech.icon}</div>
+            <p className="tech-name">{tech.name}</p>
           </div>
-
-          <div className="icon-item">
-            <MysqlLogo className="mysql-icon " />
-            <p>MySQL</p>
-          </div>
-
-          <div className="icon-item">
-            <i className="bi bi-javascript text-7xl "></i>
-            <p>JavaScript</p>
-          </div>
-
-          <div className="icon-item">
-            <NodeLogo className="node-icon " />
-            <p>Node.js</p>
-          </div>
-
-          <div className="icon-item">
-            <ReactLogo className="  react-icon " />
-            <p>React</p>
-          </div>
-
-          <div className="icon-item git">
-            <i className="bi bi-git text-7xl "></i>
-            <p>Git</p>
-          </div>
-
-          <div className="icon-item">
-            <i className="bi bi-bootstrap-fill text-7xl "></i>
-            <p>Bootstrap</p>
-          </div>
-        </div>
+        ))}
       </div>
-    </CarouselStyle>
+    </TechGridStyle>
   );
 }

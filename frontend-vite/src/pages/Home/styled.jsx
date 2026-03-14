@@ -1,69 +1,26 @@
-import bgImg from "../../assets/imgs/imageBackground23.png";
-
-import tamashiroLogo from "../../assets/imgs/logoTamashiro.png";
 import styled from "styled-components";
 
-export const Content = styled.div`
-  color: #fff;
-  margin: 0;
-
-  p {
-    font-size: 20px;
-  }
-
-  h2 {
-    font-size: 40px;
-  }
-
-  h3 {
-    font-size: 20px;
-  }
-
-  @keyframes drawLine {
-    0% {
-      stroke-dashoffset: 800;
-    }
-    50% {
-      stroke-dashoffset: 0;
-    }
-    100% {
-      stroke-dashoffset: -800;
-    }
-  }
+export const Container = styled.div`
+  min-height: 100vh;
+  padding-top: 64px;
 `;
 
 export const Holder = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
   align-items: center;
-  justify-content: center;
+  justify-items: center;
+  gap: 1.5rem;
+  width: min(1100px, 90vw);
+  margin: 28px auto 16px;
+  min-height: auto;
 
-  width: 100%;
-  overflow-x: clip;
-
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background: url(${bgImg}) no-repeat center/cover;
-    pointer-events: none;
-    opacity: 0.7;
-
-    mask: linear-gradient(
-      90deg,
-      transparent,
-      white 20%,
-      white 85%,
-      transparent
-    );
-    -webkit-mask: linear-gradient(
-      90deg,
-      transparent,
-      white 20%,
-      white 85%,
-      transparent
-    );
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    min-height: auto;
+    padding: 2.5rem 0 2rem;
   }
 `;
 
@@ -71,202 +28,103 @@ export const HolderContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  justify-items: center;
-  text-align: center;
-
-  /*Estilos */
-  color: #ffffff;
-
-  @media (max-width: 768px) {
-    flex: 1 1 100%;
-  }
 
   .divPicture {
+    position: relative;
     display: flex;
     align-items: center;
-    flex-wrap: nowrap;
-    overflow-x: clip;
+    justify-content: center;
+  }
 
-    /* .profilePicture {
-      width: 320px;
-      height: 320px;
+  .profilePicture {
+    width: clamp(280px, 24vw, 380px);
+    height: clamp(280px, 24vw, 380px);
+    border-radius: 50%;
+    object-fit: cover;
+    position: relative;
+    z-index: 2;
+    border: 2px solid ${({ theme }) => theme.colors.primaryBorder};
+    box-shadow:
+      0 0 40px ${({ theme }) => theme.colors.primaryGlow}33,
+      inset 0 0 20px ${({ theme }) => theme.colors.primaryGlow}22;
+  }
 
-      background: linear-gradient(
-        to bottom,
-        ${({ theme }) => theme.colors.primaryLightColor} 10%,
-        ${({ theme }) => theme.colors.primaryGlow} 50%,
-        ${({ theme }) => theme.colors.primaryLightColor} 100%
-      );
+  .lessBgPict,
+  .greaterBgPict {
+    position: absolute;
+    z-index: 1;
+    opacity: 0.4;
+  }
 
-      -webkit-mask: url(${tamashiroLogo}) no-repeat center / contain;
-      mask: url(${tamashiroLogo}) no-repeat center / contain;
-
-      animation: opacityTransition 5s ease-in-out infinite;
-    } */
-
-    .lessBgPict {
-      transform: translateX(14%);
-      width: clamp(200px, 5vw, 200px);
-      height: 250px;
-
-      color: ${({ theme }) => theme.colors.primaryGlow};
-
-      z-index: -1;
-      animation: opacityTransition 5s ease-in-out infinite;
-    }
+  .lessBgPict {
+    left: -30px;
+    top: -20px;
   }
 
   .greaterBgPict {
-    transform: translateX(-22%);
-    width: clamp(200px, 5vw, 200px);
-    height: 250px;
-
-    color: ${({ theme }) => theme.colors.primaryGlow};
-
-    z-index: -1;
-    animation: opacityTransition 5s ease-in-out infinite;
-  }
-
-  @keyframes opacityTransition {
-    0% {
-      opacity: 0.3;
-    }
-    50% {
-      opacity: 0.7;
-    }
-    100% {
-      opacity: 0.3;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .divPicture {
-      width: 100%;
-      justify-content: center;
-    }
-
-    .divPicture .lessBgPict {
-      transform: translateX(6%);
-    }
-
-    .greaterBgPict {
-      transform: translateX(-10%);
-    }
+    right: -30px;
+    bottom: -20px;
   }
 `;
 
 export const SectorStyled = styled.div`
+  grid-column: 1 / -1;
   width: 100%;
 `;
 
-export const SubSector = styled.span`
-  /*Organizadores */
-  display: flex;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+export const SectionView = styled.div`
+  width: 100%;
 `;
 
-export const Container = styled.div`
+export const SubSector = styled.div`
   width: 100%;
-  padding-top: 60px;
-  transition: opacity 0.4s ease;
+`;
+
+export const Content = styled.div`
+  width: min(1200px, 90vw);
+  margin: 0 auto;
+  padding: 2rem 0 4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+`;
+
+export const SectionHeader = styled.div`
+  width: min(1200px, 90vw);
+  margin: 0 auto;
+  padding: 3rem 0 1.5rem;
 
   .contentTittle {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    align-items: center;
-    justify-content: center;
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
     color: ${({ theme }) => theme.colors.textColor};
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
 
-    text-align: center;
-    font-family: "Poppins", sans-serif;
-    font-size: 35px;
-    font-weight: 600;
-    text-transform: uppercase;
-    transition:
-      opacity 0.6s ease,
-      transform 0.6s ease;
-
-    width: 100%;
-    height: 120px;
-    max-height: 150px;
-
-    mask: linear-gradient(
-      90deg,
-      transparent,
-      white 40%,
-      white 80%,
-      transparent
-    );
-
-    &::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-
-      background:
-        radial-gradient(
-          ${({ theme }) => theme.colors.secundaryLightColor} 1px,
-          transparent 1px
-        ),
-        radial-gradient(
-          ${({ theme }) => theme.colors.primaryLightColor} 1px,
-          transparent 1px
-        ),
-        linear-gradient(rgba(0, 0, 0, 0.014), rgba(0, 0, 0, 0.014));
-
-      background-size: 15px 15px;
-      background-repeat: repeat;
-      background-position: 5px 5px;
-      z-index: -1;
-
-      mask: linear-gradient(90deg, transparent, white 50%, transparent);
-    }
-
-    .divider {
-      position: relative;
-      height: 1px;
-      width: 200px;
-      margin: 1px 0 5px;
-
-      background-color: ${({ theme }) => theme.colors.primaryBorder};
-    }
-
-    .divider::before,
-    .divider::after {
-      position: absolute;
-      content: "";
-      height: 5px;
-      width: 5px;
-      top: -2px;
-
-      background: ${({ theme }) => theme.colors.primaryGlow};
-    }
-
-    .divider::after {
-      right: 0;
-    }
-
-    .divider::before {
-      left: 0;
+    h5 {
+      font-size: clamp(0.85rem, 1.5vw, 1rem);
+      font-weight: 400;
+      color: ${({ theme }) => theme.colors.textMuted};
+      margin: 0;
+      padding: 4px 12px;
+      border: 1px solid ${({ theme }) => theme.colors.primaryBorder};
+      border-radius: 20px;
+      background: ${({ theme }) => theme.colors.secundaryLightColor};
     }
   }
-`;
 
-export const SectionView = styled.section`
-  opacity: 0;
-  transform: translateY(40px);
-  transition: 100ms ease;
-
-  ${({ $animate }) =>
-    $animate &&
-    `
-    opacity: 1;
-    transform: translateY(0);
-  `}
+  .divider {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      ${({ theme }) => theme.colors.primaryBorder},
+      transparent
+    );
+    min-width: 40px;
+    max-width: 200px;
+  }
 `;

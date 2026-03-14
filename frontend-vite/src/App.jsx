@@ -6,7 +6,8 @@ import "./styles/Tailwind/tailwind.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import AppRoutes from "./routes";
-import ProgressBar from "./components/ScrollTracker/ProgressBar";
+import ScrollProgressBar from "./components/ScrollTracker/ProgressBar";
+import LoadingProgressBar from "./components/ProgressBar";
 import GlobalStyled from "./styles/GlobalStyled";
 import Header from "./components/Header";
 import useLoading from "./hooks/useLoading";
@@ -17,7 +18,8 @@ function App() {
   return (
     <BrowserRouter>
       <ThemeProvider theme={isDark ? themeTeste : lightTheme}>
-        <ProgressBar />
+        <ScrollProgressBar />
+        <LoadingProgressBar progress={loading.progress} status={loading.status} />
         <Header progress={loading} />
         <AppRoutes />
         <GlobalStyled />

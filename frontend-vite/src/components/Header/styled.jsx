@@ -4,82 +4,128 @@ export const Nav = styled.nav`
   position: fixed;
   top: 0;
   left: 0;
-  padding-right: clamp(30px, 60vw, 30px);
-  padding-left: 16px;
-  height: 60px;
+  height: 64px;
   width: 100%;
   display: flex;
-  align-items: end;
-  justify-content: end;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(16px, 5vw, 60px);
   z-index: 99;
-  backdrop-filter: blur(20px);
-  ${({ theme }) => theme.colors.gradients.primary}
+  backdrop-filter: blur(16px) saturate(180%);
+  background: rgba(8, 8, 15, 0.88);
+  border-bottom: 1px solid ${({ theme }) => theme.colors.primaryBorder};
+
+  .logo {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: ${({ theme }) => theme.colors.textColor};
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .logo-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(
+      135deg,
+      ${({ theme }) => theme.colors.primaryGlow},
+      ${({ theme }) => theme.colors.tealGlow}
+    );
+    flex-shrink: 0;
+  }
 
   .desktop-links {
     display: flex;
+    align-items: center;
+    gap: 4px;
     height: 100%;
   }
 
   a {
-    color: ${({ theme }) => theme.colors.textColor};
-    border-radius: 4px;
+    color: ${({ theme }) => theme.colors.textMuted};
+    border-radius: 6px;
     text-decoration: none;
     font-weight: 500;
-    font-size: 17px;
+    font-size: 16px;
     text-transform: uppercase;
+    letter-spacing: 0.02em;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    height: 100%;
-    width: auto;
-    padding: 12px;
-    transition: 400ms;
+    height: 36px;
+    padding: 0 16px;
+    transition:
+      color 0.2s ease,
+      background 0.2s ease;
+    position: relative;
   }
 
   a:hover {
-    /* text-shadow: 0 0 15px ${({ theme }) =>
-      theme.colors.primaryGlow}, 0 0 15px ${({ theme }) =>
-      theme.colors.primaryGlow}; */
-    transition: 800ms;
-    box-shadow: inset 0 -4px 0 0 ${({ theme }) => theme.colors.menuLightColor};
-    background: ${({ theme }) => theme.colors.secundaryLightColor};
-
     color: ${({ theme }) => theme.colors.textColor};
+    background: ${({ theme }) => theme.colors.secundaryLightColor};
+  }
+
+  a.active {
+    color: ${({ theme }) => theme.colors.primaryGlow};
+    background: ${({ theme }) => theme.colors.menuLightColorOpt};
+  }
+
+  a.active::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      ${({ theme }) => theme.colors.primaryGlow},
+      ${({ theme }) => theme.colors.tealGlow}
+    );
+    border-radius: 2px 2px 0 0;
   }
 
   .menu-toggle {
     display: none;
-    width: 42px;
-    height: 42px;
-    border: 0;
-    border-radius: 6px;
-    background: transparent;
+    width: 40px;
+    height: 40px;
+    border: 1px solid ${({ theme }) => theme.colors.primaryBorder};
+    border-radius: 8px;
+    background: ${({ theme }) => theme.colors.secundaryLightColor};
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 6px;
+    gap: 5px;
     cursor: pointer;
+    transition: border-color 0.2s ease;
+  }
+
+  .menu-toggle:hover {
+    border-color: ${({ theme }) => theme.colors.primaryGlow};
   }
 
   .menu-toggle span {
-    width: 22px;
+    width: 18px;
     height: 2px;
     background: ${({ theme }) => theme.colors.textColor};
     transition: 220ms ease;
     transform-origin: center;
+    border-radius: 2px;
   }
 
   .menu-toggle.open span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
+    transform: translateY(7px) rotate(45deg);
   }
-
   .menu-toggle.open span:nth-child(2) {
     opacity: 0;
   }
-
   .menu-toggle.open span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-7px) rotate(-45deg);
   }
 
   .mobile-menu {
@@ -87,74 +133,62 @@ export const Nav = styled.nav`
   }
 
   @media (max-width: 768px) {
-    align-items: center;
-    justify-content: flex-end;
-    padding-right: 16px;
-
     .desktop-links {
       display: none;
     }
-
     .menu-toggle {
       display: inline-flex;
       z-index: 2;
     }
-
     .mobile-menu {
       position: absolute;
-      top: 60px;
+      top: 68px;
       right: 16px;
-      width: min(260px, calc(100% - 32px));
+      width: min(240px, calc(100% - 32px));
       display: flex;
       flex-direction: column;
       max-height: 0;
       opacity: 0;
       overflow: hidden;
       pointer-events: none;
-      border-radius: 8px;
+      border-radius: 12px;
       backdrop-filter: blur(20px);
-      background: ${({ theme }) => theme.colors.menuDarkColor};
+      background: rgba(10, 10, 24, 0.97);
+      border: 1px solid ${({ theme }) => theme.colors.primaryBorder};
       transition:
         max-height 240ms ease,
         opacity 200ms ease;
     }
-
     .mobile-menu.open {
-      max-height: 280px;
+      max-height: 300px;
       opacity: 1;
       pointer-events: auto;
-      box-shadow: ${({ theme }) => theme.colors.boxShadowMenuLightColor};
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
     }
-
     .mobile-menu a {
       width: 100%;
       height: auto;
       justify-content: flex-start;
-      padding: 14px 16px;
+      padding: 14px 20px;
       border-radius: 0;
+      font-size: 15px;
       transition:
-        transform 200ms ease,
         background 200ms ease,
         color 200ms ease;
     }
-
-    .mobile-menu a:active,
-    .mobile-menu a:focus-visible {
-      transform: translateX(4px);
-      background: ${({ theme }) => theme.colors.primaryColor};
-      box-shadow: none;
-    }
-
-    @media (hover: hover) and (pointer: fine) {
-      .mobile-menu a:hover {
-        transform: translateX(4px);
-        background: ${({ theme }) => theme.colors.primaryColor};
-        box-shadow: none;
-      }
-    }
-
     .mobile-menu a:not(:last-child) {
-      border-bottom: 1px solid ${({ theme }) => theme.colors.menuLightColor};
+      border-bottom: 1px solid ${({ theme }) => theme.colors.primaryBorder};
+    }
+    .mobile-menu a:hover,
+    .mobile-menu a:active {
+      background: ${({ theme }) => theme.colors.secundaryLightColor};
+      color: ${({ theme }) => theme.colors.textColor};
+    }
+    .mobile-menu a.active {
+      color: ${({ theme }) => theme.colors.primaryGlow};
+    }
+    .mobile-menu a.active::after {
+      display: none;
     }
   }
 `;

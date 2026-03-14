@@ -2,46 +2,38 @@ import styled from "styled-components";
 
 export const WindowLayout = styled.div`
   position: fixed;
-  top: 60px;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 1%;
+  height: 4px;
+  z-index: 9999;
+  pointer-events: none;
 
-  z-index: 9;
+  &.hide {
+    opacity: 0;
+    transition: opacity 0.4s ease 0.4s;
+  }
+
+  &.show {
+    opacity: 1;
+    transition: opacity 0.2s ease;
+  }
 
   .progress-bckgr {
-    position: relative;
-    background: ${({ theme }) => theme.colors.primaryColor};
-    width: auto;
-    height: 4px;
-    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
   }
+
   .progress-bar {
-    position: absolute;
-    top: 0;
-    height: 4px;
+    height: 100%;
     background: linear-gradient(
-      270deg,
-      ${({ theme }) => theme.colors.primaryColor},
+      90deg,
       ${({ theme }) => theme.colors.primaryGlow},
-      ${({ theme }) => theme.colors.secundaryLightColor}
+      ${({ theme }) => theme.colors.tealGlow}
     );
-    background-size: 800% 100%;
-    animation: gradientMove 4s linear infinite;
-    z-index: 99;
-  }
-  .hide {
-    position: absolute;
-    opacity: 0;
-    transform: translateY(-6px);
-    transition:
-      opacity 0.3s ease,
-      transform 0.3s ease;
-  }
-  .show {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.4s ease;
-    pointer-events: auto;
+    box-shadow: 0 0 10px ${({ theme }) => theme.colors.primaryGlow};
+    transition: width 0.4s cubic-bezier(0.1, 0.05, 0.4, 1);
   }
 
   @keyframes gradientMove {
