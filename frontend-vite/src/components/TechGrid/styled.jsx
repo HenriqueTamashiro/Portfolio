@@ -131,7 +131,7 @@ export const TechGridStyle = styled.section`
       grid-template-columns: repeat(2, 1fr);
       gap: 1.2rem;
       padding: 1.2rem;
-      max-height: min(30vh, 120px);
+      max-height: min(60vh, 460px);
       overflow-y: auto;
       overscroll-behavior: contain;
 
